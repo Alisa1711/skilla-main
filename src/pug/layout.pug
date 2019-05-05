@@ -1,0 +1,35 @@
+//- Стандартный шаблон страницы
+
+include mixins.pug
+
+doctype html
+html(lang='ru' class='page')
+
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //- Edge и ряд мобильных браузеров слишком умны. Отключим это.
+    meta(name='format-detection', content='telephone=no')
+    meta(name='format-detection', content='date=no')
+    meta(name='format-detection', content='address=no')
+    meta(name='format-detection', content='email=no')
+    meta(content='notranslate', name='google')
+
+    block title
+      title Home
+
+    block head
+      link(rel='stylesheet', href='css/style.css')
+
+  body
+    block header
+      +header('header')
+    .main
+      block content
+    block footer
+      +footer('footer')
+    block page-bottom
+      .svg-sprite
+        include ../blocks/sprite-svg/img/sprite.svg
+      script(src='js/jquery-3.4.0.min.js')
+      script(src='js/script.js')

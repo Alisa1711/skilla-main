@@ -1,0 +1,15 @@
+.container {
+  @include outliner;
+  margin: auto;
+  min-width: map-get($container-width, min);
+  width: map-get($container-width, small);
+  max-width: map-get($container-width, max);
+
+  @include respond-to(medium) {
+    width: map-get($container-width, medium);
+  }
+
+  @include respond-to(large) {
+    width: map-get($container-width, large);
+  }
+}

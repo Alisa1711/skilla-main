@@ -1,0 +1,16 @@
+extends ../pug/layout.pug
+
+block title
+  title Главная
+
+block content
+  .container
+    h1 Я поменялся
+    p Конент
+    +test-block('1', 'size_small')
+    //- +test-block('1', 'size_small')
+    //- +test-block-two('2', 'size_medium')
+    //- +icon('face', 'c_red')
+    //- +icon('lock', 'c_blue,size_sm')
+    //- +list-block(itemBlocks)
+    //- +list-block(itemBlocksTwo)

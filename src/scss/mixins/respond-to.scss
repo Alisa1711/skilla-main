@@ -1,0 +1,10 @@
+// mixin для адпатива
+// @include respond-to(medium) {
+//    rules here...
+//  }
+
+@mixin respond-to($breakpoint) {
+  @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}

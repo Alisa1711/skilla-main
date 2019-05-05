@@ -1,0 +1,20 @@
+mixin icon(id, mods)
+
+  //- Принимает:
+  //-   id    {string} - идентификатор иконки
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +icon('face')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' icon--' + modsList[i].trim();
+      }
+    }
+
+  svg.icon(class=allMods)&attributes(attributes)
+    use(xlink:href='#' + id)

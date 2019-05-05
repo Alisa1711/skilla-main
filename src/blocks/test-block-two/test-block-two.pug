@@ -1,0 +1,22 @@
+//- Все примеси в этом файле должны начинаться c имени блока (test-block)
+
+mixin test-block-two(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +test-block('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' test-block-two--' + modsList[i].trim();
+      }
+    }
+
+  .test-block-two(class=allMods)&attributes(attributes)
+      span= text

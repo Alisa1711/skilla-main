@@ -1,0 +1,17 @@
+mixin footer(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' footer--' + modsList[i].trim();
+      }
+    }
+
+  footer.footer(class=allMods)&attributes(attributes)
+    p= text

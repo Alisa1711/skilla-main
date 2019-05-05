@@ -1,0 +1,26 @@
+//- Все примеси в этом файле должны начинаться c имени блока (item-block)
+
+// Состоит из бдлков:
+include ../item-block/item-block
+
+mixin list-block(itemBlocks)
+
+  //- Принимает:
+  //-   {array} - массив объектов item-block
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +list-block('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' item-block--' + modsList[i].trim();
+      }
+    }
+
+  .list-block(class=allMods)&attributes(attributes)
+    each itemBlock in itemBlocks
+      +item-block(itemBlock)
