@@ -1,7 +1,67 @@
 // Fonts
+$font-family: "Helvetica Neue", "Arial", sans-serif;
 
-// $font-family
+$colors: (
+  dark: #182d4d,
+  accent: #eb5757,
+  add-color: #8a46c6,
+  add-color-2: #5c95fe,
+  add-color-3: #2ac9b3,
+  highlighter: #ffefa0,
+  light: #ffffff,
+  neutral: darken(#f9f9f9, 2)
+);
 
+/* stylelint-disable */
+$gradients: (
+  color: linear-gradient(
+    rgba(map-get($colors, add-color), 0.80) 0%,
+    rgba(map-get($colors, accent), 0.5) 100%),
+  dark: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
+);
+/* stylelint-enable */
+
+$font-colors: (
+  base: rgba(map-get($colors, dark), 0.87),
+  secondary: rgba(map-get($colors, dark), 0.54),
+  base-light: map-get($colors, light),
+  secondary-light: rgba(map-get($colors, light), 0.7),
+  link: map-get($colors, add-color-2)
+);
+
+$icon-colors: (
+  inactive: rgba(map-get($colors, dark), 0.38)
+);
+
+$icon-sizes: (
+  small: 16px,
+  medium: 24px,
+  large: 32px
+);
+
+$shadows: (
+  panel: 0 4px 40px rgba(map-get($colors, dark), 0.1),
+  button: 0 4px 1px rgba(map-get($colors, dark), 0.15),
+  button-pressed: 0 2px 1px rgba(map-get($colors, dark), 0.5)
+);
+
+$avatar-sizes: (
+  small: 40px,
+  medium: 56px,
+  large: 100px,
+  huge: 160px
+);
+
+$avatar-stroke: (
+  normal: 4px solid map-get($colors, light),
+);
+
+$preview-img-height: (
+  low: 160px,
+  tall: 200px
+);
+
+$preview-width: 350px;
 
 // Breakpoints. Все стили для модильного по умолчанию. Дальше определяются стили для планшета, затем для десктопа. Если нужно переопределить стиль для декстопа, который такой же, как на мобильном, то переопределяем. Без экономии на спичках.
 
@@ -10,13 +70,27 @@ $breakpoints: (
   large: 1200px
 );
 
-
-// Container widths
-
 $container-width: (
   min: 290px,
-  small: 290px,
+  small: 90%,
   medium: 720px,
   large: 1140px,
-  max: 1280px
 );
+
+$article-content-width: (
+  min: 290px,
+  base: 90%,
+  base-max: 700px,
+  wide: 850px,
+  wider-max: 1000px
+);
+
+$transition: (
+  normal: 0.2s,
+  medium: 0.5s
+);
+
+$body-min-width: 320px;
+
+$divider: 1px solid rgba(#000000, 0.12);
+$border-radius: 6px;

@@ -1,0 +1,31 @@
+mixin course-teaser-extra(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' course-teaser-extra--' + modsList[i].trim();
+      }
+    }
+
+  .course-teaser-extra(class=allMods)&attributes(attributes)
+    .course-teaser-extra__inner
+      span.course-teaser-extra__labels
+        +label("курс", "accent")
+        +label("1-й урок бесплатно")
+      .course-teaser-extra__content
+        .course-teaser-extra__left
+          h3.course-teaser-extra__title Как открыть салон красоты, который полюбят клиенты
+          .course-teaser-extra__author
+            +avatar(class="course-teaser-extra__avatar")
+            .course-teaser-extra__author-inner
+              p.course-teaser-extra__author-name Грета Харитонова
+              p.course-teaser-extra__author-descr владелец салона красоты «Салон красоты», преподаватель курса «<a class="link" href='javascript:void(0);'>Как открыть салон красоты</a>
+        .course-teaser-extra__right
+          p.course-teaser-extra__slogan Практический пошаговый курс от мечты до первой прибыли
+          +button("подробная программа", "link").course-teaser-extra__button

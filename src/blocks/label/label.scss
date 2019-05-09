@@ -1,0 +1,15 @@
+.label {
+  @include labels-text;
+  padding: 4px 8px;
+  background-color: map-get($colors, highlighter);
+  border-radius: $border-radius;
+
+  & + & {
+    margin-left: 8px;
+  }
+
+  &--accent {
+    color: map-get($font-colors, base-light);
+    background-color: map-get($colors, accent);
+  }
+}

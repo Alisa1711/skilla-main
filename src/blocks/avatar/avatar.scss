@@ -1,0 +1,11 @@
+.avatar {
+  box-sizing: border-box;
+  background-color: lighten(map-get($colors, dark), 45);
+  border-radius: 50%;
+}
+
+.avatar__img {
+  display: block;
+  border-radius: 50%;
+  filter: saturate(0%) opacity(0.75);
+}

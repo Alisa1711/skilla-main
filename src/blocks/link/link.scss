@@ -1,0 +1,13 @@
+.link {
+  color: map-get($font-colors, link);
+  text-decoration: none;
+  transition: map-get($transition, normal);
+
+  &:hover {
+    color: map-get($colors, add-color-3);
+  }
+
+  &--button {
+    @include button-label;
+  }
+}

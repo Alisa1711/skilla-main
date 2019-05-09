@@ -2,6 +2,8 @@
 
 include mixins.pug
 
+block vars
+
 doctype html
 html(lang='ru' class='page')
 
@@ -24,7 +26,7 @@ html(lang='ru' class='page')
   body
     block header
       +header('header')
-    .main
+    .main(class=article ? 'article' : '')
       block content
     block footer
       +footer('footer')
@@ -32,4 +34,7 @@ html(lang='ru' class='page')
       .svg-sprite
         include ../blocks/sprite-svg/img/sprite.svg
       script(src='js/jquery-3.4.0.min.js')
+      script(src='js/ofi.min.js')
+      script(type='text/javascript').
+        $(function () {objectFitImages()});
       script(src='js/script.js')

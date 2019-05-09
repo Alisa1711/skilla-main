@@ -1,0 +1,152 @@
+.course-teaser-extra {
+  @include panel;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  min-width: map-get($container-width, min);
+  width: 90%;
+  max-width: map-get($container-width, large);
+  border-radius: $border-radius;
+  transition: all map-get($transition, normal);
+
+  &__inner {
+    margin: auto;
+    width: map-get($article-content-width, base);
+    text-align: center;
+  }
+
+  &__content {
+    margin-top: 16px;
+  }
+
+  &__title {
+    @include subtitle-1;
+    line-height: 36px;
+  }
+
+  &__avatar {
+    display: inline-block;
+    width: map-get($avatar-sizes, large);
+    height: map-get($avatar-sizes, large);
+  }
+
+  &__author {
+    margin: auto;
+    margin-top: 16px;
+    max-width: 400px;
+  }
+
+  &__author-name {
+    @include body-1;
+    margin-top: 8px;
+  }
+
+  &__author-descr {
+    @include body-2;
+    color: map-get($font-colors, secondary);
+  }
+
+  &__slogan {
+    @include body-1;
+    margin-top: 16px;
+    line-height: 24px;
+  }
+
+  &__button {
+    margin-top: 16px;
+  }
+
+  // адаптация
+
+  @include respond-to(medium) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-image:
+      url("../img/sparkles.svg"),
+      url("../img/abstract__bg-01.svg"),
+      url("../img/abstract__bg-02.svg");
+    background-repeat:
+      repeat,
+      no-repeat,
+      no-repeat;
+    background-size:
+      auto,
+      auto 100%;
+    background-position:
+      center,
+      left,
+      left center;
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    &__content {
+      display: flex;
+      margin-top: 24px;
+    }
+
+    &__right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 24px;
+    }
+
+    &__title {
+      line-height: 40px;
+    }
+
+    &__author {
+      margin: 0;
+      display: flex;
+    }
+
+    &__avatar {
+      align-self: center;
+      width: map-get($avatar-sizes, medium);
+      height: map-get($avatar-sizes, medium);
+      min-width: map-get($avatar-sizes, medium);
+    }
+
+    &__author-inner {
+      margin-left: 16px;
+    }
+
+    &__slogan {
+      @include subtitle-3;
+    }
+
+    &__button {
+      align-self: flex-start;
+    }
+  }
+
+  @include respond-to(large) {
+    padding-top: 72px;
+    padding-bottom: 72px;
+
+    &__content {
+      margin-top: 48px;
+    }
+
+    &__right {
+      max-width: 40%;
+    }
+
+    &__title {
+      @include headline-4;
+    }
+
+    &__author {
+      margin-top: 32px;
+    }
+
+    &__slogan {
+      @include subtitle-1;
+    }
+  }
+}

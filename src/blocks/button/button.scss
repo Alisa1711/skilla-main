@@ -1,0 +1,32 @@
+.button {
+  @include button-label;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 20px;
+  color: map-get($font-colors, base-light);
+  background-color: map-get($colors, accent);
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: map-get($shadows, button);
+  text-align: center;
+  text-decoration: none;
+  transition: map-get($transition, medium);
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(map-get($colors, accent), 10);
+    box-shadow: map-get($shadows, button-pressed);
+  }
+
+  // адаптация
+
+  @include respond-to(medium) {
+    padding: 24px;
+
+    &--size_sm {
+      padding: 16px;
+      font-size: 12px;
+    }
+  }
+}

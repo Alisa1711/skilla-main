@@ -1,0 +1,222 @@
+.article {
+  @include body-1-small(false);
+
+  &__hero {
+    margin-bottom: 3em;
+  }
+
+  &__content {
+    @include container;
+  }
+
+  &__course-teaser {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  &__course-teaser-extra {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+
+  &__quote {
+    @include article-content-width(wide);
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+
+  &__content-full {
+    margin-top: 3em;
+    margin-bottom: 3em;
+    width: 100%;
+  }
+
+  &__content-full &__img {
+    width: 100%;
+    border-radius: 0;
+    object-fit: cover;
+    max-height: 700px;
+  }
+
+  &__content-full &__img-descr {
+    @include article-content-width(base-max);
+  }
+
+  // элементы статьи
+
+  &__intro {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: 1.3em;
+  }
+
+  &__heading-2 {
+    @extend %article-headings;
+    font-size: 1.75em;
+  }
+
+  &__heading-3 {
+    @extend %article-headings;
+    font-size: 1.5em;
+  }
+
+  &__heading-4 {
+    @extend %article-headings;
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+
+  &__text {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  &__img {
+    display: block;
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: $border-radius;
+  }
+
+  &__img-descr {
+    @include body-2;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    color: map-get($font-colors, secondary);
+  }
+
+  &__list,
+  &__list-ordered {
+    counter-reset: list-ordered;
+    margin: 0;
+    padding-left: 1em;
+    list-style: none;
+
+    & li {
+      position: relative;
+      padding-top: 0.5em;
+      padding-left: 2em;
+
+      &:first-child {
+        padding-top: 0;
+
+        &::before {
+          top: 0;
+        }
+      }
+
+      &::before {
+        position: absolute;
+        top: 0.5em;
+        left: 0;
+      }
+    }
+  }
+
+  &__list li::before {
+    content: "";
+    width: 1.5em; // равно текущей высоте высоте строки
+    height: 1.5em;
+    background-image: url("../img/check.svg");
+    background-size: map-get($icon-sizes, small);
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+
+  &__list-ordered li::before {
+    content: counter(list-ordered) ".";
+    counter-increment: list-ordered;
+    color: darken(map-get($colors, add-color-3), 4);
+  }
+
+  &__note {
+    @include body-2;
+    margin: auto;
+    padding: 24px 16px;
+    border: $divider;
+    border-radius: $border-radius;
+  }
+
+  &__note-button {
+    margin-top: 16px;
+  }
+
+  &__note-descr {
+    margin: 0;
+    color: map-get($font-colors, secondary);
+  }
+
+  &__fav {
+    @include container;
+    margin-top: 3em;
+  }
+
+  &__fav-title {
+    @include subtitle-3;
+  }
+
+  &__fav-item {
+    margin-top: 24px;
+  }
+
+  // адаптация
+
+  @include respond-to(medium) {
+    @include subtitle-3(false);
+
+    &__img-descr {
+      @include body-1(false);
+    }
+
+    &__note {
+      @include body-1;
+      margin: auto;
+      padding: 40px;
+    }
+
+    &__list,
+    &__list-ordered {
+      @include body-1(false);
+    }
+
+    &__text {
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+    }
+
+    &__fav-title {
+      @include subtitle-1;
+    }
+
+    &__fav-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 40px - 16px;
+    }
+
+    &__fav-item {
+      margin-top: 16px;
+    }
+  }
+
+  @include respond-to(large) {
+    &__content {
+      padding-left: 220px;
+      padding-right: 220px;
+    }
+
+    &__note {
+      @include body-2;
+      float: right;
+      clear: right;
+      display: inline-block;
+      margin: auto;
+      margin-right: -220px;
+      padding: 0;
+      width: 180px;
+      border: none;
+    }
+  }
+}

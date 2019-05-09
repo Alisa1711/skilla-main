@@ -1,0 +1,5 @@
+@mixin panel {
+  background-color: map-get($colors, light);
+  border-radius: $border-radius;
+  box-shadow: map-get($shadows, panel);
+}

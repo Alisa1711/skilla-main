@@ -1,0 +1,123 @@
+.article-hero {
+  padding-top: 32px;
+
+  &__author {
+    display: flex;
+    align-items: center;
+  }
+
+  &__author-inner {
+    margin-left: 8px;
+  }
+
+  &__avatar {
+    width: map-get($avatar-sizes, small);
+    height: map-get($avatar-sizes, small);
+  }
+
+  &__author-name {
+    @include body-2;
+  }
+
+  &__author-descr {
+    display: none;
+  }
+
+  &__heading {
+    @include subtitle-1;
+    margin-top: 24px;
+    line-height: 36px;
+  }
+
+  &__post-stat {
+    margin-top: 24px;
+  }
+
+  &__img {
+    display: block;
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  // атаптация
+
+  @include respond-to(medium) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: map-get($font-colors, base-light);
+    background-size: cover;
+
+    &__author-inner {
+      margin-left: 24px;
+    }
+
+    &__avatar {
+      width: map-get($avatar-sizes, medium);
+      height: map-get($avatar-sizes, medium);
+      border: map-get($avatar-stroke, normal);
+    }
+
+    &__author-name {
+      @include body-1;
+    }
+
+    &__author-descr {
+      @include body-2;
+      display: block;
+      color: map-get($font-colors, secondary-light);
+    }
+
+    &__link {
+      color: map-get($font-colors, base-light);
+    }
+
+    &__heading {
+      @include headline-3;
+      margin-top: 64px;
+    }
+
+    &__post-stat {
+      margin-top: 64px;
+      color: map-get($font-colors, base-light);
+
+      & .icon {
+        fill: currentColor;
+      }
+    }
+
+    &__img {
+      display: none;
+    }
+  }
+
+  @include respond-to(large) {
+    padding-top: 72px;
+    padding-bottom: 72px;
+
+    &__author {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &__avatar {
+      width: map-get($avatar-sizes, large);
+      height: map-get($avatar-sizes, large);
+    }
+
+    &__author-inner {
+      margin: 0;
+      margin-top: 16px;
+    }
+
+    &__heading {
+      @include headline-2;
+      margin-top: 80px;
+      text-align: center;
+    }
+
+    &__post-stat {
+      justify-content: center;
+      margin-top: 88px;
+    }
+  }
+}

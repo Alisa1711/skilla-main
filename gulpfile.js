@@ -144,7 +144,7 @@ exports.copyAssets = copyAssets;
 
 
 function copyImg(cb) { // ????
-  let copiedImages = [];
+  let copiedImages = [`src/img/`];
   nth.blocksFromHtml.forEach(function (block) { // для каждого блока
     let src = `${dir.blocks}${block}/img`; // берем путь к изображениям
     if (fileExist(src)) { // и если есть файлы, то добавляем путь к массиву копируемых изображений
@@ -280,7 +280,11 @@ function compileSass() {
 exports.compileSass = compileSass;
 
 function buildJs() {
-  return src(`src/blocks/**/*.js`)
+  return src([
+    `${dir.src}js/**/*.js`,
+    `${dir.src}blocks/**/*.js`,
+    `${nth.config.notJs}`
+  ])
         .pipe(sourcemaps.init())
         .pipe(concat(`script.js`))
         .pipe(insert.wrap(`$(function() {\n\n`, `\n\n});`))
@@ -288,7 +292,7 @@ function buildJs() {
           presets: [`@babel/env`]
         }))
         .pipe(sourcemaps.write(`.`))
-        .pipe(dest(`${dir.build}/js`))
+        .pipe(dest(`${dir.build}js`))
         .pipe(browserSync.stream());
 }
 exports.buildJs = buildJs;
@@ -319,7 +323,7 @@ function serve() {
   browserSync.init({
     server: dir.build,
     port: 8080,
-    startPath: `index.html`,
+    startPath: `course.html`,
     open: false,
     notify: false,
   });
@@ -361,7 +365,8 @@ function serve() {
   watch([`${dir.blocks}**/*.pug`], {events: [`unlink`], delay: 100}, writePugMixinsFile);
 
   // Шаблоны pug: все события
-  watch([`${dir.src}pug/**/*.pug`, `!${dir.src}pug/mixins.pug`], {delay: 100}, series(
+  watch([`${dir.src}data/**/*.pug`, `${dir.src}pug/**/*.pug`, `!${dir.src}pug/mixins.pug`], {delay: 100}, series(
+      writePugMixinsFile,
       compilePug,
       writeSassImportsFile,
       parallel(compileSass, buildJs)
@@ -396,13 +401,13 @@ function serve() {
   ));
 
   // Картинки: все события
-  watch([`${dir.blocks}**/img/*.{jpg,jpeg,png,gif,svg,webp}`], {events: [`all`], delay: 100}, series(
+  watch([`${dir.blocks}**/img/*.{jpg,jpeg,png,gif,svg,webp}`, `${dir.src}**/img/*.{jpg,jpeg,png,gif,svg,webp}`], {events: [`all`]}, series(
       copyImg,
       reload
   ));
 
   // Спрайт SVG
-  watch([`${dir.blocks}sprite-svg/svg/*.svg`], {events: [`all`], delay: 100}, series(
+  watch([`${dir.blocks}sprite-svg/svg/*.svg`], {events: [`all`]}, series(
       generateSvgSprite,
       copyImg,
       reload

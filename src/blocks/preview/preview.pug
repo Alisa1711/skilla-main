@@ -1,0 +1,39 @@
+mixin preview(data, type)
+
+  //- По умолчанию превью статьи, модифицируется до превью курса или статьи
+  //- Принимает:
+  //-   {object} - объект с данными
+  //-     title {string} - заголовок
+  //-     descr {string} - описание
+  //-   type    {string} - принимает значения "course" или "franshise"
+
+  -
+    var title = data ? data.title : "Как подобрать идеальное помещение для салона красоты"
+    var descr = data? data.descr : "пошаговая инструкция по написанию бизнес-плана основанная на опыте других предпринимателей..."
+
+  a.preview(href="javascript:void(0);")&attributes(attributes)
+    img.preview__img(src="img/article-hero.jpg")
+    .preview__inner
+      p.preview__title !{title}
+      p.preview__descr !{descr}
+      if (type !== "franshise")
+        .preview__author
+          +avatar.preview__avatar
+          p.preview__author-name Александра Тузова
+      else
+        .preview__invest
+          span Ивестиции 258 000 — 675 000 руб.
+      .preview__bottom
+        case type
+          when "course"
+            +label("курс", "accent").preview__label
+            +icon("clock", "size_sm").preview__icon
+            span.preview__weeks 4 недели
+          when "franshise"
+            +label("франшиза").preview__label
+            +post-stat("short")
+          default
+            +label("статья").preview__label
+            +post-stat
+      if (type === "course")
+        img.preview__logo(src="img/goneli-logo.svg")

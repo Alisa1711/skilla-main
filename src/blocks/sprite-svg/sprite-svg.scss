@@ -3,28 +3,23 @@
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: map-get($icon-sizes, medium);
+  height: map-get($icon-sizes, medium);
+  fill: map-get($icon-colors, inactive);
 
   // Цвет
 
-  &--c_red {
-    fill: red;
-  }
-
-  &--c_blue {
-    fill: blue;
-  }
+  //
 
   // Размер
 
   &--size_sm {
-    width: 16px;
-    height: 16px;
+    width: map-get($icon-sizes, small);
+    height: map-get($icon-sizes, small);
   }
 
   &--size_lg {
-    width: 32px;
-    height: 32px;
+    width: map-get($icon-sizes, large);
+    height: map-get($icon-sizes, large);
   }
 }

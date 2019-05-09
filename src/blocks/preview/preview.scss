@@ -1,0 +1,142 @@
+.preview {
+  $inner-paddings: (
+    top: 20px,
+    side: 24px,
+    bottom: 32px,
+    top-medium: 24px,
+    side-medium: 32px,
+    bottom-medium: 40px
+  );
+
+  $logo-size: 64px;
+
+  position: relative;
+  display: block;
+  color: inherit;
+  border: $divider;
+  border-radius: $border-radius;
+  text-decoration: none;
+  transition: map-get($transition, normal);
+  overflow: hidden;
+
+  &:hover {
+    @include panel;
+
+    .preview__img {
+      filter: brightness(1.2);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: map-get($preview-img-height, low);
+    max-height: map-get($preview-img-height, low);
+    object-fit: cover;
+    transition: map-get($transition, normal);
+  }
+
+  &__inner {
+    padding-top: map-get($inner-paddings, top);
+    padding-left: map-get($inner-paddings, side);
+    padding-right: map-get($inner-paddings, side);
+    padding-bottom: map-get($inner-paddings, bottom);
+  }
+
+  &__title {
+    @include subtitle-3;
+    line-height: 28px;
+  }
+
+  &__descr {
+    display: none;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+  }
+
+  &__avatar {
+    width: map-get($avatar-sizes, small);
+    height: map-get($avatar-sizes, small);
+  }
+
+  &__author-name {
+    @include body-2;
+    margin-left: 16px;
+  }
+
+  &__invest {
+    @include body-2;
+    margin-top: 24px;
+    line-height: map-get($avatar-sizes, small);
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    padding-right: $logo-size;
+  }
+
+  &__label {
+    margin-right: 24px;
+  }
+
+  &__weeks {
+    @include body-2;
+    margin-left: 8px;
+    color: map-get($font-colors, secondary);
+  }
+
+  &__logo {
+    position: absolute;
+    right: map-get($inner-paddings, side);
+    bottom: map-get($inner-paddings, bottom);
+    width: $logo-size;
+    max-height: $logo-size;
+    object-fit: contain;
+  }
+
+  // адаптация
+
+  @include respond-to(medium) {
+    display: flex;
+    flex-direction: column;
+    width: $preview-width;
+    min-width: $preview-width;
+
+    &__inner {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: map-get($inner-paddings, top-medium);
+      padding-left: map-get($inner-paddings, side-medium);
+      padding-right: map-get($inner-paddings, side-medium);
+      padding-bottom: map-get($inner-paddings, bottom-medium);
+    }
+
+    &__img {
+      height: map-get($preview-img-height, tall);
+      max-height: map-get($preview-img-height, tall);
+    }
+
+    &__title {
+      @include subtitle-2;
+    }
+
+    &__descr {
+      @include body-2;
+      display: block;
+      margin-top: 8px;
+      margin-bottom: 24px;
+      color: map-get($font-colors, secondary);
+    }
+
+    &__author,
+    &__invest {
+      margin-top: auto;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+.quote {
+  $icon-sizes: (
+    small: 40px,
+    large: 64px
+  );
+
+  $inner-padding-top: (
+    small: 32px,
+    medium: 80px
+  );
+
+  padding-top: map-get($icon-sizes, small)/2;
+
+  &__inner {
+    box-sizing: border-box;
+    position: relative;
+    padding-top: map-get($inner-padding-top, small);
+    border-top: $divider;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: map-get($icon-sizes, small);
+      height: map-get($icon-sizes, small);
+      background-color: map-get($colors, accent);
+      background-image: url("../img/quote__icon.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 40% auto;
+      border-radius: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      transition: map-get($transition, normal);
+    }
+  }
+
+  &__text {
+    @include body-1;
+  }
+
+  &__author {
+    display: flex;
+    margin-top: 16px;
+  }
+
+  &__avatar {
+    align-self: flex-start;
+    width: map-get($avatar-sizes, small);
+    min-width: map-get($avatar-sizes, small);
+  }
+
+  &__author-inner {
+    margin-left: 16px;
+  }
+
+  &__author-name {
+    @include body-2;
+  }
+
+  &__author-descr {
+    @include body-2;
+    color: map-get($font-colors, secondary);
+  }
+
+  // адаптация
+
+  @include respond-to(medium) {
+    padding-top: map-get($icon-sizes, large)/2;
+
+    &__inner {
+      $paddings: (map-get($article-content-width, wide) - map-get($article-content-width, base-max))/2;
+
+      @include panel;
+      padding-top: map-get($inner-padding-top, medium);
+      padding-bottom: 48px;
+      padding-left: $paddings;
+      padding-right: $paddings;
+      border: none;
+
+      &::before {
+        width: map-get($icon-sizes, large);
+        height: map-get($icon-sizes, large);
+      }
+    }
+
+    &__text {
+      @include subtitle-3;
+    }
+
+    &__author {
+      align-items: center;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: $divider;
+    }
+
+    &__avatar {
+      width: map-get($avatar-sizes, large);
+    }
+
+    &__author-name {
+      @include subtitle-2;
+    }
+  }
+
+  @include respond-to(large) {
+    padding-top: 0;
+
+    &__inner {
+      &::before {
+        top: map-get($inner-padding-top, medium);
+        left: 0;
+        transform: translateX(-50%);
+      }
+    }
+
+    &__text {
+      @include subtitle-1;
+    }
+  }
+}

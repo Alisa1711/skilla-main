@@ -1,0 +1,22 @@
+mixin course-teaser(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' course-teaser--' + modsList[i].trim();
+      }
+    }
+
+  .course-teaser(class=allMods)&attributes(attributes)
+    .course-teaser__inner
+      p.course-teaser__descr 4-х недельный интенсивный курс
+      h3.course-teaser__title Как открыть свой шиномонтаж
+      p.course-teaser__author-name c Александрой Тузовой
+      +avatar.course-teaser__avatar
+      +button("программа курса", "link").course-teaser__button

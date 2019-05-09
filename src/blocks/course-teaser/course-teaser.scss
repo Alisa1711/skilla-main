@@ -1,0 +1,88 @@
+.course-teaser {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 40px;
+  padding-bottom: 56px;
+  min-width: map-get($container-width, min);
+  max-width: map-get($article-content-width, wide);
+  background-color: map-get($colors, neutral);
+  border-radius: $border-radius;
+
+  &__inner {
+    @include outliner;
+    box-sizing: border-box;
+    margin: auto;
+    width: map-get($article-content-width, base);
+    max-width: map-get($article-content-width, base-max);
+    text-align: center;
+  }
+
+  &__descr {
+    @include body-2;
+    color: map-get($font-colors, secondary);
+  }
+
+  &__title {
+    @include subtitle-1;
+    margin-top: 8px;
+    line-height: 32px;
+  }
+
+  &__author-name {
+    @include body-1;
+    margin-top: 8px;
+  }
+
+  &__avatar {
+    display: block;
+    margin: auto;
+    margin-top: 24px;
+    width: map-get($avatar-sizes, large);
+    transition: box-shadow map-get($transition, normal);
+  }
+
+  &__button {
+    margin-top: 24px;
+  }
+
+  // адаптация
+
+  @include respond-to(medium) {
+    padding-top: 48px;
+    padding-bottom: 48px;
+
+    &__inner {
+      position: relative;
+      padding-right: map-get($avatar-sizes, huge);
+      min-height: map-get($avatar-sizes, huge);
+      text-align: left;
+    }
+
+    &__title {
+      @include headline-3;
+      margin-top: 16px;
+    }
+
+    &__author-name {
+      @include subtitle-3;
+      margin-top: 16px;
+    }
+
+    &__avatar {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      margin: 0;
+      width: map-get($avatar-sizes, huge);
+      transform: translateY(-50%);
+    }
+  }
+
+  @include respond-to(large) {
+    &__avatar {
+      box-shadow: 100px -20px 0 -72px map-get($colors, add-color),
+        -75px 75px 1px -70px map-get($colors, add-color-2),
+        90px -90px 8px -60px lighten(map-get($colors, add-color-2), 10);
+    }
+  }
+}

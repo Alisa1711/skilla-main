@@ -1,12 +1,9 @@
 {
-  "name": "NTH-start-project",
-  "version": "4.0.0",
-  "description": "Startkit for HTML/CSS/JS pages layout.",
-  "author": "Nikolay Gromov",
-  "license": "WTFPL",
+  "name": "Skilla",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nicothin/NTH-start-project.git"
+    "url": "https://github.com/Alisa1711/skilla-main.git"
   },
   "scripts": {
     "eslint": "eslint ./gulpfile.js src/blocks/**/*.js src/js/**/*.js",
@@ -60,6 +57,7 @@
     "pug-lint": "^2.5.0",
     "stylelint": "^10.0.0",
     "stylelint-config-htmlacademy": "^0.1.3",
+    "stylelint-scss": "^3.6.1",
     "through2": "^3.0.0",
     "vinyl-buffer": "^1.0.1"
   },

@@ -1,0 +1,72 @@
+extends ../pug/layout.pug
+
+mixin article__note(button)
+  //- button {button} выводит блок с кнопкой, по умолчанию -- без.
+  .article__note
+    a(class="link" href="javascript:void(0);").article__note-title Как написать бизнес-план салона красоты самому и не облажаться
+    p.article__note-descr пошаговая инструкция по написанию бизнес-плана основанная на опыте других предпринимателей.
+    if (button)
+      +button("полный чек-лист", "link", "size_sm").article__note-button
+
+block vars
+  - var article = true
+  - var list = ["Короткий элемент списка", "Как написать бизнес-план салона красоты самому и не облажаться, как? Как?? Как такое возможно?"]
+
+block header
+
+block title
+  title Заголовок статьи
+
+block content
+  +article-hero.article__hero
+  .article__content
+    p.article__intro= paragraph
+    p.article__text= paragraph + paragraph
+    h2.article__heading-2 Заголовок второго уровня
+    p.article__text= paragraph
+    p.article__list-heading Обычный список:
+    ul.article__list
+      each item in list
+        li= item
+    h3.article__heading-3 Заголовок третьего уровня
+    p.article__text= paragraph
+    h4.article__heading-4 Заголовок четвертого уровня
+    +article__note("button")
+    p.article__text= paragraph
+    p.article__text= paragraph + paragraph
+    +article__note
+    img.article__img(src="img/article-hero.jpg" alt="Описание картинки")
+    p.article__img-descr= imageDescr
+    p.article__text= paragraph
+    p.article__list-heading Нумерованный список:
+    ol.article__list-ordered
+      each item in list
+        li= item
+
+  +course-teaser-extra.article__course-teaser-extra
+
+  .article__content
+    p.article__text= paragraph + paragraph
+
+  +course-teaser.article__course-teaser
+
+  .article__content
+    p.article__text= paragraph + paragraph
+
+  .article__content-full
+    img.article__img(src="img/article-hero.jpg" alt="Описание картинки")
+    p.article__img-descr= imageDescr
+
+  .article__content
+    p.article__text= paragraph + paragraph
+
+  +quote.article__quote
+
+  .article__fav
+    h3.article__fav-title Понравилось тем, кто прочитал эту статью:
+    .article__fav-list
+      +preview.article__fav-item
+      +preview(previews.medium, "course").article__fav-item
+      +preview(previews.short, "franshise").article__fav-item
+
+block footer

@@ -6,9 +6,11 @@ let config = {
     `no-js`,
   ],
   'alwaysAddBlocks': [
-    `sprite-svg`
+    `text`,
+    `sprite-svg`,
+    `link`,
+    `post-stat`
     // 'sprite-png',
-    // 'object-fit-polyfill',
   ],
   'addStyleBefore': [
     `src/scss/variables.scss`,
@@ -18,16 +20,13 @@ let config = {
   'addStyleAfter': [
     // 'src/scss/print.scss',
   ],
-  'addJsBefore': [
-    // 'somePackage/dist/somePackage.js', // для 'node_modules/somePackage/dist/somePackage.js',
-  ],
-  'addJsAfter': [
-    `./script.js`,
+  'notJs': [
+    `!src/js/jquery-3.4.0.min.js`
   ],
   'addAssets': {
-    'src/fonts/demo-empty-open-sans.woff2': `fonts/`,
-    'src/img/demo-*.{png,svg,jpg,jpeg}': `img/`,
-    'src/js/jquery-3.4.0.min.js': `js/`
+    'src/fonts/': `fonts/`,
+    'src/js/jquery-3.4.0.min.js': `js/`,
+    'src/js/ofi.min.js': `js/`
   },
   'dir': {
     'src': `src/`,
@@ -36,8 +35,8 @@ let config = {
     'data': `src/data/`
   },
   'createBlock': {
-    'f': [`scss`, `js`, `pug`, `img`, `bg-img`, `md`],
-    'default': [`scss`, `img`, `bg-img`]
+    'f': [`scss`, `js`, `pug`, `img`, `md`],
+    'default': [`scss`, `img`]
   }
 };
 

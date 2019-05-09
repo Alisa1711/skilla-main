@@ -1,0 +1,14 @@
+mixin post-stat(short)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //-   short    {"short"} - вывести только лайки
+
+  .post-stat&attributes(attributes)
+    if (!short)
+      .post-stat__item
+        +icon('eye', 'size_sm')(class="post-stat__icon")
+        span.post-stat__label 2 480
+    .post-stat__item
+      +icon('thumb-up', 'size_sm')(class="post-stat__icon")
+      span.post-stat__label 853

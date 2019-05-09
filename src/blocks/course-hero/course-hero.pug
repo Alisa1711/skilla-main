@@ -1,0 +1,40 @@
+mixin course-hero(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = "";
+    if(typeof(mods) !== "undefined" && mods) {
+      var modsList = mods.split(",");
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + " course-hero--" + modsList[i].trim();
+      }
+    }
+
+  section.course-hero(class=allMods)&attributes(attributes)
+    .container
+      .course-hero__top
+        h1.course-hero__heading Как открыть кафе
+        +label("6 мая — 7 июля 2019").course-hero__label
+        p.course-hero__subheading От мечты до первой прибыли по шагам
+      .course-hero__main
+        .course-hero__video
+          iframe(
+            src="https://www.youtube.com/embed/X_SgCnmqRD4"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            webkitallowfullscreen=""
+            mozallowfullscreen=""
+            allowfullscreen="")
+        .course-hero__info
+          p.course-hero__author-name Александра Тузова
+          p.course-hero__author-descr в семейном бизнесе  с 12 лет владелец кафе Goneli Daily, совладелец ресторана «Садахар» и производства продуктов шоковой заморозки.
+          .course-hero__logos
+            img.course-hero__logo(src="img/course-logo-01.svg" alt="Goneli Daily")
+            img.course-hero__logo(src="img/course-logo-02.svg" alt="Садахар")
+      .course-hero__bottom
+        +button("записаться на курс", "link")
+        hr.divider.course-hero__divider
+        a.link.link--button(href="javascript:void(0);").course-hero__link Получить консультацию

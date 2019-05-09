@@ -15,4 +15,7 @@ rules:
     - error
     - properties: false
 
+globals:
+  mediaQuery: readonly
+
 extends: 'htmlacademy/es6'

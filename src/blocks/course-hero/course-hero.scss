@@ -1,0 +1,195 @@
+.course-hero {
+  @include body-1-small(false);
+  padding-top: 24px;
+  padding-bottom: 32px;
+
+  &__top {
+    text-align: center;
+  }
+
+  &__label {
+    display: inline-block;
+    margin-top: 8px;
+  }
+
+  &__heading {
+    @include subtitle-1;
+  }
+
+  &__subheading {
+    margin: 0;
+    margin-top: 0.5em;
+  }
+
+  &__main {
+    margin-top: 16px;
+  }
+
+  &__video {
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: 56.25%;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    & iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__author-name {
+    @include subtitle-3;
+    margin-top: 1em;
+  }
+
+  &__author-descr {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+
+  &__logos {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  &__logo {
+    & + & {
+      margin-left: 32px;
+    }
+  }
+
+  &__bottom {
+    margin-top: 18px;
+    text-align: center;
+  }
+
+  &__divider {
+    display: none;
+  }
+
+  &__link {
+    display: block;
+    margin-top: 24px;
+  }
+
+  @include respond-to(medium) {
+    padding-top: 64px;
+    padding-bottom: 80px;
+    background-image:
+      url("../img/sparkles.svg"),
+      url("../img/abstract__bg-01.svg"),
+      url("../img/abstract__bg-02.svg");
+    background-repeat:
+      repeat,
+      no-repeat,
+      no-repeat;
+    background-size:
+      auto,
+      auto 100%,
+      50%;
+    background-position:
+      center,
+      left,
+      center;
+
+    &__heading {
+      @include headline-3;
+    }
+
+    &__subheading {
+      @include body-1(false);
+    }
+
+    &__video {
+      @include panel;
+      box-sizing: border-box;
+      border: 20px solid map-get($colors, light);
+    }
+
+    &__info {
+      text-align: center;
+    }
+
+    &__author-name {
+      @include subtitle-2;
+      margin-top: 48px;
+    }
+
+    &__author-descr {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 80%;
+    }
+
+    &__logos {
+      margin-top: 40px;
+    }
+
+    &__link {
+      display: inline-block;
+      margin-left: 64px;
+    }
+  }
+
+  @include respond-to(large) {
+    @include body-1(false);
+
+    &__heading {
+      @include headline-2;
+    }
+
+    &__main {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 48px;
+    }
+
+    &__video {
+      order: 2;
+      padding-bottom: 0;
+      min-width: 640px;
+      height: 400px;
+    }
+
+    &__info {
+      text-align: left;
+    }
+
+    &__author-name {
+      @include subtitle-1;
+      margin-top: 24px;
+    }
+
+    &__author-descr {
+      margin: 0;
+      margin-top: 24px;
+    }
+
+    &__logos {
+      justify-content: flex-start;
+    }
+
+    &__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    &__divider {
+      display: block;
+      flex-grow: 1;
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+
+    &__link {
+      margin: 0;
+    }
+  }
+}

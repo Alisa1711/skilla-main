@@ -1,0 +1,25 @@
+mixin article-hero(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' aricle-hero--' + modsList[i].trim();
+      }
+    }
+
+  section.article-hero(class=allMods)&attributes(attributes)
+    .container
+      .article-hero__author
+        +avatar(class="article-hero__avatar")
+        .article-hero__author-inner
+          p.article-hero__author-name Грета Харитонова
+          p.article-hero__author-descr владелец салона красоты «Салон красоты», преподаватель курса «<a class="link article-hero__link" href='javascript:void(0);'>Как открыть салон красоты</a>»
+      h1.article-hero__heading Как я&nbsp;открыл бизнес на&nbsp;деньги друга и&nbsp;не&nbsp;поссорился с&nbsp;ним
+      +post-stat.article-hero__post-stat
+    img.article-hero__img(src="img/article-hero.jpg")
