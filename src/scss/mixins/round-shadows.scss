@@ -1,0 +1,81 @@
+// $avatar -- размер аватара
+// $size -- размер тени (самый большой) (всегда меньше аватара)
+// $angle: 90, 45 -- угол расположения
+// $color -- цвет тени
+// $blur -- размытие
+
+@mixin round-shadows ($avatar, $size, $angle, $color) {
+  $orbit-radius: $avatar / 2 + $size + 10;
+  $compression: - ($avatar - $size) / 2;
+  $angle2: $angle + 30;
+  $angle3: 90 + $angle;
+
+  $cos: (
+    0: 1,
+    15: 0.9,
+    30: 0.8,
+    45: 0.7,
+    60: 0.5,
+    75: 0.2,
+    90: 0,
+    105: -0.2,
+    120: -0.5,
+    135: -0.7,
+    150: -0.8,
+    165: -0.9,
+    180: -1,
+    195: -0.9,
+    210: -0.8,
+    225: -0.7,
+    240: -0.5,
+    255: -0.2,
+    270: 0,
+    285: 0.2,
+    300: 0.5,
+    315: 0.7,
+    330: 0.8,
+    345: 0.9,
+    360: 1
+  );
+
+  $sin: (
+    0: 0,
+    15: 0.2,
+    30: 0.5,
+    45: 0.7,
+    60: 0.8,
+    75: 0.9,
+    90: 1,
+    105: 0.9,
+    120: 0.8,
+    135: 0.7,
+    150: 0.5,
+    165: 0.2,
+    180: 0,
+    195: -0.2,
+    210: -0.5,
+    225: -0.7,
+    240: -0.8,
+    255: -0.9,
+    270: -1,
+    285: -0.9,
+    300: -0.8,
+    315: -0.7,
+    330: -0.5,
+    345: -0.2,
+    360: 0
+  );
+
+  $x-shift: map-get($cos, $angle) * $orbit-radius;
+  $y-shift: map-get($sin, $angle) * $orbit-radius;
+
+  $x-shift2: map-get($cos, $angle2) * $orbit-radius;
+  $y-shift2: map-get($sin, $angle2) * $orbit-radius;
+
+  $x-shift3: - map-get($cos, $angle3) * $orbit-radius;
+  $y-shift3: - map-get($sin, $angle3) * $orbit-radius;
+
+  box-shadow: $x-shift $y-shift 3px $compression $color,
+    $x-shift2 $y-shift2 0 $compression - $size / 4 adjust-hue($color, 30deg),
+    $x-shift3 $y-shift3 0 $compression - $size / 3 complement($color);
+}

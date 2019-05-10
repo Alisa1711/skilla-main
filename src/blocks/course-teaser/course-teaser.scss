@@ -80,9 +80,12 @@
 
   @include respond-to(large) {
     &__avatar {
-      box-shadow: 100px -20px 0 -72px map-get($colors, add-color),
-        -75px 75px 1px -70px map-get($colors, add-color-2),
-        90px -90px 8px -60px lighten(map-get($colors, add-color-2), 10);
+      @include round-shadows (map-get($avatar-sizes, huge), 32, 195, map-get($colors, add-color));
+      transition: map-get($transition, medium);
+
+      &:hover {
+        @include round-shadows (map-get($avatar-sizes, huge), 48, 30, map-get($colors, add-color-2));
+      }
     }
   }
 }
