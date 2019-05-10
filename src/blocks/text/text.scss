@@ -59,8 +59,10 @@
   font-style: normal;
 }
 
-@mixin headline-3 {
-  margin: 0;
+@mixin headline-3 ($margin: true) {
+  @if $margin {
+    margin: 0;
+  }
   font-size: 48px;
   letter-spacing: 0.03em;
   line-height: 56px;
@@ -68,8 +70,10 @@
   font-style: normal;
 }
 
-@mixin headline-4 {
-  margin: 0;
+@mixin headline-4 ($margin: true) {
+  @if $margin {
+    margin: 0;
+  }
   font-size: 36px;
   line-height: 48px;
   font-weight: normal;
@@ -81,7 +85,7 @@
     margin: 0;
   }
   font-size: 28px;
-  line-height: 40px;
+  line-height: 1.7;
   font-weight: normal;
   font-style: normal;
 }
@@ -111,7 +115,7 @@
     margin: 0;
   }
   font-size: 18px;
-  line-height: 28px;
+  line-height: 1.6;
   font-weight: normal;
   font-style: normal;
 }

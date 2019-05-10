@@ -1,0 +1,39 @@
+mixin course-benefits(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' course-benefits--' + modsList[i].trim();
+      }
+    }
+
+    var descrDefault = "Лекции проходят в режиме реального времени, чтобы вы могли общаться."
+
+    var benefits = [
+      {title: "Живые лекции", descr: "Лекции проходят в режиме реального времени, чтобы вы могли общаться. Лекции проходят в режиме реального времени."},
+      {title: "Практика"},
+      {title: "Личное общение с&nbsp;экспертом"},
+      {title: "Экскурсия по&nbsp;Gonely Daily"}
+    ]
+
+  section.course-benefits(class=allMods)&attributes(attributes)
+    .container
+      .course-benefits__inner
+        h2.course-benefits__heading Что будет на&nbsp;крусе
+        each item in benefits
+          .course-benefits__item
+            p.course-benefits__item-title !{item.title}
+            p.course-benefits__item-descr
+              = item.descr ? item.descr : descrDefault
+            .course-benefits__item-duration
+              +icon("clock", "size_sm")
+              span 56 часов
+        .course-benefits__item.course-benefits__item--black
+          p.course-benefits__item-title Пилюля от всех проблем
+          p.course-benefits__item-descr Ее не будет :-) Задача курса передать опыт предпринимателей. Распорядиться им —  Ваша.
