@@ -26,6 +26,7 @@ let config = {
   'addAssets': {
     'src/fonts/': `fonts/`,
     'src/js/jquery-3.4.0.min.js': `js/`,
+    'src/js/jquery.nicescroll.min.js': `js/`,
     'src/js/ofi.min.js': `js/`
   },
   'dir': {

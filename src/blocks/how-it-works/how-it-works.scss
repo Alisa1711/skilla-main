@@ -1,0 +1,236 @@
+.how-it-works {
+  $attention-size: 114px;
+  $attention-size-big: 160px;
+  $scale-height: 40px;
+
+  padding-top: 32px;
+  padding-bottom: 48px;
+
+  &__inner {
+    @include container;
+    width: 100%;
+    background-image: url("../img/how-it-works__bg.svg");
+    background-repeat: no-repeat;
+    background-position: center bottom $scale-height;
+    background-size: contain;
+  }
+
+  &__top {
+    position: relative;
+    padding-bottom: $attention-size + 24px;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+
+  &__heading {
+    @include subtitle-2;
+  }
+
+  &__subheading {
+    @include body-2;
+  }
+
+  &__attention {
+    @include button-label-small;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $attention-size;
+    height: $attention-size;
+    color: map-get($font-colors, base-light);
+    line-height: 1.5;
+    text-align: center;
+    background-color: map-get($colors, accent);
+    border-radius: 50%;
+    box-shadow: map-get($shadows, button);
+    transform: translateX(-50%) rotate(-15deg);
+    transition: all map-get($transition, normal);
+  }
+
+  &__scheme-wrapper {
+    margin-top: 48px;
+    overflow: hidden;
+    overflow-x: auto;
+  }
+
+  &__scheme {
+    display: flex;
+    margin-bottom: $scale-height;
+    width: 350%;
+    border-bottom: $divider;
+  }
+
+  &__step {
+    @include outliner;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-basis: 100%;
+
+    &--training {
+      .how-it-works__images {
+        justify-content: center;
+      }
+    }
+
+    &--process {
+      flex-basis: 200%;
+
+      .how-it-works__images {
+        justify-content: space-between;
+      }
+    }
+
+    &--success {
+      .how-it-works__images {
+        justify-content: flex-end;
+      }
+    }
+
+    & + & {
+      border-left: $divider;
+    }
+  }
+
+  &__theme-img {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  &__finish-img {
+    transform: translateX(50%);
+  }
+
+  &__descr-list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__descr {
+    margin-bottom: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 240px;
+  }
+
+  &__title {
+    @include small-caps;
+  }
+
+  &__text {
+    @include body-2;
+    margin-top: 8px;
+  }
+
+  &__images {
+    display: flex;
+    align-items: flex-end;
+    margin-top: auto;
+  }
+
+  &__scale {
+    @include body-2;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -$scale-height;
+    height: $scale-height;
+    color: map-get($font-colors, secondary);
+    text-align: center;
+    white-space: nowrap;
+
+    &-item {
+      flex-grow: 1;
+      position: relative;
+      line-height: $scale-height;
+
+      &:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 8px;
+        height: 8px;
+        background-color: map-get($colors, add-color-5);
+        border-radius: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+  }
+
+  @include respond-to(medium) {
+    padding-top: 48px;
+
+    &__inner {
+      padding-top: 72px;
+      border-top: $divider;
+    }
+
+    &__top {
+      padding-bottom: 0;
+      text-align: left;
+    }
+
+    &__heading {
+      @include headline-4;
+    }
+
+    &__subheading {
+      @include body-1;
+    }
+
+    &__attention {
+      @include button-label;
+      top: 50%;
+      left: auto;
+      right: 0;
+      bottom: auto;
+      width: $attention-size-big;
+      height: $attention-size-big;
+      line-height: 1.5;
+      transform: translateY(-50%) rotate(-15deg);
+    }
+
+    &__scheme-wrapper {
+      margin-top: 104px;
+    }
+
+    &__scheme {
+      width: 200%;
+    }
+  }
+
+  @include respond-to(large) {
+    &__top {
+      width: 750px;
+    }
+
+    &__heading {
+      @include headline-3;
+    }
+
+    &__subheading {
+      margin-top: 8px;
+    }
+
+    &__scheme-wrapper {
+      overflow: hidden;
+    }
+
+    &__scheme {
+      width: 100%;
+    }
+
+    &__descr {
+      margin-bottom: 48px;
+    }
+
+    &__theme-img {
+      margin-right: 0;
+    }
+  }
+}

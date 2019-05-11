@@ -130,10 +130,12 @@
   font-style: normal;
 }
 
-@mixin body-2 {
-  margin: 0;
+@mixin body-2($margin: true) {
+  @if $margin {
+    margin: 0;
+  }
   font-size: 14px;
-  line-height: 20px;
+  line-height: 1.5;
   font-weight: normal;
   font-style: normal;
 }
@@ -147,12 +149,33 @@
   text-transform: uppercase;
 }
 
+@mixin button-label-small {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  line-height: 16px;
+  font-weight: 800;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
 @mixin labels-text {
   font-size: 14px;
   letter-spacing: 0.04em;
   line-height: 16px;
   font-weight: 500;
   font-style: normal;
+}
+
+@mixin small-caps($margin: true) {
+  @if $margin {
+    margin: 0;
+  }
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  font-weight: 800;
+  font-style: normal;
+  text-transform: uppercase;
 }
 
 %article-headings {

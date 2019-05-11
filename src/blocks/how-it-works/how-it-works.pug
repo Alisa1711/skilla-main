@@ -1,0 +1,63 @@
+mixin how-it-works(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' how-it-works--' + modsList[i].trim();
+      }
+    }
+
+    var descrItems = [
+      { title: "Подготовка",
+        text: "Получаешь допуск к&nbsp;курсу и&nbsp;дополнительным материалам"  },
+      { title: "Обучение",
+        text: "Слушаешь живые лекции, задаешь вопросы. Получаешь допуск к&nbsp;курсу и&nbsp;дополнительным материалам"  },
+      { title: "Бизнес-план",
+        text: "Пишешь бизнес-план под руковдоством экспертов"  },
+      { title: "Открытие кафе",
+        text: "Получаешь допуск к&nbsp;курсу и&nbsp;дополнительным материалам"  }
+    ]
+
+  section.how-it-works(class=allMods)&attributes(attributes)
+      .how-it-works__inner
+        .how-it-works__top
+          h2.how-it-works__heading Как проходит курс
+          p.how-it-works__subheading 4 недели, 8 модулей
+          .how-it-works__attention онлайн в&nbsp;удобном режиме
+
+        .how-it-works__scheme-wrapper
+          .how-it-works__scheme
+            .how-it-works__step.how-it-works__step--training
+              .how-it-works__descr
+                p.how-it-works__title !{descrItems[0].title}
+                p.how-it-works__text !{descrItems[0].text}
+              .how-it-works__images
+                img(src="img/how-it-works__training.svg")
+            .how-it-works__step.how-it-works__step--process
+              .how-it-works__descr-list
+                .how-it-works__descr
+                  p.how-it-works__title !{descrItems[1].title}
+                  p.how-it-works__text !{descrItems[1].text}
+                .how-it-works__descr
+                  p.how-it-works__title !{descrItems[2].title}
+                  p.how-it-works__text !{descrItems[2].text}
+              .how-it-works__images
+                img(src="img/how-it-works__start.svg")
+                img(src="img/how-it-works__process.svg")
+                img.how-it-works__finish-img(src="img/how-it-works__finish.svg")
+              .how-it-works__scale
+                - for (var i = 1; i < 5; i++)
+                  span.how-it-works__scale-item #{i} неделя
+            .how-it-works__step.how-it-works__step--success
+              .how-it-works__descr
+                p.how-it-works__title !{descrItems[3].title}
+                p.how-it-works__text !{descrItems[3].text}
+              .how-it-works__images
+                img(src="img/how-it-works__success.svg")
+                img.how-it-works__theme-img(src="img/how-it-works__theme.svg")
