@@ -1,8 +1,8 @@
-mixin avatar(mods)
+mixin avatar(src)
 
   //- Принимает:
-  //-   text    {string} - текст
   //-   mods    {string} - список модификаторов
+  //-   src    {string} - путь к фотографии
   -
     // список модификаторов
     var allMods = '';
@@ -14,4 +14,4 @@ mixin avatar(mods)
     }
 
   .avatar(class=allMods)&attributes(attributes)
-    img.avatar__img(src="img/avatar.jpg")
+    img.avatar__img(src= src ? src : "img/avatar.jpg")

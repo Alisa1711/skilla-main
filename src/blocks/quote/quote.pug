@@ -1,7 +1,11 @@
-mixin quote(mods)
+mixin quote(mods, text= "Помещение и&nbsp;его расположение влияют на&nbsp;то, какая публика будет к&nbsp;вам приходить. Наряду с&nbsp;качеством и&nbsp;стоимостью услуг люди оценивают место и&nbsp;обустройство салона...", name= "Мария Вершинина", descr= "владелец салона «Салон» преподаватель курса «<a class='link' href='javasript:void(0)'>Как открыть салон красоты</a>»", src= "img/avatar.jpg")
 
   //- Принимает:
   //-   mods    {string} - список модификаторов
+  //-   text  {string} - текст цитаты
+  //-   name {string} - имя втора
+  //-   descr {string} - регалии автора
+  //-   src {string} - путь к фотографии автора
   -
     // список модификаторов
     var allMods = '';
@@ -14,9 +18,9 @@ mixin quote(mods)
 
   .quote(class=allMods)&attributes(attributes)
     .quote__inner
-      p.quote__text Помещение и&nbsp;его расположение влияют на&nbsp;то, какая публика будет к&nbsp;вам приходить. Наряду с&nbsp;качеством и&nbsp;стоимостью услуг люди оценивают место и&nbsp;обустройство салона...
+      p.quote__text !{text}
       .quote__author
-        +avatar(class="quote__avatar")
+        +avatar(src)(class="quote__avatar")
         .quote__author-inner
-          p.quote__author-name Мария Вершинина
-          p.quote__author-descr владелец салона «Салон» преподаватель курса «<a class="link" href='javasript:void(0)'>Как открыть салон красоты</a>»
+          p.quote__author-name !{name}
+          p.quote__author-descr !{descr}

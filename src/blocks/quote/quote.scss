@@ -97,6 +97,7 @@
 
     &__avatar {
       width: map-get($avatar-sizes, large);
+      min-width: map-get($avatar-sizes, large);
     }
 
     &__author-name {
