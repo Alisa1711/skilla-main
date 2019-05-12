@@ -1,0 +1,74 @@
+mixin program(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' program--' + modsList[i].trim();
+      }
+    }
+
+    var topics = [
+      "Обзор ёмкости рынка",
+      "Почему кафе&nbsp;&mdash; хороший бизнес?",
+      "Примеры самых успешных сетей в&nbsp;России и&nbsp;мире",
+      "Популярные тенденции",
+      "Основные игроки: поставщики, производители, концепция",
+      "Виды трафика посетителей в&nbsp;кафе",
+      "Собственная идея или франшиза?",
+      "Инвестор. Где найти деньги?",
+      "Разные типы владельцев бизнеса",
+      "Разные виды бизнеса",
+      "Реальные владельцы кафе. Серия интервью"
+    ]
+
+    var lessons = [
+      {
+        number: "1",
+        title: "Открытие кафе. Основы. Риски. Мотивация.",
+        topics: "11 тем"
+      },
+      {
+        number: "1",
+        title: "Открытие кафе. Основы. Риски. Мотивация.",
+        topics: "11 тем"
+      }
+    ]
+
+  section.program(class=allMods)&attributes(attributes)
+    .container
+      h2.program__heading Программа
+      .program__lessons-list
+        each lesson in lessons
+          .program__lesson
+            .program__lesson-top
+              p.program__lesson-number урок #{lesson.number}
+              p.program__title
+                | !{lesson.title}
+                +label(lesson.topics).program__label
+            .program__descr
+              .program__descr-inner
+                .program__free-lesson
+                  .program__video
+                    iframe(
+                      src="https://www.youtube.com/embed/X_SgCnmqRD4"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      webkitallowfullscreen=""
+                      mozallowfullscreen=""
+                      allowfullscreen="")
+                  +label("бесплатнй урок").program__video-label
+                .program__descr-content
+                  ul.program__list
+                    each topic in topics
+                      li.program__item !{topic}
+                  .program__author
+                    +avatar("img/alexandra-tuzova.jpg").program__avatar
+                    .program__author-inner
+                      p.program__author-name Александра Тузова
+                      p.program__author-descr эксперт раздела

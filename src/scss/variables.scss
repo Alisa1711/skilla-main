@@ -44,6 +44,7 @@ $icon-sizes: (
 
 $shadows: (
   panel: 0 4px 40px rgba(map-get($colors, dark), 0.1),
+  panel-pressed: 0 4px 10px rgba(map-get($colors, dark), 0.1),
   button: 0 4px 1px rgba(map-get($colors, dark), 0.15),
   button-pressed: 0 2px 1px rgba(map-get($colors, dark), 0.5)
 );
@@ -51,6 +52,7 @@ $shadows: (
 $avatar-sizes: (
   small: 40px,
   medium: 56px,
+  x-mediun: 80px,
   large: 100px,
   huge: 160px
 );

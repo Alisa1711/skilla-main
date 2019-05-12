@@ -1,0 +1,241 @@
+.program {
+  $lesson-side-padding: 16px;
+  $lesson-top-padding: 24px;
+  $lesson-bottom-padding: 32px;
+
+  padding-top: 32px;
+  padding-bottom: 40px;
+  background-color: map-get($colors, neutral);
+
+  &__heading {
+    @include subtitle-3;
+    line-height: 1;
+    text-align: center;
+  }
+
+  &__lessons-list {
+    margin-top: 24px;
+  }
+
+  &__lesson {
+    @include panel;
+    transition: all map-get($transition, normal);
+
+    &:hover {
+      box-shadow: map-get($shadows, panel-pressed);
+    }
+
+    & + & {
+      margin-top: 16px;
+    }
+
+    &-top {
+      padding-top: $lesson-top-padding;
+      padding-left: $lesson-side-padding;
+      padding-right: $lesson-side-padding;
+      padding-bottom: $lesson-bottom-padding;
+      cursor: pointer;
+    }
+  }
+
+  &__lesson-number {
+    @include body-2;
+    color: map-get($font-colors, secondary);
+  }
+
+  &__title {
+    @include body-1;
+  }
+
+  &__label {
+    margin-left: 8px;
+  }
+
+  &__descr {
+    display: none;
+    padding-left: $lesson-side-padding;
+    padding-right: $lesson-side-padding;
+    padding-bottom: $lesson-bottom-padding;
+  }
+
+  &__free-lesson {
+    margin-bottom: 24px;
+  }
+
+  &__video {
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: 50%;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    & iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-label {
+      display: inline-block;
+      margin-top: 8px;
+    }
+  }
+
+  &__list {
+    @include body-2;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    position: relative;
+    padding-left: 2em;
+
+    & + & {
+      margin-top: 0.5em;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 1.5em; // равно текущей высоте высоте строки
+      height: 1.5em;
+      background-image: url("../img/check.svg");
+      background-size: auto 1em;
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+  }
+
+  &__author {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+
+    &-inner {
+      margin-left: 0.7em;
+    }
+
+    &-name {
+      @include body-2;
+    }
+
+    &-descr {
+      @include body-2;
+      color: map-get($font-colors, secondary);
+    }
+  }
+
+  &__avatar {
+    width: map-get($avatar-sizes, small);
+    min-width: map-get($avatar-sizes, small);
+    height: map-get($avatar-sizes, small);
+  }
+
+  @include respond-to(medium) {
+    $lesson-side-padding: 40px;
+    $lesson-top-padding: 40px;
+    $lesson-bottom-padding: 48px;
+
+    padding-top: 40px;
+    padding-bottom: 56px;
+
+    &__heading {
+      @include headline-4;
+    }
+
+    &__lesson {
+      &-top {
+        padding-top: $lesson-top-padding;
+        padding-left: $lesson-side-padding;
+        padding-right: $lesson-side-padding;
+        padding-bottom: $lesson-bottom-padding;
+      }
+    }
+
+    &__title {
+      @include subtitle-2;
+    }
+
+    &__descr {
+      padding-left: $lesson-side-padding;
+      padding-right: $lesson-side-padding;
+      padding-bottom: $lesson-bottom-padding;
+    }
+
+    &__list {
+      @include body-1(false);
+    }
+
+    &__author {
+      &-inner {
+        margin-left: 1em;
+      }
+
+      &-name {
+        @include subtitle-3;
+      }
+    }
+
+    &__avatar {
+      width: map-get($avatar-sizes, x-mediun);
+      min-width: map-get($avatar-sizes, x-mediun);
+      height: map-get($avatar-sizes, x-mediun);
+    }
+  }
+
+  @include respond-to(large) {
+    $lesson-side-padding: 48px;
+    $lesson-top-padding: 40px;
+    $lesson-bottom-padding: 48px;
+
+    padding-top: 48px;
+    padding-bottom: 64px;
+
+    &__heading {
+      @include headline-3;
+    }
+
+    &__lesson {
+      &-top {
+        padding-top: $lesson-top-padding;
+        padding-left: $lesson-side-padding;
+        padding-right: $lesson-side-padding;
+        padding-bottom: $lesson-bottom-padding;
+      }
+    }
+
+    &__descr {
+      padding-left: $lesson-side-padding + 16px;
+      padding-right: $lesson-side-padding + 16px;
+      padding-bottom: 64px;
+
+      &-inner {
+        display: flex;
+      }
+
+      &-content {
+        width: 600px;
+      }
+    }
+
+    &__free-lesson {
+      order: 2;
+      flex-grow: 1;
+    }
+
+    &__item {
+      & + & {
+        margin-top: 1.2em;
+      }
+    }
+
+    &__author {
+      margin-top: 40px;
+    }
+  }
+}
