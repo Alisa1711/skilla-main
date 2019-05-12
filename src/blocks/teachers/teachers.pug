@@ -1,0 +1,36 @@
+mixin teachers(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' teachers--' + modsList[i].trim();
+      }
+    }
+
+  mixin teacher-item(src="img/avatar.jpg", avatarMod, name="Харитонова Грета", descr="PR-директор, директор по развитию маркетингового агентства Mokselle.")
+    .teachers__item
+      +avatar(src).teachers__avatar(
+        class= avatarMod ? "teachers__avatar--" + avatarMod : ""
+        )
+      p.teachers__name !{name}
+      p.teachers__descr !{descr}
+
+  section.teachers(class=allMods)&attributes(attributes)
+    .container
+      .teachers__top
+        .teachers__top-inner
+          h2.teachers__heading Преподаватели
+          p.teachers__subheading команда Goneli Daily
+        p.teachers__text PR-директор, администраторы магазина, юрист, бухгалтеры, маркетологи, наши повара. Каждый из них раскроет вам один профильный блок и передаст свой бесценный опыт
+
+      .teachers__list
+        +teacher-item("img/alexandra-tuzova.jpg", "shadow_0deg", "Александра Тузова", "владелец Goneli Daily, совладелец ресторана «Садахар» и производства продуктов шоковой заморозки.")
+        +teacher-item("img/teacher-01.jpg", "shadow_90deg")
+        +teacher-item("img/teacher-02.jpg", "shadow_60deg")
+        +teacher-item(src, "shadow_0deg")

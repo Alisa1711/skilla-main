@@ -182,9 +182,9 @@
     }
 
     &__avatar {
-      width: map-get($avatar-sizes, x-mediun);
-      min-width: map-get($avatar-sizes, x-mediun);
-      height: map-get($avatar-sizes, x-mediun);
+      width: map-get($avatar-sizes, x-medium);
+      min-width: map-get($avatar-sizes, x-medium);
+      height: map-get($avatar-sizes, x-medium);
     }
   }
 
@@ -193,7 +193,7 @@
     $lesson-top-padding: 40px;
     $lesson-bottom-padding: 48px;
 
-    padding-top: 48px;
+    padding-top: 64px;
     padding-bottom: 64px;
 
     &__heading {

@@ -5,6 +5,7 @@
   $chart-font-size-large: 36px;
 
   padding-top: 24px;
+  padding-bottom: 24px;
   font-size: $chart-font-size;
 
   &__heading {
@@ -99,6 +100,7 @@
 
   @include respond-to(medium) {
     padding-top: 40px;
+    padding-bottom: 40px;
     font-size: $chart-font-size-large;
 
     &__heading {
@@ -140,7 +142,8 @@
   }
 
   @include respond-to(large) {
-    padding-top: 48px;
+    padding-top: 64px;
+    padding-bottom: 80px;
 
     &__heading {
       @include headline-3;

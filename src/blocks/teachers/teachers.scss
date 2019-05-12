@@ -1,0 +1,157 @@
+.teachers {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  &__top {
+    &-inner {
+      text-align: center;
+    }
+  }
+
+  &__heading {
+    @include subtitle-2;
+  }
+
+  &__subheading {
+    @include body-2;
+  }
+
+  &__text {
+    @include body-2;
+    margin-top: 16px;
+  }
+
+  &__list {
+    margin-top: 16px;
+  }
+
+  &__item {
+    text-align: center;
+    margin-top: 24px;
+
+    &:hover {
+      .teachers__avatar {
+        @include round-shadows(map-get($avatar-sizes, large), 24, 0, map-get($colors, accent));
+      }
+    }
+  }
+
+  &__avatar {
+    margin: auto;
+    width: map-get($avatar-sizes, large);
+    height: map-get($avatar-sizes, large);
+    transition: map-get($transition, medium);
+  }
+
+  &__name {
+    @include body-1-small;
+    margin-top: 16px;
+  }
+
+  &__descr {
+    @include body-2;
+    margin-top: 8px;
+    color: map-get($font-colors, secondary);
+  }
+
+  @include respond-to(medium) {
+    padding-top: 48px;
+    padding-bottom: 48px;
+
+    &__heading {
+      @include headline-4;
+    }
+
+    &__subheading {
+      @include body-1;
+    }
+
+    &__text {
+      @include body-1(false);
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__item {
+      box-sizing: border-box;
+      flex-basis: 50%;
+      padding-left: 16px;
+      padding-right: 16px;
+
+      &:hover {
+        .teachers__avatar {
+          @include round-shadows(map-get($avatar-sizes, huge), 32, 0, map-get($colors, accent));
+        }
+      }
+    }
+
+    &__avatar {
+      width: map-get($avatar-sizes, huge);
+      height: map-get($avatar-sizes, huge);
+
+      &--shadow_0deg {
+        @include round-shadows(map-get($avatar-sizes, huge), 24, 0, map-get($colors, add-color));
+      }
+
+      &--shadow_90deg {
+        @include round-shadows(map-get($avatar-sizes, huge), 24, 90, map-get($colors, add-color-3));
+      }
+
+      &--shadow_60deg {
+        @include round-shadows(map-get($avatar-sizes, huge), 24, 60, map-get($colors, add-color-2));
+      }
+    }
+
+    &__name {
+      @include subtitle-3(false);
+    }
+  }
+
+  @include respond-to(large) {
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    &__top {
+      display: flex;
+      justify-content: center;
+
+      &-inner {
+        text-align: left;
+      }
+    }
+
+    &__text {
+      margin: 0;
+      margin-left: 40px;
+      width: 460px;
+    }
+
+    &__heading {
+      @include headline-3;
+    }
+
+    &__subheading {
+      margin-top: 8px;
+    }
+
+    &__list {
+      margin-top: 40px;
+    }
+
+    &__item {
+      flex-basis: 25%;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    &__name {
+      margin-top: 24px;
+    }
+  }
+}
