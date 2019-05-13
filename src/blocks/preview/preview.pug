@@ -1,10 +1,11 @@
-mixin preview(data, type)
+mixin preview(data, type, src= "img/article-hero.jpg")
 
   //- По умолчанию превью статьи, модифицируется до превью курса или статьи
   //- Принимает:
   //-   {object} - объект с данными
   //-     title {string} - заголовок
   //-     descr {string} - описание
+  //-   src {string} - путь к картинке превью
   //-   type    {string} - принимает значения "course" или "franshise"
 
   -
@@ -12,7 +13,7 @@ mixin preview(data, type)
     var descr = data? data.descr : "пошаговая инструкция по написанию бизнес-плана основанная на опыте других предпринимателей..."
 
   a.preview(href="javascript:void(0);")&attributes(attributes)
-    img.preview__img(src="img/article-hero.jpg")
+    img.preview__img(src= src)
     .preview__inner
       p.preview__title !{title}
       p.preview__descr !{descr}

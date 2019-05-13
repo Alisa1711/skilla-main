@@ -1,4 +1,4 @@
-mixin article-hero(text, mods)
+mixin article-hero(imgSrc= "img/article-hero.jpg", avatarSrc= "img/avatar.jpg", mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -16,10 +16,10 @@ mixin article-hero(text, mods)
   section.article-hero(class=allMods)&attributes(attributes)
     .container
       .article-hero__author
-        +avatar(class="article-hero__avatar")
+        +avatar(avatarSrc)(class="article-hero__avatar")
         .article-hero__author-inner
           p.article-hero__author-name Грета Харитонова
           p.article-hero__author-descr владелец салона красоты «Салон красоты», преподаватель курса «<a class="link article-hero__link" href='javascript:void(0);'>Как открыть салон красоты</a>»
       h1.article-hero__heading Как я&nbsp;открыл бизнес на&nbsp;деньги друга и&nbsp;не&nbsp;поссорился с&nbsp;ним
       +post-stat.article-hero__post-stat
-    img.article-hero__img(src="img/article-hero.jpg")
+    img.article-hero__img(src= imgSrc)

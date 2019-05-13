@@ -18,7 +18,7 @@ block title
   title Заголовок статьи
 
 block content
-  +article-hero.article__hero
+  +article-hero("img/otkrutie_kafe__article-hero.jpg", "img/alexandra-tuzova.jpg").article__hero
   .article__content
     p.article__intro= paragraph
     p.article__text= paragraph + paragraph
@@ -35,7 +35,7 @@ block content
     p.article__text= paragraph
     p.article__text= paragraph + paragraph
     +article__note
-    img.article__img(src="img/article-hero.jpg" alt="Описание картинки")
+    img.article__img(src="img/franshize_kafe__img-02.jpg" alt="Описание картинки")
     p.article__img-descr= imageDescr
     p.article__text= paragraph
     p.article__list-heading Нумерованный список:
@@ -54,7 +54,7 @@ block content
     p.article__text= paragraph + paragraph
 
   .article__content-full
-    img.article__img(src="img/article-hero.jpg" alt="Описание картинки")
+    img.article__img(src="img/franshize_kafe__fullwidth.jpg" alt="Описание картинки")
     p.article__img-descr= imageDescr
 
   .article__content
@@ -65,8 +65,8 @@ block content
   .article__fav
     h3.article__fav-title Понравилось тем, кто прочитал эту статью:
     .article__fav-list
-      +preview.article__fav-item
-      +preview(previews.medium, "course").article__fav-item
-      +preview(previews.short, "franshise").article__fav-item
+      +preview("", type, "img/otkrutie_kafe__article-hero.jpg").article__fav-item
+      +preview(previews.medium, "course", "img/otkroi_kafe__article-hero.jpg").article__fav-item
+      +preview(previews.short, "franshise", "img/franshize_kafe__article-hero.jpg").article__fav-item
 
 block footer

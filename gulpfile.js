@@ -144,7 +144,7 @@ exports.copyAssets = copyAssets;
 
 
 function copyImg(cb) { // ????
-  let copiedImages = [`src/img/`];
+  let copiedImages = [`src/img/**/*.*`];
   nth.blocksFromHtml.forEach(function (block) { // для каждого блока
     let src = `${dir.blocks}${block}/img`; // берем путь к изображениям
     if (fileExist(src)) { // и если есть файлы, то добавляем путь к массиву копируемых изображений
@@ -401,7 +401,7 @@ function serve() {
   ));
 
   // Картинки: все события
-  watch([`${dir.blocks}**/img/*.{jpg,jpeg,png,gif,svg,webp}`, `${dir.src}**/img/*.{jpg,jpeg,png,gif,svg,webp}`], {events: [`all`]}, series(
+  watch([`${dir.blocks}**/img/*.{jpg,jpeg,png,gif,svg,webp}`, `${dir.src}**/img/**/*.{jpg,jpeg,png,gif,svg,webp}`], {events: [`all`]}, series(
       copyImg,
       reload
   ));
