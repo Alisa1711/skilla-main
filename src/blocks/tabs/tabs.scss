@@ -1,0 +1,29 @@
+.tabs {
+  &-nav {
+    position: relative;
+    display: flex;
+  }
+
+  &-item {
+    color: map-get($font-colors, secondary);
+    cursor: pointer;
+
+    &.active {
+      color: map-get($font-colors, base);
+    }
+  }
+
+  &-indicator {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 10px;
+    height: 7px;
+    background-color: map-get($colors, dark);
+    transition: map-get($transition, normal);
+  }
+
+  &-content-item {
+    display: none;
+  }
+}

@@ -1,0 +1,25 @@
+mixin cost(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' cost--' + modsList[i].trim();
+      }
+    }
+
+  .cost(class=allMods)&attributes(attributes)
+    .container
+      .tabs
+        .tabs-nav
+          .tabs-indicator
+          .tabs-item(data-content="#installment") Вкладка 1
+          .tabs-item(data-content="#entirely") ВкладкаВкладкаВкладка 2
+        .tabs-content
+          #installment.tabs-content-item Содержимое вкладки 1
+          #entirely.tabs-content-item Содержимое вкладки 2
