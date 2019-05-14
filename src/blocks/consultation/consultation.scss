@@ -1,0 +1,93 @@
+.consultation {
+  $avatar-margin: 24px;
+  $avatar-size: map-get($avatar-sizes, x-medium);
+
+  @include panel;
+  box-sizing: border-box;
+  padding-top: 40px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 40px;
+  text-align: center;
+
+  &__heading {
+    @include subtitle-2;
+    line-height: 1.3;
+  }
+
+  &__subheading {
+    @include body-2;
+    position: relative;
+    display: inline-block;
+    margin-top: 16px;
+    color: map-get($font-colors, secondary);
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 90px;
+      height: 1px;
+      background-color: rgba(#000000, 0.12);
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      left: -10px;
+      transform: translateX(-100%);
+    }
+
+    &::after {
+      right: -10px;
+      transform: translateX(100%);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -$avatar-margin + 16px;
+    margin-left: -$avatar-margin;
+  }
+
+  &__avatar {
+    margin-top: $avatar-margin;
+    margin-left: $avatar-margin;
+    min-width: $avatar-size;
+    width: $avatar-size;
+    height: $avatar-size;
+  }
+
+  &__button {
+    margin-top: 24px;
+  }
+
+  @include respond-to(medium) {
+    padding-top: 56px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 56px;
+  }
+
+  @include respond-to(large) {
+    padding-top: 72px;
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-bottom: 72px;
+    max-width: ($avatar-margin + $avatar-size) * 3;
+
+    &__subheading {
+      margin-top: 24px;
+    }
+
+    &__list {
+      margin-top: -$avatar-margin + 32px;
+    }
+
+    &__button {
+      margin-top: 48px;
+    }
+  }
+}

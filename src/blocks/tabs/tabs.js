@@ -1,35 +1,42 @@
 (function () {
 
-  const firstTabs = $(`.tabs .tabs-item:first`);
+  const resizeIndicator = (tab) => {
+    let tabPosition = tab.position();
+    let tabPositionLeft = tabPosition.left + parseInt(tab.css(`marginLeft`), 10);
+    let tabWidth = tab.innerWidth();
+
+    tab.siblings(`.tabs__indicator`).attr(`style`, `left:${tabPositionLeft}px; width:${tabWidth}px`);
+  };
 
   const setTabActive = (tab) => {
-    let tabs = tab.closest(`.tabs`);
     let contentID = tab.data(`content`);
-    let tabPosition = tab.position();
-    let tabWidth = `${tab.innerWidth()}px`;
+    let content = tab.closest(`.tabs`).find(contentID);
 
-    tab.siblings(`.tabs-item`).
+    tab.siblings(`.tabs__item`).
       removeClass(`active`).
       end().
       addClass(`active`);
 
-    tabs.find(`.tabs-indicator`).css({
-      'left': tabPosition.left,
-      'width': tabWidth
-    });
-
-    tabs.find(`.tabs-content`).children().slideUp({
-      duration: `fast`,
-      complete() {
-        tabs.find(contentID).slideDown(`fast`);
-      }
-    });
+    content.siblings(`.tabs__content-item`).
+      removeClass(`active`).
+      end().
+      addClass(`active`);
   };
 
-  setTabActive(firstTabs);
-
-  $(`.tabs-item`).on(`click`, function () {
+  $(`.tabs__item:first-child`).each(function () {
     setTabActive($(this));
+    resizeIndicator($(this));
+  });
+
+  $(window).on(`load resize`, () => {
+    $(`.tabs__item.active`).each(function () {
+      resizeIndicator($(this));
+    });
+  });
+
+  $(`.tabs__item`).on(`click`, function () {
+    setTabActive($(this));
+    resizeIndicator($(this));
   });
 
 })();

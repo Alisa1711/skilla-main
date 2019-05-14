@@ -1,29 +1,79 @@
 .tabs {
-  &-nav {
+  &__nav {
+    @include button-label;
     position: relative;
     display: flex;
+    justify-content: center;
+    border-bottom: $divider;
+    box-shadow: 0 1px 0 0 map-get($colors, light);
   }
 
-  &-item {
+  &__item {
+    flex-grow: 1;
+    padding-top: 1em;
+    padding-bottom: 1em;
     color: map-get($font-colors, secondary);
-    cursor: pointer;
+    text-align: center;
+    transition: map-get($transition, normal);
+
+    &:not(.active) {
+      cursor: pointer;
+    }
+
+    & + & {
+      margin-left: 1em;
+    }
+
+    &:hover {
+      color: map-get($font-colors, base);
+    }
 
     &.active {
       color: map-get($font-colors, base);
     }
   }
 
-  &-indicator {
+  &__indicator {
     position: absolute;
     left: 0;
     bottom: 0;
     width: 10px;
     height: 7px;
-    background-color: map-get($colors, dark);
-    transition: map-get($transition, normal);
+    background-color: map-get($colors, light);
+    border-radius: 4px;
+    box-shadow: map-get($shadows, tab-indicator);
+    transform: translateY(50%);
+    transition: map-get($transition, normal) ease-in-out;
   }
 
-  &-content-item {
+  &__content {
+    padding-top: 40px;
+  }
+
+  &__content-item {
     display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  @include respond-to(medium) {
+    &__nav {
+      justify-content: flex-start;
+    }
+
+    &__item {
+      flex-grow: 0;
+      text-align: left;
+
+      & + & {
+        margin-left: 3em;
+      }
+    }
+
+    &__content {
+      padding-top: 64px;
+    }
   }
 }

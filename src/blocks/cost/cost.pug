@@ -13,13 +13,42 @@ mixin cost(text, mods)
       }
     }
 
+    var tabs = [
+      {
+        title: "В рассрочку",
+        contentID: "installments"
+      },
+      {
+        title: "Целиком",
+        contentID: "entirely"
+      }
+    ]
+
+    var consultants = [
+      "img/avatar.jpg",
+      "img/avatar.jpg",
+      "img/avatar.jpg",
+      "img/avatar.jpg",
+      "img/avatar.jpg",
+      "img/avatar.jpg"
+    ]
+
   .cost(class=allMods)&attributes(attributes)
-    .container
-      .tabs
-        .tabs-nav
-          .tabs-indicator
-          .tabs-item(data-content="#installment") Вкладка 1
-          .tabs-item(data-content="#entirely") ВкладкаВкладкаВкладка 2
-        .tabs-content
-          #installment.tabs-content-item Содержимое вкладки 1
-          #entirely.tabs-content-item Содержимое вкладки 2
+    .container.cost__inner
+      .cost__content
+        h2.cost__heading Cтоимость курса
+        p.cost__descr К&nbsp;сожалению, количество мест в&nbsp;потоке ограничено, чтобы наши эксперты справлялись с&nbsp;проверкой домашних заданий. Вы&nbsp;можете записаться на&nbsp;курс заранее и&nbsp;оплатить его в&nbsp;течение месяца.
+        +tabs(tabs).cost__tabs
+          block
+          #installments.tabs__content-item
+            .cost__tab-installments
+              p.cost__price 4 000<sup>руб/мес</sup>
+              .cost__total
+                span.cost__total-title Общая стоимость
+                p.cost__total-price 16 000
+          #entirely.tabs__content-item
+            p.cost__price 16 000 <sup>руб</sup>
+        .cost__cta
+          +button("записаться на курс", "a")
+          p.cost__cta-descr в ближайшем потоке осталось 3 места
+      +consultation(consultants).cost__consultation

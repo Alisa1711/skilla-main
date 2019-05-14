@@ -1,0 +1,28 @@
+mixin tabs(tabs, mods)
+
+  //- Принимает:
+  //-   tabs    {array} - массив вкладок:
+  //-     title   {string} - название вкладки
+  //-     contentID {string} - id контента, который открывает вкладку
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' cost--' + modsList[i].trim();
+      }
+    }
+
+
+  .tabs(class=allMods)&attributes(attributes)
+    .tabs__nav
+      each tab in tabs
+        .tabs__item(data-content= '#' + tab.contentID) !{tab.title}
+      .tabs__indicator
+    .tabs__content
+      block
+      //- блок с содержимым всех вкладок вида
+      //- #contentID.tabs__content-item
+      //-   контент

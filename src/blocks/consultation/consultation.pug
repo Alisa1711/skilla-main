@@ -1,0 +1,22 @@
+mixin consultation(consultants, mods)
+
+  //- Принимает:
+  //-   consultants {array} - пути к фотографиям консультантов
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' consultation--' + modsList[i].trim();
+      }
+    }
+
+  .consultation(class=allMods)&attributes(attributes)
+    p.consultation__heading Появились вопросы по&nbsp;курсу?
+    p.consultation__subheading Кураторы
+    .consultation__list
+      each item in consultants
+        +avatar(item).consultation__avatar
+    +button("получить консультацию", "a", "secondary").consultation__button

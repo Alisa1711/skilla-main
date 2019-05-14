@@ -19,6 +19,15 @@
     box-shadow: map-get($shadows, button-pressed);
   }
 
+  &--secondary {
+    background-color: map-get($colors, dark);
+
+    &:hover {
+      background-color: darken(map-get($colors, dark), 10);
+      box-shadow: map-get($shadows, button-pressed);
+    }
+  }
+
   // адаптация
 
   @include respond-to(medium) {
