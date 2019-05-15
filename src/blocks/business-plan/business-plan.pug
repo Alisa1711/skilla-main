@@ -1,0 +1,26 @@
+mixin business-plan(tariffs= ["Эконом", "Мидл", "Премиум"], mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' business-plan--' + modsList[i].trim();
+      }
+    }
+
+  section.business-plan(class=allMods)&attributes(attributes)
+    .container.business-plan__inner
+      h2.business-plan__heading Бизнес-план вместо диплома
+      .business-plan__tariffs
+        each tariff in tariffs
+          .business-plan__tariffs-item
+            p.business-plan__tariffs-name !{tariff}
+            ul.business-plan__tariffs-descr
+              li Выручка 200 тыс. руб.
+              li Средняя окупаемость 10 мес.
+      p.business-plan__message В течение курса ты составишь индивидуальный бизнес-план для открытия своего кафе

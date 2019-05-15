@@ -1,0 +1,130 @@
+.business-plan {
+  padding-top: 48px;
+  padding-bottom: 250px;
+  text-align: center;
+  background-image: url("../img/business-plan__bg--small.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: auto 300px;
+
+  &__heading {
+    @include subtitle-2;
+  }
+
+  &__tariffs {
+    display: none;
+  }
+
+  &__message {
+    @include body-1;
+    position: relative;
+    margin-top: 0.5em;
+    padding-top: 2.5em;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2em;
+      height: 2em;
+      background-image: url("../img/check.svg");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: center center;
+      transform: translateX(-50%);
+    }
+  }
+
+  @include respond-to(medium) {
+    padding-top: 80px;
+    padding-bottom: 150px;
+    background-image: url("../img/business-plan__bg.png");
+    background-size: auto 400px;
+    background-position: right -150px bottom;
+    border-bottom: $divider;
+
+    &__heading {
+      @include headline-4;
+    }
+
+    &__tariffs {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+
+      &-name {
+        @include subtitle-3;
+      }
+
+      &-descr {
+        @include body-2;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: map-get($font-colors, secondary);
+      }
+    }
+
+    &__message {
+      @include subtitle-3;
+      margin-top: 80px;
+      padding-top: 0;
+      padding-left: 3em;
+      max-width: 400px;
+      text-align: left;
+
+      &::before {
+        left: 0;
+        transform: none;
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    padding-bottom: 96px;
+    text-align: left;
+    background-image: none;
+    background-color: map-get($colors, add-color-4);
+    border: none;
+
+    &__inner {
+      @include panel;
+      box-sizing: border-box;
+      padding-top: 120px;
+      padding-left: 160px;
+      padding-right: 160px;
+      padding-bottom: 160px;
+      min-height: 705px;
+      background-image: url("../img/business-plan__bg.png");
+      background-repeat: no-repeat;
+      background-position: right -200px bottom;
+    }
+
+    &__heading {
+      @include headline-3;
+    }
+
+    &__tariffs {
+      margin-top: 48px;
+
+      &-descr {
+        margin-top: 8px;
+      }
+    }
+
+    &__message {
+      @include subtitle-1;
+      margin-top: 96px;
+      padding-left: 0;
+      max-width: 500px;
+      line-height: 1.5;
+
+      &::before {
+        left: -2.5em;
+        width: 1.5em;
+        height: 1.5em;
+      }
+    }
+  }
+}
