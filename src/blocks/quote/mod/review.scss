@@ -1,0 +1,49 @@
+.quote--review {
+  @import "../variables.scss";
+
+  .quote {
+    &__text {
+      @include subtitle-3;
+    }
+  }
+
+  @include respond-to(medium) {
+    padding-top: map-get($avatar-sizes, x-large) / 2;
+
+    .quote {
+      position: relative;
+
+      &__inner {
+        &::before {
+          top: map-get($inner-padding-top, medium);
+          left: 0;
+          transform: translateX(-50%);
+        }
+      }
+
+      &__avatar {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: map-get($avatar-sizes, x-large);
+        border: 10px solid map-get($colors, light);
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    padding-top: map-get($avatar-sizes, x-large) / 2;
+
+    .quote {
+      &__inner {
+        padding-left: map-get($icon-sizes, large) / 2 + 24px;
+        padding-right: map-get($icon-sizes, large) / 2 + 24px;
+      }
+
+      &__text {
+        @include subtitle-3;
+      }
+    }
+  }
+}

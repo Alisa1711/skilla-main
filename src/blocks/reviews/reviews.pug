@@ -1,0 +1,36 @@
+mixin reviews(crowd=[], mods)
+
+  //- Принимает:
+  //-   crowd    {array} - массив с путями к автарам
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' reviews--' + modsList[i].trim();
+      }
+    }
+
+    var review = {
+      text: "Курс понравился. Был заложен фундамент, причём прочный. Главным плюсом является возможность практиковаться с полученными знаниями плюс наставник, который очень важен.",
+      descr: "предприниматель"
+    }
+
+  section.reviews(class=allMods)&attributes(attributes)
+    .container
+      h2.reviews__heading Курс прошли более 3000&nbsp;человек
+      .reviews__inner
+        +quote("review", review.text, name, review.descr).reviews__quote
+        .reviews__crowd
+          p.reviews__crowd-title 25% открыли свое кафе
+          .reviews__crowd-list
+            if crowd.length == 0
+              - for (var x = 0; x < 14; x++)
+                +avatar.reviews__avatar
+            else
+              each avatar in crowd
+                +avatar(avatar).reviews__avatar
+            .reviews__crowd-dots
+              span

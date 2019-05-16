@@ -1,0 +1,174 @@
+.reviews {
+  $avatar-margin: 24px;
+  $avatar-border: 6px;
+
+  @mixin dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  @mixin avatar {
+    @include outliner;
+    margin-top: $avatar-margin;
+    min-width: map-get($avatar-sizes, x-medium);
+    width: map-get($avatar-sizes, x-medium);
+    height: map-get($avatar-sizes, x-medium);
+  }
+
+  padding-bottom: 64px;
+
+  &__heading {
+    @include subtitle-2;
+    text-align: center;
+  }
+
+  &__quote {
+    margin-top: 16px;
+  }
+
+  &__crowd {
+    @include outliner;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &-title {
+      @include subtitle-3;
+      text-align: center;
+    }
+
+    &-list {
+      @include outliner;
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -$avatar-margin;
+      max-width: (map-get($avatar-sizes, x-medium) + $avatar-margin) * 3;
+    }
+
+    &-dots {
+      @include avatar;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 24px;
+
+      & span {
+        @include dot;
+        position: relative;
+        background-color: map-get($colors, accent);
+
+        &::before,
+        &::after {
+          @include dot;
+          content: "";
+          position: absolute;
+          background-color: inherit;
+        }
+
+        &::before {
+          left: -150%;
+        }
+
+        &::after {
+          right: -150%;
+        }
+      }
+    }
+  }
+
+  &__avatar {
+    @include avatar;
+    margin-left: 24px;
+  }
+
+  @include respond-to(medium) {
+    padding-top: 80px;
+    background-image: url("../img/reviews__bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__heading {
+      @include headline-4;
+      color: map-get($font-colors, base-light);
+    }
+
+    &__quote {
+      margin-top: 24px;
+    }
+
+    &__crowd {
+      &-title {
+        @include subtitle-1(false);
+        color: map-get($font-colors, base-light);
+      }
+
+      &-list {
+        max-width: initial;
+        margin-left: 0;
+      }
+
+      &-dots {
+        box-sizing: content-box;
+        border: $avatar-border solid transparent;
+
+        & span {
+          background-color: map-get($colors, light);
+          box-shadow: map-get($shadows, button);
+
+          &::before {
+            left: -200%;
+          }
+
+          &::after {
+            right: -200%;
+          }
+        }
+      }
+    }
+
+    &__avatar {
+      box-sizing: content-box;
+      border: $avatar-border solid map-get($colors, light);
+    }
+  }
+
+  @include respond-to(large) {
+    padding-bottom: 80px;
+
+    &__inner {
+      display: flex;
+      margin-top: 40px;
+    }
+
+    &__heading {
+      @include headline-3(false);
+    }
+
+    &__quote {
+      margin-top: 0;
+      min-width: 500px;
+      width: 500px;
+    }
+
+    &__crowd {
+      $crowd-list-width: (map-get($avatar-sizes, x-medium) + $avatar-margin + $avatar-border * 2) * 5;
+
+      display: block;
+      margin-top: map-get($avatar-sizes, x-large) / 2;
+      margin-left: auto;
+      width: $crowd-list-width - $avatar-margin;
+
+      &-title {
+        text-align: left;
+      }
+
+      &-list {
+        margin-left: -$avatar-margin;
+        width: $crowd-list-width;
+      }
+    }
+  }
+}
