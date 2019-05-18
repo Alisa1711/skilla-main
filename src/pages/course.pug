@@ -1,5 +1,14 @@
 extends ../pug/layout.pug
 
+block vars
+  -
+    var youCanData = [
+    {title: "Открыть свое кафе", descr: paragraph},
+    {title: "Привлечь инвесторов", descr: paragraph},
+    {title: "Повысить эффективность своего кафе", descr: paragraph},
+    {title: "Расширить свой бизнес", descr: paragraph}
+    ]
+
 block title
   title Главная
 
@@ -12,5 +21,6 @@ block content
   +program
   +teachers
   +how-it-works
+  +you-can(youCanData)
   +reviews
   +cost

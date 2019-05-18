@@ -1,0 +1,129 @@
+.you-can {
+  $bg-height: 320px;
+  $bg-bottom: - $bg-height / 3;
+
+  padding-top: 48px;
+  padding-bottom: 2 * $bg-height / 3 + 24px;
+  color: map-get($font-colors, base-light);
+  background-color: map-get($colors, dark);
+  background-image: url("../img/you-can__bg.svg");
+  background-repeat: no-repeat;
+  background-size: auto $bg-height;
+  background-position: center bottom $bg-bottom;
+
+  &__heading {
+    @include subtitle-2;
+    text-align: center;
+  }
+
+  &__list {
+    @include body-2;
+    margin-top: 16px;
+  }
+
+  &__item {
+    position: relative;
+    padding-top: 1em;
+    padding-right: 1.5em;
+    padding-bottom: 1em;
+    border-bottom: $divider-light;
+    transition: map-get($transition, medium);
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 1em;
+      height: 2px;
+      background-color: map-get($colors, light);
+      opacity: 0.5;
+      transition: map-get($transition, normal);
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.54);
+
+      &::before,
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &.active {
+      border-bottom: none;
+
+      &::after {
+        transform: none;
+      }
+
+      &:hover {
+        color: map-get($font-colors, secondary-light);
+      }
+    }
+  }
+
+  &__descr {
+    display: none;
+    margin: 0;
+    padding-bottom: 1.5em;
+    color: map-get($font-colors, secondary-light);
+    border-bottom: $divider-light;
+  }
+
+  &__text {
+    margin: 0;
+
+    & + & {
+      margin-top: 1em;
+    }
+  }
+
+  @include respond-to(medium) {
+    $bg-height: 480px;
+    $bg-bottom: - $bg-height / 3;
+
+    padding-bottom: 2 * $bg-height / 3 + 24px;
+    background-size: auto $bg-height;
+    background-position: center bottom $bg-bottom;
+
+    &__heading {
+      @include headline-4;
+      text-align: left;
+    }
+
+    &__list {
+      @include body-1;
+      margin-top: 24px;
+    }
+  }
+
+  @include respond-to(large) {
+    $bg-height: 480px;
+
+    padding-top: 64px;
+    padding-bottom: 64px;
+    background-image: none;
+
+    &__inner {
+      box-sizing: border-box;
+      padding-top: 40px;
+      padding-right: $bg-height + 40px;
+      min-height: $bg-height;
+      background-image: url("../img/you-can__bg.svg");
+      background-repeat: no-repeat;
+      background-position: top right;
+      background-size: auto $bg-height;
+    }
+
+    &__heading {
+      @include headline-3;
+    }
+  }
+}

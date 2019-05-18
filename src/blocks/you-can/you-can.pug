@@ -1,0 +1,25 @@
+mixin you-can(data, mods)
+
+  //- Принимает:
+  //-   {array} - пункты
+  //-     title {sting} - заголовок
+  //-     descr {string} - описание
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' you-can--' + modsList[i].trim();
+      }
+    }
+
+  section.you-can(class=allMods)&attributes(attributes)
+    .container.you-can__inner
+      h2.you-can__heading Ты сможешь
+      dl.you-can__list
+        each item in data
+          dt.you-can__item !{item.title}
+          dd.you-can__descr
+            p.you-can__text !{item.descr}
