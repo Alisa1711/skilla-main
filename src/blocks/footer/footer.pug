@@ -1,7 +1,7 @@
-mixin footer(text, mods)
+mixin footer(data, mods)
 
   //- Принимает:
-  //-   text    {string} - текст
+  //-   data    {array} - список сслылок
   //-   mods    {string} - список модификаторов
   -
     // список модификаторов
@@ -14,4 +14,27 @@ mixin footer(text, mods)
     }
 
   footer.footer(class=allMods)&attributes(attributes)
-    p= text
+    .container.footer__top
+      .footer__menu
+        p.footer__menu-title Курсы Skilla
+        .footer__menu-group
+          nav.footer__menu-list
+            - for (var i = 0; i < 5; i++)
+              a.footer__menu-link(href="javascipt:void(0);") !{data[i]}
+          nav.footer__menu-list
+            - for (var i = 5; i < 10; i++)
+              a.footer__menu-link(href="javascipt:void(0);") !{data[i]}
+      .footer__info
+        a.footer__phone(href="tel:78008107677") 8 800 810-76-77
+        p.footer__phone-caption бесплатно по России
+        p.footer__address г.&nbsp;Москва, метро&nbsp;Бауманская, ул.&nbsp;Бауманская, дом&nbsp;11, строение&nbsp;8, офис&nbsp;4
+    .footer__bottom
+      .container.footer__bottom-inner
+        .footer__bottom-left
+          a.footer__job(href="javascipt:void(0);") Работа у нас
+          p.footer__copyright Skilla © 2019
+        .footer__social
+          a.footer__social-item(href="javascipt:void(0);")
+            +icon("instagram", "active,size_xlg").footer__social-icon
+          a.footer__social-item(href="javascipt:void(0);")
+            +icon("vkonakte", "active,size_xlg").footer__social-icon

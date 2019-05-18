@@ -150,6 +150,7 @@
   &__fav {
     @include container;
     margin-top: 3em;
+    padding-bottom: 3em;
   }
 
   &__fav-title {

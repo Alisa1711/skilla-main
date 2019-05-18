@@ -1,0 +1,9 @@
+@mixin footer-link {
+  color: inherit;
+  text-decoration: none;
+  transition: map-get($transition, normal);
+
+  &:hover {
+    color: map-get($font-colors, base);
+  }
+}

@@ -1,0 +1,26 @@
+mixin short-footer(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' footer--' + modsList[i].trim();
+      }
+    }
+
+  footer.short-footer(class=allMods)&attributes(attributes)
+      .container.short-footer__inner
+        p.short-footer__copyright Skilla © 2019
+        .short-footer__info
+          a.short-footer__phone(href="tel:78008107677") 8 800 810-76-77
+          p.short-footer__phone-caption бесплатно по России
+        p.short-footer__address г.&nbsp;Москва, метро&nbsp;Бауманская, ул.&nbsp;Бауманская, дом&nbsp;11, строение&nbsp;8, офис&nbsp;4
+        .short-footer__social
+          a.short-footer__social-item(href="javascipt:void(0);")
+            +icon("instagram", "active,size_xlg").short-footer__social-icon
+          a.short-footer__social-item(href="javascipt:void(0);")
+            +icon("vkonakte", "active,size_xlg").short-footer__social-icon

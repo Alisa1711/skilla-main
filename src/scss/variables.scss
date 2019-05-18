@@ -33,13 +33,16 @@ $font-colors: (
 );
 
 $icon-colors: (
-  inactive: rgba(map-get($colors, dark), 0.38)
+  inactive: rgba(map-get($colors, dark), 0.38),
+  active: rgba(map-get($colors, dark), 0.54),
+  focus: rgba(map-get($colors, dark), 0.87)
 );
 
 $icon-sizes: (
   small: 16px,
   medium: 24px,
-  large: 32px
+  large: 32px,
+  x-large: 40px
 );
 
 $shadows: (
@@ -69,8 +72,6 @@ $preview-img-height: (
 );
 
 $preview-width: 350px;
-
-// Breakpoints. Все стили для модильного по умолчанию. Дальше определяются стили для планшета, затем для десктопа. Если нужно переопределить стиль для декстопа, который такой же, как на мобильном, то переопределяем. Без экономии на спичках.
 
 $breakpoints: (
   medium: 768px,

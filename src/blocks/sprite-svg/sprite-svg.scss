@@ -7,9 +7,14 @@
   height: map-get($icon-sizes, medium);
   fill: map-get($icon-colors, inactive);
 
-  // Цвет
+  &--active {
+    fill: map-get($icon-colors, active);
+    transition: map-get($transition, medium);
 
-  //
+    &:hover {
+      fill: map-get($icon-colors, focus);
+    }
+  }
 
   // Размер
 
@@ -21,5 +26,10 @@
   &--size_lg {
     width: map-get($icon-sizes, large);
     height: map-get($icon-sizes, large);
+  }
+
+  &--size_xlg {
+    width: map-get($icon-sizes, x-large);
+    height: map-get($icon-sizes, x-large);
   }
 }

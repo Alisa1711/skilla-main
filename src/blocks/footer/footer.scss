@@ -1,5 +1,156 @@
 .footer {
-  padding: 10px;
-  color: #ffffff;
-  background-color: #000000;
+  color: map-get($font-colors, secondary);
+  background-color: map-get($colors, neutral);
+
+  &__top {
+    padding-top: 32px;
+    padding-bottom: 40px;
+    text-align: center;
+  }
+
+  &__menu {
+    display: none;
+  }
+
+  &__phone {
+    @include footer-link;
+    @include subtitle-1;
+    color: map-get($font-colors, base);
+
+    &-caption {
+      @include body-2;
+    }
+  }
+
+  &__address {
+    @include body-2;
+    margin-top: 16px;
+  }
+
+  &__bottom {
+    background-color: darken(map-get($colors, neutral), 5);
+    border-top: $divider;
+
+    &-inner {
+      display: flex;
+      align-items: center;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+  }
+
+  &__job {
+    @include footer-link;
+    @include body-2;
+    display: block;
+  }
+
+  &__copyright {
+    @include body-2;
+    margin-top: 8px;
+  }
+
+  &__social {
+    margin-left: auto;
+
+    &-item {
+      margin-left: 16px;
+    }
+  }
+
+  @include respond-to(medium) {
+    &__top {
+      padding-top: 40px;
+      padding-bottom: 56px;
+    }
+
+    &__phone {
+      @include headline-4;
+    }
+
+    &__bottom {
+      &-left {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &__job {
+      display: flex;
+      align-items: center;
+
+      &::before {
+        content: "";
+        display: block;
+        margin-right: 8px;
+        width: 44px;
+        height: 66px;
+        background-image: url("../img/footer__job.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    &__copyright {
+      margin-top: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @include respond-to(large) {
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 64px;
+      padding-bottom: 80px;
+      text-align: left;
+    }
+
+    &__menu {
+      display: block;
+
+      &-title {
+        @include subtitle-2;
+        color: map-get($font-colors, base);
+      }
+
+      &-group {
+        display: flex;
+        margin-top: 16px;
+      }
+
+      &-list {
+        & + & {
+          margin-left: 64px;
+        }
+      }
+
+      &-link {
+        @include footer-link;
+        @include body-2;
+        display: block;
+        max-width: 25em;
+
+        & + & {
+          margin-top: 8px;
+        }
+      }
+    }
+
+    &__info {
+      width: 300px;
+    }
+
+    &__phone {
+      &-caption {
+        margin-top: 8px;
+      }
+    }
+
+    &__address {
+      margin-top: 24px;
+    }
+  }
 }
