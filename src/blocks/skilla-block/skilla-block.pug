@@ -1,0 +1,30 @@
+mixin skilla-block(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' skilla-block--' + modsList[i].trim();
+      }
+    }
+
+  section.skilla-block(class=allMods)&attributes(attributes)
+    .container.skilla-block__inner
+      .skilla-block__info
+        h2.skilla-block__heading
+          span.visually-hidden Skilla — бизнес для каждого
+          +logo("logo-full").skilla-block__logo
+        p.skilla-block__descr Мы&nbsp;обучаем предпринимателей и&nbsp;даем им&nbsp;мощный инструмент для развития бизнеса
+      .skilla-block__video
+        iframe(
+          src="https://www.youtube.com/embed/X_SgCnmqRD4"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          webkitallowfullscreen=""
+          mozallowfullscreen=""
+          allowfullscreen="")

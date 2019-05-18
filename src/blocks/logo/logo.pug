@@ -1,0 +1,20 @@
+mixin logo(type= "logo", mods)
+
+  //- Принимает:
+  //-   type    {"logo", "logo-full"} - логотип обычный или с товарным знаком
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +icon('face')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' logo--' + modsList[i].trim();
+      }
+    }
+
+  svg.logo(class=allMods)&attributes(attributes)
+    use(xlink:href='#' + type)
