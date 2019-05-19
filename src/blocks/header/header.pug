@@ -1,7 +1,7 @@
-mixin header(text, mods)
+mixin header(type="default", mods)
 
   //- Принимает:
-  //-   text    {string} - текст
+  //-   type    {"default"}, {"course"} - тип header'а
   //-   mods    {string} - список модификаторов
   -
     // список модификаторов
@@ -14,4 +14,26 @@ mixin header(text, mods)
     }
 
   header.header(class=allMods)&attributes(attributes)
-    p= text
+    .container.header__inner
+      a.header__logo(href="javascript:void(0)" title="Skilla")
+        +logo.header__logo-svg
+      p.header__slogan Онлайн-школа бизнеса
+
+      if type === "course"
+        +geo.header__geo
+
+      if type === "default"
+        button.header__button.header__button--label.header__catalog(data-modal="courses-menu")
+          +icon("catalog", "active")
+          |Курсы
+
+      a.header__phone(href="javascript:void(0)")
+        +icon("phone", "active")
+        span.header__phone-number 8 800 555-86-28
+
+      if type === "course"
+        button.header__button.header__burger(data-modal="page-menu")
+          +icon("burger", "active")
+
+      button.header__button.header__account(data-modal="login")
+        +icon("account", "active")

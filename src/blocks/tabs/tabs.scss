@@ -41,7 +41,7 @@
     height: 7px;
     background-color: map-get($colors, light);
     border-radius: 4px;
-    box-shadow: map-get($shadows, tab-indicator);
+    box-shadow: map-get($shadows, closest);
     transform: translateY(50%);
     transition: map-get($transition, normal) ease-in-out;
   }
