@@ -1,9 +1,10 @@
-mixin button(label, link, mods)
+mixin button(label="", mods="", icon, tag="a")
 
   //- Принимает:
-  //-   label    {string} - надпись на кнопке
-  //-   link    {'link'} - является ли кнопка ссылкой
+  //-   label  {string} - надпись
   //-   mods    {string} - список модификаторов
+  //-   icon    {string} - id иконки
+  //-   tag    {string} - тег кнопки
   -
     // список модификаторов
     var allMods = '';
@@ -14,9 +15,13 @@ mixin button(label, link, mods)
       }
     }
 
-  if (link)
-    a.button(class=allMods href="javasript:void(0)")&attributes(attributes)
+  if tag === "button"
+    button.button(class=allMods)&attributes(attributes)
+      if icon
+        +icon(icon)
       = label
-  else
-    button.button(class=allMods type="button")&attributes(attributes)
+  if tag === "a"
+    a.button(class=allMods href="javasript:void(0)")&attributes(attributes)
+      if icon
+        +icon(icon)
       = label

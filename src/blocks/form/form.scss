@@ -1,0 +1,24 @@
+.form {
+  &__title {
+    @include subtitle-3;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+
+    .form__title + & {
+      margin-top: 16px;
+    }
+
+    &-input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &-button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}

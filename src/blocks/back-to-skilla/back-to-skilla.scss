@@ -1,0 +1,27 @@
+.back-to-skilla {
+  @include button-reset;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 16px;
+  left: 16px;
+  z-index: 1;
+
+  &__arrow {
+    fill: map-get($colors, dark);
+  }
+
+  &__logo {
+    display: none;
+  }
+
+  @include respond-to(medium) {
+    &__logo {
+      display: block;
+      margin-left: 8px;
+      margin-bottom: 8px;
+      width: 80px;
+      height: 30px;
+    }
+  }
+}

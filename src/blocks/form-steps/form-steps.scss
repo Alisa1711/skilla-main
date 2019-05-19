@@ -1,0 +1,21 @@
+.form-steps {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  display: flex;
+
+  &__step {
+    width: 32px;
+    height: 4px;
+    background-color: map-get($colors, add-color-4);
+    border-radius: $border-radius;
+
+    & + & {
+      margin-left: 4px;
+    }
+
+    &.active {
+      background-color: map-get($colors, add-color-3);
+    }
+  }
+}

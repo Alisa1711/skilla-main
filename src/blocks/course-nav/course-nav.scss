@@ -12,7 +12,7 @@
   max-width: 70%;
   max-height: 100vh;
   background-color: map-get($colors, light);
-  box-shadow: map-get($shadows, modal-down);
+  box-shadow: map-get($shadows, modal);
   overflow: auto;
   z-index: 3000;
 

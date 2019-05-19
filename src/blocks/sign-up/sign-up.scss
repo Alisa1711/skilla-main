@@ -1,0 +1,90 @@
+.sign-up {
+  display: none;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: map-get($colors, light);
+  z-index: 3000;
+
+  &__message {
+    display: none;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 64px;
+    padding-bottom: 40px;
+    width: 90%;
+    height: 100%;
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+
+  &__people-counter {
+    display: none;
+  }
+
+  &__form {
+    margin-top: 56px;
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+
+    &-inner {
+      order: -1;
+    }
+
+    &-descr {
+      @include body-2;
+      margin-top: 8px;
+      color: map-get($font-colors, secondary);
+    }
+
+    &-summ {
+      @include subtitle-1;
+
+      & sup {
+        @include body-2;
+      }
+    }
+
+    &-total {
+      @include body-2;
+    }
+  }
+
+  @include respond-to(medium) {
+    background-color: transparent;
+    background-image: map-get($gradients, overlay);
+
+    &__messages {
+      display: block;
+    }
+
+    &__content {
+      width: 100%;
+      height: initial;
+      background-color: map-get($colors, light);
+
+      &__inner {
+        margin-left: auto;
+        margin-right: auto;
+        width: 720px;
+      }
+    }
+  }
+}

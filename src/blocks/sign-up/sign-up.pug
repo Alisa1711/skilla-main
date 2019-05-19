@@ -1,0 +1,40 @@
+mixin sign-up(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' sign-up-course--' + modsList[i].trim();
+      }
+    }
+
+  #sign-up-course.sign-up.modal(class=allMods)&attributes(attributes)
+    +back-to-skilla
+    .sign-up__message
+      p.sign-up__step
+        |Запустить
+        |
+        span.sign-up__message-accent салон красоты
+        |
+        |со Skilla проще и дешевле
+    .sign-up__content
+      .sign-up__content__inner
+        p.sign-up__people-counter уже записалось 124 человека
+        +form-steps(2)
+        +form-author
+        form.form.sign-up__form(name="sign-up-course" method="get" action="")
+          .form__step
+            .form__title Как тебя зовут?
+            .form__row
+              input.input(placeholder="Твое имя").form__row-input
+              +button(label, "icon", "arrow-forward").form__row-button
+        .sign-up__price
+          p.sign-up__price-descr оплатить курс можно сразу после завершения регистрации или после уточнения деталей с&nbsp;менеджером курсов
+          .sign-up__price-inner
+            p.sign-up__price-summ 4000 <sup>руб/мес</sup>
+            p.sign-up__price-total Общая стоимость 16 000 руб.

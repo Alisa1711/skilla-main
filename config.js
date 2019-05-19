@@ -9,7 +9,8 @@ let config = {
     `text`,
     `sprite-svg`,
     `link`,
-    `post-stat`
+    `post-stat`,
+    `input`
     // 'sprite-png',
   ],
   'addStyleBefore': [

@@ -1,0 +1,35 @@
+.form-author {
+  display: flex;
+  align-items: center;
+
+  &__avatar {
+    max-width: map-get($avatar-sizes, x-small);
+    width: map-get($avatar-sizes, x-small);
+    height: map-get($avatar-sizes, x-small);
+  }
+
+  &__inner {
+    margin-left: 8px;
+  }
+
+  &__name {
+    @include body-2;
+  }
+
+  &__descr {
+    @include body-2;
+    color: map-get($font-colors, secondary);
+  }
+
+  @include respond-to(medium) {
+    &__avatar {
+      max-width: map-get($avatar-sizes, medium);
+      width: map-get($avatar-sizes, medium);
+      height: map-get($avatar-sizes, medium);
+    }
+
+    &__inner {
+      margin-left: 16px;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.input {
+  @include body-1(false);
+  box-sizing: border-box;
+  padding-left: 16px;
+  width: 100%;
+  height: 56px;
+  -webkit-appearance: none;
+  background-color: map-get($colors, neutral);
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: map-get($shadows, button);
+
+  &::placeholder {
+    color: map-get($font-colors, inactive);
+  }
+}

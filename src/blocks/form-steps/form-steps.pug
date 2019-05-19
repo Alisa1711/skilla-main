@@ -1,0 +1,18 @@
+mixin form-steps(count, mods)
+
+  //- Принимает:
+  //-   count    {number} - количество шагов
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' form-steps--' + modsList[i].trim();
+      }
+    }
+
+  .form-steps(class=allMods)&attributes(attributes)
+    - for (var i = 0; i < count; i++)
+      span.form-steps__step

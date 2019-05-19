@@ -1,0 +1,23 @@
+mixin form-author(author={src:"img/alexandra-tuzova.jpg", name:"Александра Тузова", descr:"преводаватель курса"}, mods)
+
+  //- Принимает:
+  //-   author    {object}
+  //-     src {string} - путь к фотографии
+  //-     name {string} - имя
+  //-     descr {string} - декскриптор
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' form-author--' + modsList[i].trim();
+      }
+    }
+
+  .form-author(class=allMods)&attributes(attributes)
+    +avatar(author.src).form-author__avatar
+    .form-author__inner
+      p.form-author__name !{author.name}
+      p.form-author__descr !{author.descr}

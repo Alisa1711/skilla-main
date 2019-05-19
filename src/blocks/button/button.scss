@@ -28,6 +28,20 @@
     }
   }
 
+  &--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+
+    .icon {
+      min-width: 24px;
+      min-height: 24px;
+      fill: map-get($colors, light);
+    }
+  }
+
   // адаптация
 
   @include respond-to(medium) {

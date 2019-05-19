@@ -22,5 +22,5 @@ mixin course-nav(data, mods)
         each item in data
           a.course-nav__link(href=item.id) !{item.title}
       .course-nav__cta
-        +button("Записаться на курс", "a")
+        +button("Записаться на курс")
         a.link.course-nav__consult(href="javascript:void(0);") Получить консультацию
