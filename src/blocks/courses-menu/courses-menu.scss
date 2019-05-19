@@ -1,0 +1,69 @@
+.courses-menu {
+  box-sizing: border-box;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-height: 100vh;
+  background-color: map-get($colors, light);
+  box-shadow: map-get($shadows, modal-down);
+  overflow: auto;
+  z-index: 3000;
+
+  &__inner {
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+
+  &__close {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+  }
+
+  &__link {
+    @include body-1-small;
+    display: block;
+    margin-top: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: map-get($transition, medium);
+
+    &:hover {
+      color: map-get($colors, add-color-3);
+    }
+  }
+
+  @include respond-to(medium) {
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 56px;
+      padding-bottom: 72px;
+    }
+
+    &__close {
+      top: 40px;
+      right: 40px;
+    }
+  }
+
+  @include respond-to(large) {
+    padding-top: 64px;
+    padding-bottom: 80px;
+    background-image: url("../img/courses-menu__bg.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &__inner {
+      box-sizing: border-box;
+      padding-left: 400px;
+    }
+
+    &__link {
+      @include body-1(false);
+    }
+  }
+}

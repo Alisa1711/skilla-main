@@ -1,0 +1,24 @@
+mixin courses-menu(data, mods)
+
+  //- Принимает:
+  //-   data    {array} - список курсов
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' courses-menu--' + modsList[i].trim();
+      }
+    }
+
+  #courses-menu.courses-menu.modal(class=allMods)&attributes(attributes)
+    +icon("close", "active,size_lg").courses-menu__close.modal-close
+    .container.courses-menu__inner
+      nav.courses-menu__list
+        - for (var i = 0; i < 5; i++)
+          a.courses-menu__link(href="javascipt:void(0);") !{data[i]}
+      nav.courses-menu__list
+        - for (var i = 5; i < 10; i++)
+          a.courses-menu__link(href="javascipt:void(0);") !{data[i]}

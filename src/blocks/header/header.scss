@@ -64,6 +64,7 @@
   }
 
   &__catalog {
+    margin-left: 24px;
     transition: map-get($transition, medium);
 
     &:hover {

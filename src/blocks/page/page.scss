@@ -21,6 +21,15 @@
     flex-grow: 1;
   }
 
+  .modal-opened {
+    overflow: hidden;
+
+    @media screen and (max-width: map-get($breakpoints, medium) - 1) {
+      width: 100%;
+      position: fixed;
+    }
+  }
+
   .visually-hidden:not(:focus):not(:active),
   input[type="checkbox"].visually-hidden,
   input[type="radio"].visually-hidden {

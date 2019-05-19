@@ -29,7 +29,9 @@ html(lang="ru" class="page")
     .main(class=article ? "article" : "")
       block content
     block footer
-      +footer(footerList)
+      +footer(coursesList)
+    block modals
+      .overlay
     block page-bottom
       .svg-sprite
         include ../blocks/sprite-svg/img/sprite.svg

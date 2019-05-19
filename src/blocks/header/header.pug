@@ -23,7 +23,7 @@ mixin header(type="default", mods)
         +geo.header__geo
 
       if type === "default"
-        button.header__button.header__button--label.header__catalog(data-modal="courses-menu")
+        button.header__button.header__button--label.header__catalog(class="modal-trigger" data-modal="#courses-menu")
           +icon("catalog", "active")
           |Курсы
 
@@ -32,8 +32,8 @@ mixin header(type="default", mods)
         span.header__phone-number 8 800 555-86-28
 
       if type === "course"
-        button.header__button.header__burger(data-modal="page-menu")
+        button.header__button.header__burger(class="modal-trigger" data-modal="#page-menu")
           +icon("burger", "active")
 
-      button.header__button.header__account(data-modal="login")
+      button.header__button.header__account(class="modal-trigger" data-modal="#login")
         +icon("account", "active")
