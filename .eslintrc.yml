@@ -17,5 +17,7 @@ rules:
 
 globals:
   mediaQuery: readonly
+  closeModal: readonly
+  scrollTop: writable
 
 extends: 'htmlacademy/es6'

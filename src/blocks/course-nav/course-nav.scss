@@ -1,0 +1,66 @@
+.course-nav {
+  box-sizing: border-box;
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 56px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 56px;
+  max-width: 70%;
+  max-height: 100vh;
+  background-color: map-get($colors, light);
+  box-shadow: map-get($shadows, modal-down);
+  overflow: auto;
+  z-index: 3000;
+
+  &__close {
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__cta {
+    margin-top: auto;
+    text-align: center;
+  }
+
+  &__link {
+    @include small-caps;
+    display: block;
+    margin-top: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: map-get($transition, normal);
+
+    &:hover,
+    &.active {
+      color: map-get($colors, add-color-3);
+    }
+  }
+
+  &__consult {
+    display: block;
+    margin-top: 16px;
+  }
+
+  @include respond-to(medium) {
+    padding-top: 72px;
+    padding-bottom: 72px;
+    width: 350px;
+
+    &__link {
+      margin-top: 24px;
+    }
+  }
+}

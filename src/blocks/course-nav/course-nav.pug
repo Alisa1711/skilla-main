@@ -1,0 +1,26 @@
+mixin course-nav(data, mods)
+
+  //- Принимает:
+  //-   data    {array} - массив объектов пунктов меню
+  //-     title {string} - название пункта меню
+  //-     id  {#string} - id блока до которого скроллит пункт
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' course-nav--' + modsList[i].trim();
+      }
+    }
+
+  #course-nav.course-nav.modal(class=allMods)&attributes(attributes)
+    +icon("close", "active,size_lg").course-nav__close.modal-close
+    .course-nav__inner
+      nav.course-nav__list
+        each item in data
+          a.course-nav__link(href=item.id) !{item.title}
+      .course-nav__cta
+        +button("Записаться на курс", "a")
+        a.link.course-nav__consult(href="javascript:void(0);") Получить консультацию
