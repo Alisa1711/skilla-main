@@ -3,9 +3,14 @@
     @include subtitle-3;
   }
 
+  &__step {
+    display: none;
+  }
+
   &__row {
     display: flex;
     align-items: center;
+    max-width: 456px;
 
     .form__title + & {
       margin-top: 16px;
@@ -19,6 +24,22 @@
     &-button {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+    }
+  }
+
+  &__hint {
+    @include body-2;
+    margin-top: 8px;
+    color: map-get($font-colors, secondary);
+  }
+
+  @include respond-to(medium) {
+    &__title {
+      @include headline-4;
+    }
+
+    &__hint {
+      margin-top: 16px;
     }
   }
 }

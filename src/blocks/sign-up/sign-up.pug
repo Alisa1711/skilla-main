@@ -14,27 +14,45 @@ mixin sign-up(text, mods)
     }
 
   #sign-up-course.sign-up.modal(class=allMods)&attributes(attributes)
-    +back-to-skilla
-    .sign-up__message
-      p.sign-up__step
-        |Запустить
-        |
-        span.sign-up__message-accent салон красоты
-        |
-        |со Skilla проще и дешевле
-    .sign-up__content
-      .sign-up__content__inner
-        p.sign-up__people-counter уже записалось 124 человека
-        +form-steps(2)
-        +form-author
-        form.form.sign-up__form(name="sign-up-course" method="get" action="")
-          .form__step
-            .form__title Как тебя зовут?
-            .form__row
-              input.input(placeholder="Твое имя").form__row-input
-              +button(label, "icon", "arrow-forward").form__row-button
-        .sign-up__price
-          p.sign-up__price-descr оплатить курс можно сразу после завершения регистрации или после уточнения деталей с&nbsp;менеджером курсов
-          .sign-up__price-inner
-            p.sign-up__price-summ 4000 <sup>руб/мес</sup>
-            p.sign-up__price-total Общая стоимость 16 000 руб.
+    .sign-up__inner
+      +back-to-skilla.sign-up__back
+      .sign-up__overlay
+        p.sign-up__message
+          |Запустить
+          |
+          span.sign-up__message-accent салон красоты
+          |
+          |со&nbsp;Skilla проще и&nbsp;дешевле
+      .sign-up__content
+        img.sign-up__clouds(src="img/sign-up__clouds.svg")
+        .sign-up__content-inner
+          .sign-up__content-top
+            p.sign-up__people-counter уже записалось 124 человека
+            +form-steps(2).sign-up__form-steps
+          +form-author.sign-up__author
+          form.form.sign-up__form(name="sign-up-course" method="get" action="")
+            .form__step
+              .form__title Как тебя зовут?
+              .form__row
+                input.input(placeholder="Твое имя").form__row-input
+                +button(label, "icon", "arrow-forward").form__row-button(name="next")
+            .form__step
+              .form__title Вася, оставь телефон для связи
+              .form__row
+                input.input(type="tel" placeholder="+7(").form__row-input
+                +button("Записаться", mods, icon=false, "button").form__row-button(name="next")
+              p.form__hint На этот номер придет пароль от твоего кабинета
+            .form__step
+              .form__title
+                |Спасибо!
+                br
+                |Введи пароль из SMS
+              .form__row
+                input.input(type="password" placeholder="********").form__row-input
+                +button("Войти").form__row-button
+              p.form__hint Не пришел пароль? <a class="link" href="javascript:void(0)">Отправить еще раз</a>
+          .sign-up__price
+            p.sign-up__price-descr оплатить курс можно сразу после завершения регистрации или после уточнения деталей с&nbsp;менеджером курсов
+            .sign-up__price-inner
+              p.sign-up__price-summ 4000<sup>руб/мес</sup>
+              p.sign-up__price-total Общая стоимость 16 000 руб.
