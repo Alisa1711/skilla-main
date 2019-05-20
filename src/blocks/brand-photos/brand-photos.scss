@@ -1,0 +1,26 @@
+.brand-photos {
+  display: flex;
+  height: 320px;
+  overflow-x: hidden;
+
+  &__img {
+    min-width: 100%;
+    object-fit: cover;
+  }
+
+  @include respond-to(medium) {
+    height: 500px;
+  }
+
+  @include respond-to(large) {
+    justify-content: center;
+
+    &__img {
+      min-width: initial;
+
+      & + & {
+        margin-left: 4px;
+      }
+    }
+  }
+}

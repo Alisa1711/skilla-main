@@ -1,0 +1,18 @@
+mixin brand-photos(data=["img/brand-photos__goneli-01.jpg", "img/brand-photos__goneli-02.jpg", "img/brand-photos__goneli-03.jpg"], mods)
+
+  //- Принимает:
+  //-   data    {array} - пути к фотографиям
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' brand-photos--' + modsList[i].trim();
+      }
+    }
+
+  section.brand-photos(class=allMods)&attributes(attributes)
+    each photo in data
+      img.brand-photos__img(src=photo)
