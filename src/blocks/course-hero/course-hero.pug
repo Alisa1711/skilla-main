@@ -25,16 +25,15 @@ mixin course-hero(text, mods)
             src="https://www.youtube.com/embed/X_SgCnmqRD4"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            webkitallowfullscreen=""
-            mozallowfullscreen=""
-            allowfullscreen="")
+            webkitallowfullscreen=true
+            mozallowfullscreen=true
+            allowfullscreen=true)
         .course-hero__info
           p.course-hero__author-name Александра Тузова
           p.course-hero__author-descr в семейном бизнесе  с 12 лет владелец кафе Goneli Daily, совладелец ресторана «Садахар» и производства продуктов шоковой заморозки.
           .course-hero__logos
             img.course-hero__logo(src="img/course-logo-01.svg" alt="Goneli Daily")
             img.course-hero__logo(src="img/course-logo-02.svg" alt="Садахар")
-      .course-hero__bottom
-        +button("записаться на курс")
-        hr.divider.course-hero__divider
-        a.link.link--button(href="javascript:void(0);").course-hero__link Получить консультацию
+          .course-hero__bottom
+            +button("записаться на курс")
+            a.link.link--button.link--color_secondary(href="javascript:void(0);").course-hero__link Получить консультацию

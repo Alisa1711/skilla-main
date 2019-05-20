@@ -10,4 +10,8 @@
   &--button {
     @include button-label;
   }
+
+  &--color_secondary {
+    color: map-get($font-colors, secondary);
+  }
 }

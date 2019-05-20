@@ -80,22 +80,9 @@
   @include respond-to(medium) {
     padding-top: 64px;
     padding-bottom: 80px;
-    background-image:
-      url("../img/sparkles.svg"),
-      url("../img/abstract__bg-01.svg"),
-      url("../img/abstract__bg-02.svg");
-    background-repeat:
-      repeat,
-      no-repeat,
-      no-repeat;
-    background-size:
-      auto,
-      auto 100%,
-      50%;
-    background-position:
-      center,
-      left,
-      center;
+    background-image: url("../img/course-hero__bg.svg");
+    background-repeat: no-repeat;
+    background-position: center, center;
 
     &__heading {
       @include headline-3;
@@ -108,7 +95,6 @@
     &__video {
       @include panel;
       box-sizing: border-box;
-      border: 20px solid map-get($colors, light);
     }
 
     &__info {
@@ -128,6 +114,7 @@
 
     &__logos {
       margin-top: 40px;
+      margin-bottom: 40px;
     }
 
     &__link {
@@ -138,6 +125,8 @@
 
   @include respond-to(large) {
     @include body-1(false);
+    padding-top: 80px;
+    padding-bottom: 96px;
 
     &__heading {
       @include headline-2;
@@ -145,51 +134,55 @@
 
     &__main {
       display: flex;
-      align-items: flex-start;
-      margin-top: 48px;
+      justify-content: center;
+      margin-top: 40px;
     }
 
     &__video {
-      order: 2;
       padding-bottom: 0;
-      min-width: 640px;
-      height: 400px;
+      min-width: 560px;
+      height: 315px;
+
+      & iframe {
+        object-fit: cover;
+      }
     }
 
     &__info {
+      margin-left: 64px;
+      max-width: 340px;
       text-align: left;
     }
 
     &__author-name {
       @include subtitle-1;
-      margin-top: 24px;
+      margin-top: 8px;
     }
 
     &__author-descr {
-      margin: 0;
-      margin-top: 24px;
+      @include body-2;
+      margin-top: 8px;
+      max-width: initial;
+      color: map-get($font-colors, secondary);
     }
 
     &__logos {
       justify-content: flex-start;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+
+    &__logo {
+      max-height: 64px;
     }
 
     &__bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       text-align: left;
-    }
-
-    &__divider {
-      display: block;
-      flex-grow: 1;
-      margin-left: 16px;
-      margin-right: 16px;
     }
 
     &__link {
       margin: 0;
+      margin-top: 24px;
     }
   }
 }
