@@ -1,0 +1,22 @@
+extends form-layout.pug
+
+block data
+  - var id = "sign-up"
+  - var formMods = "form--light"
+  - var backMods= "form__back--dark"
+
+block prepend content-top
+  - var peopleCounter = "нас уже 100 500"
+  - var stepsIndicator = false
+
+block steps
+  .form__step
+    .form__title Привет, заходи
+    input.input(type="tel" placeholder="+7(").form__input
+    .form__row
+      input.input(type="password" placeholder="********").form__row-input
+      +button("Войти", mods, "", tag="button").form__row-button(type="submit")
+    p.form__hint Не пришел пароль? <a class="link" href="javascript:void(0)">Отправить еще раз</a>
+
+block bottom-content
+  p.form__bottom-descr В ближайшее время с тобой свяжется наш куратор

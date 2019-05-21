@@ -1,0 +1,38 @@
+include ../sprite-svg/sprite-svg.pug
+include ../logo/logo.pug
+include ../form-author/form-author.pug
+
+block data
+  - var id
+  - var formMods
+  - var backMods
+
+.form.modal(class=formMods id=id)&attributes(attributes)
+  .form__inner
+
+    .form__overlay
+      button.form__back.modal__close(class=backMods)&attributes(attributes)
+        +icon("arrow-back").form__back-arrow
+        +logo.form__back-logo
+      block overlay
+
+    .form__content
+      block before-inner
+      .form__content-inner
+        block content-top
+          .form__content-top
+            if peopleCounter
+              p.form__people-counter !{peopleCounter}
+            if stepsIndicator
+              .form__steps-indicator
+                - for (var i = 0; i < 2; i++)
+                  span.form__steps-indicator-item
+        block form-author
+          +form-author.form__author
+        block form
+          form.form__form(name=formName method="get" action="")
+            block steps
+          block done
+        block bottom
+          .form__bottom
+            block bottom-content
