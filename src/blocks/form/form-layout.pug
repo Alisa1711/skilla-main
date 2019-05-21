@@ -5,15 +5,16 @@ include ../form-author/form-author.pug
 block data
   - var id
   - var formMods
+  - var formMixins
   - var backMods
 
-.form.modal(class=formMods id=id)&attributes(attributes)
+.form.modal(class=formMods class=formMixins id=id)&attributes(attributes)
   .form__inner
+    button.form__back.modal-close(class=backMods)&attributes(attributes)
+      +icon("arrow-back").form__back-arrow
+      +logo.form__back-logo
 
     .form__overlay
-      button.form__back.modal__close(class=backMods)&attributes(attributes)
-        +icon("arrow-back").form__back-arrow
-        +logo.form__back-logo
       block overlay
 
     .form__content

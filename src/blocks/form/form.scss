@@ -25,6 +25,10 @@
     align-items: center;
     z-index: 1;
 
+    & svg {
+      transition: map-get($transition, medium);
+    }
+
     &-arrow {
       fill: map-get($colors, dark);
     }
@@ -33,12 +37,15 @@
       display: none;
     }
 
-    &--dark {
-      .form__back-arrow {
-        fill: map-get($colors, dark);
+    &:hover {
+      svg {
+        fill: map-get($colors, add-color-3);
+        transition: map-get($transition, medium);
       }
+    }
 
-      .form__back-logo {
+    &--dark {
+      svg {
         fill: map-get($colors, dark);
       }
     }
@@ -268,28 +275,18 @@
       order: 2;
       display: flex;
       align-items: center;
-      padding-left: 50%;
+      padding-left: 45%;
       height: 35%;
       background-image:
         url("../img/man-on-rocket.svg"),
         map-get($gradients, overlay);
       background-repeat: no-repeat;
+      background-size:
+        50%,
+        auto;
       background-position:
-        center left 20px,
+        center left -40px,
         center;
-    }
-
-    &__message {
-      @include subtitle-2;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 10em;
-      color: map-get($font-colors, base-light);
-
-      &-accent {
-        display: block;
-        color: map-get($colors, add-color-7);
-      }
     }
 
     &__content {
@@ -382,11 +379,6 @@
         center;
     }
 
-    &__message {
-      @include headline-3(false);
-      transform: translateY(-50%);
-    }
-
     &__content {
       position: relative;
       padding-top: $back-top + $back-height / 2;
@@ -423,3 +415,4 @@
 
 @import "mods/light.scss";
 @import "mods/wide.scss";
+@import "sign-up-course.scss";

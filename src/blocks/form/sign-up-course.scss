@@ -1,0 +1,82 @@
+.sign-up-course {
+  @include respond-to(medium) {
+    &__message {
+      @include subtitle-2;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 10em;
+      color: map-get($font-colors, base-light);
+    }
+
+    &__benefits {
+      display: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__accent {
+      display: block;
+      color: map-get($colors, add-color-7);
+    }
+
+    &__title {
+      @include subtitle-2;
+      color: map-get($colors, add-color-7);
+    }
+
+    &__list {
+      @include body-1-small;
+      margin-top: 24px;
+      padding: 0;
+      list-style: none;
+      color: map-get($font-colors, base-light);
+    }
+
+    &__item {
+      position: relative;
+      padding-left: 2em;
+
+      & + & {
+        margin-top: 0.7em;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 1.5em; // равно текущей высоте высоте строки
+        height: 1.5em;
+        background-image: url("../img/check.svg");
+        background-size: auto 1em;
+        background-repeat: no-repeat;
+        background-position: left center;
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    &__message {
+      @include headline-3(false);
+      transform: translateY(-50%);
+    }
+
+    &__benefits {
+      transform: translateY(-30%);
+    }
+
+    &__title {
+      @include headline-3(false);
+    }
+
+    &__list {
+      @include body-1;
+      margin-top: 40px;
+    }
+
+    &__item {
+      & + & {
+        margin-top: 1em;
+      }
+    }
+  }
+}
