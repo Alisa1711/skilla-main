@@ -1,0 +1,126 @@
+.curators {
+  @include outliner;
+  display: none;
+  color: map-get($font-colors, base-light);
+  text-align: center;
+
+  @include respond-to(medium) {
+    display: block;
+    min-width: 400px;
+
+    &__main {
+      display: none;
+    }
+
+    &__stats {
+      &-heading {
+        @include subtitle-3;
+      }
+
+      &-list {
+        @include body-2;
+        position: relative;
+        margin-top: 24px;
+        padding: 0;
+        list-style: none;
+        color: map-get($font-colors, secondary-light);
+        text-align: left;
+      }
+
+      &-item {
+        display: flex;
+        align-items: center;
+        line-height: 28px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          width: 50%;
+          height: 4px;
+          background-color: rgba(white, 0.5);
+          border-radius: 2px;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          width: 45%;
+          height: 4px;
+          background-color: map-get($colors, add-color-3);
+          border-radius: 2px;
+          z-index: 1;
+        }
+
+        &--medium {
+          &::before {
+            width: 35%;
+            background-color: map-get($colors, add-color-2);
+          }
+        }
+
+        &--low {
+          &::before {
+            width: 20%;
+            background-color: map-get($colors, add-color-6);
+          }
+        }
+      }
+    }
+
+    &__address {
+      @include body-2;
+      margin-top: 24px;
+      margin-left: auto;
+      margin-right: auto;
+      color: map-get($font-colors, secondary-light);
+      max-width: 20em;
+    }
+  }
+
+  @include respond-to(large) {
+    &__main {
+      display: block;
+    }
+
+    &__heading {
+      @include headline-4;
+    }
+
+    &__subheading {
+      @include body-2;
+      margin-top: 8px;
+      color: map-get($font-colors, secondary-light);
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 40px - 32px;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 33%;
+      margin-top: 32px;
+    }
+
+    &__avatar {
+      width: map-get($avatar-sizes, x-medium);
+      height: map-get($avatar-sizes, x-medium);
+    }
+
+    &__name {
+      @include body-2;
+      color: map-get($font-colors, secondary-light);
+    }
+
+    &__stats {
+      margin-top: 80px;
+    }
+  }
+}

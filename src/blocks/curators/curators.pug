@@ -1,0 +1,33 @@
+mixin curators(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' curators--' + modsList[i].trim();
+      }
+    }
+
+  .curators(class=allMods)&attributes(attributes)
+    .curators__inner
+      .curators__main
+        p.curators__heading Кураторы
+        p.curators__subheading перезванивают в течение рабочего дня
+
+        .curators__list
+          - for (var i = 0; i < 6; i++)
+            .curators__item
+              +avatar.curators__avatar
+              p.curators__name Василиса
+      .curators__stats
+        .curators__stats-heading О чем нас обычно спрашивают
+        ul.curators__stats-list
+          li.curators__stats-item.curators__stats-item--high Программа курса
+          li.curators__stats-item.curators__stats-item--medium Успехи выпускников
+          li.curators__stats-item.curators__stats-item--low Опалата и гарантии
+      .curators__address г. Москва, метро Бауманская, ул. Бауманская, дом&nbsp;11, строение&nbsp;8, офис&nbsp;4

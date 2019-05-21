@@ -1,0 +1,28 @@
+.form.form--light.modal(class=allMods)&attributes(attributes)
+  .form__inner
+
+    .form__overlay
+      button.form__back.form__back--dark.modal__close(class=allMods)&attributes(attributes)
+        +icon("arrow-back").form__back-arrow
+        +logo.form__back-logo
+
+    .form__content
+      .form__content-inner
+        .form__content-top
+          p.form__people-counter уже записалось 124 человека
+          .form__steps-indicator
+            - for (var i = 0; i < 2; i++)
+              span.form__steps-indicator-item
+        +form-author.form__author
+        form.form__form(name="sign-up-course" method="get" action="")
+          .form__step
+            .form__title
+              |Спасибо!
+              br
+              |Введи пароль из SMS
+            .form__row
+              input.input(type="password" placeholder="********").form__row-input
+              +button("Войти", mods, "", tag="button").form__row-button(type="submit")
+            p.form__hint Не пришел пароль? <a class="link" href="javascript:void(0)">Отправить еще раз</a>
+        .form__bottom
+          p.form__bottom-descr В ближайшее время с тобой свяжется наш куратор

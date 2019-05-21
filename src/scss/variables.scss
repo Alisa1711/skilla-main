@@ -22,7 +22,8 @@ $gradients: (
     rgba(map-get($colors, add-color), 0.80) 0%,
     rgba(map-get($colors, accent), 0.5) 100%),
   dark: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  overlay: linear-gradient(45deg, rgba(0, 23, 57, 0.9) 40%, rgba(31, 79, 153, 0.9) 78%)
+  overlay: linear-gradient(45deg, rgba(0, 23, 57, 0.9) 40%, rgba(31, 79, 153, 0.9) 78%),
+  overlay-light: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.5) 100%)
 );
 /* stylelint-enable */
 
@@ -45,7 +46,8 @@ $icon-sizes: (
   small: 16px,
   medium: 24px,
   large: 32px,
-  x-large: 40px
+  x-large: 40px,
+  huge: 64px
 );
 
 $shadows: (
