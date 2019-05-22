@@ -19,5 +19,6 @@ globals:
   mediaQuery: readonly
   closeModal: readonly
   scrollTop: writable
+  stepIndex: writable
 
 extends: 'htmlacademy/es6'

@@ -2,21 +2,45 @@ extends form-layout.pug
 
 block data
   - var id = "sign-up"
-  - var formMods = "form--light"
-  - var backMods= "form__back--dark"
+  - var formMixins = "sign-up-course"
+
+block overlay
+  p.sign-up-course__message(id="message-slogan")
+    |Запустить
+    |
+    span.sign-up-course__accent салон красоты
+    |
+    |со&nbsp;Skilla проще и&nbsp;дешевле
+  .sign-up-course__benefits(id="message-benefits")
+    p.sign-up-course__title Ты получаешь
+    ul.sign-up-course__list
+      - var items = ["Доступ к интерфейсу курса", "Бесплатные лекции со всех курсов", "Максимально полезные материалы журнала", "Лайфхаки от топовых предпринимателей", "Закрытая рубрика Epic Fails"]
+      each item in items
+        li.sign-up-course__item !{item}
+
+block before-inner
+  img.form__clouds(src="img/sign-up__clouds.svg")
 
 block prepend content-top
-  - var peopleCounter = "нас уже 100 500"
-  - var stepsIndicator = false
+  - var peopleCounter = "нас уже 100500 мильонов"
+  - var stepsIndicator = true
+
+block form-author
+
+block prepend form
+  - var formName = "sign-up-course"
 
 block steps
-  .form__step
-    .form__title Привет, заходи
-    input.input(type="tel" placeholder="+7(").form__input
-    .form__row
-      input.input(type="password" placeholder="********").form__row-input
-      +button("Войти", mods, "", tag="button").form__row-button(type="submit")
-    p.form__hint Не пришел пароль? <a class="link" href="javascript:void(0)">Отправить еще раз</a>
+  .form__step(data-message="#message-slogan")
+    .form__title Как тебя зовут?
+    .form__row.form__row--full
+      input.input(placeholder="Твое имя").form__input
+      +button(label, "icon", "arrow-forward").form__button(name="next")
+  .form__step(data-message="#message-benefits")
+    .form__title Вася, оставь телефон для связи
+    .form__row.form__row--full.form__row--full-responsive
+      input.input(type="tel" placeholder="+7(").form__input
+      +button("Записаться", mods, icon=false, "button").form__button(type="submit")
+    p.form__hint На этот номер придет пароль от твоего кабинета
 
-block bottom-content
-  p.form__bottom-descr В ближайшее время с тобой свяжется наш куратор
+block bottom

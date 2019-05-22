@@ -4,6 +4,7 @@ block data
   - var id = "confirm"
   - var formMods = "form--light"
   - var backMods= "form__back--dark"
+  - var formMixins = ""
 
 block prepend content-top
   - var peopleCounter = "уже записалось 124 человека"
@@ -15,9 +16,9 @@ block steps
       |Спасибо!
       br
       |Введи пароль из SMS
-    .form__row
-      input.input(type="password" placeholder="********").form__row-input
-      +button("Войти", mods, "", tag="button").form__row-button(type="submit")
+    .form__row.form__row--full
+      input.input(type="password" placeholder="********").form__input
+      +button("Войти", mods, "", tag="button").form__button(type="submit")
     p.form__hint Не пришел пароль? <a class="link" href="javascript:void(0)">Отправить еще раз</a>
 
 block bottom-content

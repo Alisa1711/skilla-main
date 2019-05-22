@@ -43,8 +43,10 @@
   font-style: normal;
 }
 
-@mixin headline-1 {
-  margin: 0;
+@mixin headline-1 ($margin: true) {
+  @if $margin {
+    margin: 0;
+  }
   font-size: 100px;
   font-weight: 100;
   font-style: normal;

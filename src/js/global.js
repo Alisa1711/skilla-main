@@ -15,4 +15,6 @@ const closeModal = (modal = $(`.modal`)) => {
     $(`body`).removeAttr(`style`);
     window.scroll(0, scrollTop);
   }
+  $(`.form__step`).hide();
+  $(`.form .form__step:first-child`).show();
 };

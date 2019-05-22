@@ -23,4 +23,8 @@ mixin course-nav(data, mods)
           a.course-nav__link(href=item.id) !{item.title}
       .course-nav__cta
         +button("Записаться на курс").modal-trigger(data-modal="#sign-up-course" data-overlay="off")
-        a.link.course-nav__consult(href="javascript:void(0);") Получить консультацию
+        a.link.course-nav__consult(
+          href="javascript:void(0);"
+          data-modal="#consultation"
+          data-overlay="off"
+        ).modal-trigger Получить консультацию

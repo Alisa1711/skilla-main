@@ -1,13 +1,13 @@
 // обводка конейнеров, только на время разработки. Выкличть в config
 
 @mixin outliner {
-  outline: 1px dotted green;
-
-  @include respond-to(medium) {
-    outline-color: red;
-  }
-
-  @include respond-to(large) {
-    outline-color: blue;
-  }
+  // outline: 1px dotted green;
+  //
+  // @include respond-to(medium) {
+  //   outline-color: red;
+  // }
+  //
+  // @include respond-to(large) {
+  //   outline-color: blue;
+  // }
 }

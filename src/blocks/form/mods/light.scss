@@ -3,6 +3,7 @@
   .form {
     &__overlay {
       background-image: map-get($gradients, overlay-light);
+      background-repeat: repeat;
     }
 
     &__content {

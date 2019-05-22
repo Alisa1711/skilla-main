@@ -3,7 +3,7 @@
   $back-height: 24px;
   $inner-width: 90%;
 
-  // display: none;
+  display: none;
   box-sizing: border-box;
   position: fixed;
   top: 0;
@@ -113,24 +113,16 @@
   }
 
   &__done {
-    display: none;
-
-    &-inner {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      height: 100%;
-    }
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    background-color: map-get($colors, light);
   }
 
   &__title {
     @include subtitle-3;
-  }
-
-  &__subtitle {
-    @include body-2;
-    margin-top: 8px;
-    color: map-get($font-colors, secondary);
+    max-width: 15em;
   }
 
   &__timer {
@@ -160,26 +152,32 @@
       margin-top: 16px;
     }
 
-    &-input {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+    & + & {
+      margin-top: 16px;
     }
 
-    &-button {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+    &--full {
+      .form__input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .form__button {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
     }
 
-    &--responsive {
+    &--full-responsive {
       flex-direction: column;
 
-      .form__row-input {
+      .form__input {
         border-top-right-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
       }
 
-      .form__row-button {
-        margin-top: 8px;
+      .form__button {
+        margin-top: 16px;
         width: 100%;
         border-top-left-radius: $border-radius;
         border-bottom-left-radius: $border-radius;
@@ -189,6 +187,7 @@
 
   &__hint {
     @include body-2;
+    display: inline-block;
     margin-top: 8px;
     color: map-get($font-colors, secondary);
   }
@@ -197,6 +196,7 @@
     display: flex;
     flex-direction: column;
     margin-top: auto;
+    margin-bottom: 24px;
 
     &-inner {
       order: -1;
@@ -229,6 +229,10 @@
     &-total {
       @include body-2;
     }
+  }
+
+  &__email {
+    display: none;
   }
 
   &__phone {
@@ -318,8 +322,57 @@
       color: map-get($font-colors, secondary);
     }
 
+    &__done {
+      text-align: left;
+    }
+
     &__title {
       @include headline-4;
+    }
+
+    &__subtitle {
+      @include subtitle-3;
+      margin-bottom: 8px;
+
+      & .accent {
+        color: map-get($colors, add-color-3);
+      }
+    }
+
+    &__timer {
+      @include headline-1(false);
+    }
+
+    &__go-back {
+      display: none;
+    }
+
+    &__email {
+      display: block;
+    }
+
+    &__row {
+      min-width: 456px;
+
+      &--wide {
+        max-width: 560px;
+      }
+
+      &--full-responsive {
+        flex-direction: row;
+
+        .form__input {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        .form__button {
+          margin-top: 0;
+          width: initial;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
     }
 
     &__hint {
@@ -362,6 +415,12 @@
       svg {
         fill: map-get($colors, light);
       }
+
+      &--dark {
+        svg {
+          fill: map-get($colors, dark);
+        }
+      }
     }
 
     &__overlay {
@@ -388,6 +447,12 @@
       &-top {
         position: static;
       }
+    }
+
+    &__done {
+      margin-top: auto;
+      margin-bottom: auto;
+      height: 500px;
     }
 
     &__clouds {
