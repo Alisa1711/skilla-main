@@ -22,7 +22,7 @@ mixin reviews(crowd=[], mods)
     .container
       h2.reviews__heading Курс прошли более 3000&nbsp;человек
       .reviews__inner
-        +quote("review", review.text, name, review.descr).reviews__quote
+        +quote("review", review.text, name, review.descr, "img/review__avatar-01.jpg").reviews__quote
         .reviews__crowd
           p.reviews__crowd-title 25% открыли свое кафе
           .reviews__crowd-list
