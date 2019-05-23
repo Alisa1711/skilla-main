@@ -1,6 +1,7 @@
 .label {
   @include labels-text;
   padding: 4px 8px;
+  color: map-get($font-colors, base);
   background-color: map-get($colors, highlighter);
   border-radius: $border-radius;
 

@@ -323,7 +323,7 @@ function serve() {
   browserSync.init({
     server: dir.build,
     port: 8080,
-    startPath: `course.html`,
+    startPath: `index.html`,
     open: false,
     notify: false,
   });

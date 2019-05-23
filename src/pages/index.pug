@@ -4,6 +4,11 @@ block title
   title Главная
 
 block content
-  .container
-    h1 Я поменялся
-    p Конент
+  +main-hero
+
+block prepend modals
+  +courses-menu(coursesList)
+  include ../blocks/form/sign-up
+  include ../blocks/form/consultation
+  include ../blocks/form/confirm
+  include ../blocks/form/login
