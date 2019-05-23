@@ -14,9 +14,9 @@ mixin top-posts(text, mods)
     }
 
   .top-posts(class=allMods)&attributes(attributes)
-    +label("Лучшее за месяц")
+    +label("Лучшее за месяц").top-posts__label
     .top-posts__list
       - for (var i = 0; i < 3; i++)
-        .top-posts__item
+        a(href="http://localhost:8080/course.html").link.top-posts__item
           +post-stat
           p.top-posts__title Как подобрать идеальное помещение для салона красоты

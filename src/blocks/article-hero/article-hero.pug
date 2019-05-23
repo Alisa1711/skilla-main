@@ -9,17 +9,24 @@ mixin article-hero(imgSrc= "img/article-hero.jpg", avatarSrc= "img/avatar.jpg", 
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' aricle-hero--' + modsList[i].trim();
+        allMods = allMods + ' article-hero--' + modsList[i].trim();
       }
     }
 
   section.article-hero(class=allMods)&attributes(attributes)
     .container
-      .article-hero__author
-        +avatar(avatarSrc)(class="article-hero__avatar")
-        .article-hero__author-inner
-          p.article-hero__author-name Грета Харитонова
-          p.article-hero__author-descr владелец салона красоты «Салон красоты», преподаватель курса «<a class="link article-hero__link" href='javascript:void(0);'>Как открыть салон красоты</a>»
-      h1.article-hero__heading Как я&nbsp;открыл бизнес на&nbsp;деньги друга и&nbsp;не&nbsp;поссорился с&nbsp;ним
-      +post-stat.article-hero__post-stat
+      .article-hero__inner
+        .article-hero__author
+          +avatar(avatarSrc)(class="article-hero__avatar")
+          .article-hero__author-inner
+            p.article-hero__author-name Грета Харитонова
+            p.article-hero__author-descr владелец салона красоты «Салон красоты», преподаватель курса «<a class="link article-hero__link" href='javascript:void(0);'>Как открыть салон красоты</a>»
+        if mods === "main"
+          a(href="javascript:void(0);").article-hero__heading.link Как я&nbsp;открыл бизнес на&nbsp;деньги друга и&nbsp;не&nbsp;поссорился с&nbsp;ним
+          .article-hero__stat
+            +label("новое")
+            +post-stat.article-hero__post-stat
+        else
+          h1.article-hero__heading Как я&nbsp;открыл бизнес на&nbsp;деньги друга и&nbsp;не&nbsp;поссорился с&nbsp;ним
+          +post-stat.article-hero__post-stat
     img.article-hero__img(src= imgSrc)

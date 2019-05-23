@@ -26,7 +26,7 @@ html(lang="ru" class="page")
   body
     block header
       +header
-    .main(class=article ? "article" : "")
+    .main(class=pageClass)
       block content
     block footer
       +footer(coursesList)

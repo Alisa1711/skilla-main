@@ -1,0 +1,50 @@
+.article-hero--main {
+  @include respond-to(large) {
+    & .container {
+      display: flex;
+      text-align: left;
+    }
+
+    .article-hero {
+      &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 64px;
+      }
+
+      &__author {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+      }
+
+      &__author-inner {
+        margin-left: 24px;
+      }
+
+      &__avatar {
+        min-width: map-get($avatar-sizes, medium);
+        width: map-get($avatar-sizes, medium);
+        height: map-get($avatar-sizes, medium);
+      }
+
+      &__heading {
+        margin-top: 48px;
+        text-align: left;
+      }
+
+      &__stat {
+        display: flex;
+        align-items: center;
+        margin-top: 80px;
+      }
+
+      &__post-stat {
+        margin: 0;
+        margin-left: 16px;
+      }
+    }
+  }
+}

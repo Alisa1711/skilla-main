@@ -11,8 +11,18 @@
   border: none;
   border-radius: $border-radius;
   box-shadow: map-get($shadows, button);
+  transition: map-get($transition, medium);
 
   &::placeholder {
     color: map-get($font-colors, inactive);
+  }
+
+  &:focus {
+    background-color: darken(map-get($colors, neutral), 5);
+  }
+
+  @include respond-to(medium) {
+    height: 64px;
+    line-height: 64;
   }
 }

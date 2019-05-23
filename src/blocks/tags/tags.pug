@@ -1,0 +1,22 @@
+mixin tags(tags, mods)
+
+  //- Принимает:
+  //-   tags    {array} - список тегов
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' tags--' + modsList[i].trim();
+      }
+    }
+
+  .tags(class=allMods)&attributes(attributes)
+    .container
+      - for (var i = 0; i < tags.length; i++)
+          if i === 0
+            a(href="javascipt:volid(0);").link.tags__item.active !{tags[i]}
+          else
+            a(href="javascipt:volid(0);").link.tags__item !{tags[i]}

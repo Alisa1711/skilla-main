@@ -1,0 +1,23 @@
+mixin consult-catalog(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' consult-catalog--' + modsList[i].trim();
+      }
+    }
+
+  .consult-catalog(class=allMods)&attributes(attributes)
+      .container.consult-catalog__inner
+        p.consult-catalog__heading
+          |Не смог определиться?
+          br
+          |Закажи консультацию
+        +button("Получить консультацию", "secondary", "").consult-catalog__button.modal-trigger(data-modal="#consultation-general" data-overlay="off")
+        img.consult-catalog__img(src="img/consult-catalog__girl.svg")

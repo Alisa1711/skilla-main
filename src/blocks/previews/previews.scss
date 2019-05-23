@@ -1,0 +1,12 @@
+.previews {
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: -40px;
+  }
+
+  &__item {
+    margin-top: 40px;
+  }
+}

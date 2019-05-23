@@ -1,0 +1,59 @@
+.consult-catalog {
+  box-sizing: border-box;
+  color: map-get($font-colors, base-light);
+  text-align: center;
+  background-color: map-get($colors, accent);
+  background-image:
+    url("../img/consult-catalog__bg.svg"),
+    url("../img/sparkles.svg");
+  background-repeat:
+    no-repeat,
+    repeat;
+  background-size:
+    cover,
+    auto;
+  background-position: center;
+
+  &__inner {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  &__heading {
+    @include subtitle-2;
+  }
+
+  &__button {
+    margin-top: 16px;
+  }
+
+  &__img {
+    display: none;
+  }
+
+  @include respond-to(medium) {
+    text-align: left;
+
+    &__inner {
+      position: relative;
+      padding-left: 235px;
+    }
+
+    &__heading {
+      @include headline-4;
+    }
+
+    &__img {
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  @include respond-to(large) {
+    &__inner {
+      padding-left: 400px;
+    }
+  }
+}

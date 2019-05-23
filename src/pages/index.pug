@@ -1,14 +1,25 @@
 extends ../pug/layout.pug
 
+block vars
+  - var pageClass = "main"
+
 block title
   title Главная
 
 block content
-  +main-hero
+  +article-hero(imgSrc, avatarSrc, "main")
+  +top-posts
+  +tags(["все подряд", "курс", "франшиза", "статья"])
+  .previews.main__previews
+    .container.previews__inner
+      - for (var i = 0; i < 6; i++)
+          +preview.previews__item
+  +loader
+  +consult-catalog.main__consult-catalog
 
 block prepend modals
   +courses-menu(coursesList)
   include ../blocks/form/sign-up
-  include ../blocks/form/consultation
+  include ../blocks/form/consultation-general
   include ../blocks/form/confirm
   include ../blocks/form/login
