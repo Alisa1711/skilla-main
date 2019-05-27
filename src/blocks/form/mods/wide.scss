@@ -33,6 +33,18 @@
           width: $inner-width;
           max-width: initial;
         }
+
+        &-top {
+          position: absolute;
+        }
+      }
+
+      &__people-counter {
+        margin-left: auto;
+      }
+
+      &__steps-indicator {
+        margin-left: 24px;
       }
     }
   }

@@ -405,6 +405,8 @@
   }
 
   @include respond-to(large) {
+    $back-width: 112px;
+
     &__inner {
       flex-direction: row;
     }

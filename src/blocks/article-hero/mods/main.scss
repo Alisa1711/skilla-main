@@ -1,5 +1,14 @@
 .article-hero--main {
+  & .label {
+    display: inline-block;
+    margin-top: 8px;
+  }
+
   @include respond-to(large) {
+    & .label {
+      margin-top: 0;
+    }
+
     & .container {
       display: flex;
       text-align: left;

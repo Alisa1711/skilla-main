@@ -47,6 +47,11 @@
   @include respond-to(medium) {
     padding: 24px;
 
+    &--icon {
+      width: 64px;
+      height: 64px;
+    }
+
     &--size_sm {
       @include button-label-small;
       padding: 16px;
