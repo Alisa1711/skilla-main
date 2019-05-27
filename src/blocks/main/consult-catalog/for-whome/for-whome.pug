@@ -1,0 +1,36 @@
+mixin for-whome(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' for-whome--' + modsList[i].trim();
+      }
+    }
+
+    var quote = {
+      text: "Я&nbsp;приглашаю на&nbsp;курс начинающих предпринимателей, инвесторов, а&nbsp;также владельцев пекарен. Всех, кто хочет изменить дела к&nbsp;лучшему.",
+      name: "Александра Тузова",
+      descr: "преподаватель курса",
+      src: "img/alexandra-tuzova.jpg"
+    }
+
+  mixin chart-item(percent, label, mod)
+    .for-whome__chart-item(class="for-whome__chart-item--" + mod)
+      span.for-whome__chart-percent !{percent}
+      span.for-whome__chart-label !{label}
+
+  section#for-whome.for-whome(class=allMods)&attributes(attributes)
+    .container
+      h2.for-whome__heading Для кого курс
+      .for-whome__inner
+        +quote(mods, quote.text, quote.name, quote.descr, quote.src).for-whome__quote
+        .for-whome__chart
+          +chart-item("50", "Начинающие предприниматели", "color_red")
+          +chart-item("30", "Инвесторы", "color_orange")
+          +chart-item("20", "Владельцы кафе", "color_violet")

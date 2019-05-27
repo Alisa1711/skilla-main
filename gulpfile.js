@@ -42,7 +42,12 @@ const insert = require(`gulp-insert`);
 // Глобальные настройки этого запуска
 const nth = {};
 nth.config = require(`./config.js`); // передаем объект из файла
-nth.blocksFromHtml = Object.create(nth.config.alwaysAddBlocks); // блоки из конфига сразу добавим в список блоков
+nth.blocksFromHtml = [];
+
+// блоки из конфига сразу добавим в список блоков
+nth.config.alwaysAddBlocks.forEach((item, i) => {
+  nth.blocksFromHtml[i] = item.block;
+});
 nth.scssImportsList = []; // список импортов стилей
 const dir = nth.config.dir; // список папок из конфига
 
@@ -85,8 +90,8 @@ function writePugMixinsFile(cb) {
     });
 
   let allBlocksWithPugFiles = getDirectories(`pug`);
-  allBlocksWithPugFiles.forEach(function (blockName) {
-    pugMixins += `include ${dir.blocks.replace(dir.src, `../`)}${blockName}/${blockName}.pug\n`;
+  allBlocksWithPugFiles.forEach(function (block) {
+    pugMixins += `include ${block.group.replace(dir.src, `../`)}${block.block}/${block.block}.pug\n`;
   });
   fs.writeFileSync(`${dir.src}pug/mixins.pug`, pugMixins);
   cb();
@@ -143,35 +148,25 @@ function copyAssets(cb) { // копирование файлов из конфи
 exports.copyAssets = copyAssets;
 
 
-function copyImg(cb) { // ????
-  let copiedImages = [`src/img/**/*.*`];
-  nth.blocksFromHtml.forEach(function (block) { // для каждого блока
-    let src = `${dir.blocks}${block}/img`; // берем путь к изображениям
-    if (fileExist(src)) { // и если есть файлы, то добавляем путь к массиву копируемых изображений
-      copiedImages.push(src);
-    }
-  });
-  nth.config.alwaysAddBlocks.forEach(function (block) { // тоже самое для для постоянных блоков тз конфига
-    let src = `${dir.blocks}${block}/img`;
-    if (fileExist(src)) {
-      copiedImages.push(src);
-    }
-  });
-  if (copiedImages.length) {
-    (async () => {
-      await cpy(copiedImages, `${dir.build}img`);
-      cb();
-    })();
-  } else {
+function copyImg(cb) { // копирует все изображения из папок img
+  let copiedImages = [`src/**/img/**/*.*`];
+  (async () => {
+    await cpy(copiedImages, `${dir.build}img`);
     cb();
-  }
+  })();
 }
 exports.copyImg = copyImg;
 
 
 function generateSvgSprite(cb) {
-  let spriteSvgPath = `${dir.blocks}sprite-svg/svg/`;
-  if (nth.config.alwaysAddBlocks.indexOf(`sprite-svg`) > -1 && fileExist(spriteSvgPath)) {
+  let spriteSvgPath = `${dir.blocks}/common/sprite-svg/svg/`;
+  let alwaysAddSvg = false;
+  nth.config.alwaysAddBlocks.forEach((block) => {
+    if (block.block === `sprite-svg`) {
+      alwaysAddSvg = true;
+    }
+  });
+  if (alwaysAddSvg && fileExist(spriteSvgPath)) {
     return src(spriteSvgPath + `*.svg`)
       .pipe(svgmin(function () {
         return {plugins: [{cleanupIDs: {minify: true}}]};
@@ -223,13 +218,13 @@ function writeSassImportsFile(cb) {
   nth.config.addStyleBefore.forEach(function (src) {
     newScssImportsList.push(src);
   });
-  nth.config.alwaysAddBlocks.forEach(function (blockName) {
-    newScssImportsList.push(`${dir.blocks}${blockName}/${blockName}.scss`);
+  nth.config.alwaysAddBlocks.forEach(function (block) {
+    newScssImportsList.push(`${dir.blocks}${block.group}${block.block}/${block.block}.scss`);
   });
   let allBlocksWithScssFiles = getDirectories(`scss`);
   allBlocksWithScssFiles.forEach(function (blockWithScssFile) { // проходим по всем директориям блоков, содержащих scss файлы и добавляем те, которые еще нет в newScssImportsList
-    let url = `${dir.blocks}${blockWithScssFile}/${blockWithScssFile}.scss`;
-    if (nth.blocksFromHtml.indexOf(blockWithScssFile) === -1) {
+    let url = `${blockWithScssFile.group}${blockWithScssFile.block}/${blockWithScssFile.block}.scss`;
+    if (nth.blocksFromHtml.indexOf(blockWithScssFile.block) === -1) {
       return;
     }
     if (newScssImportsList.indexOf(url) > -1) {
@@ -522,13 +517,30 @@ function fileExist(filepath) {
 /**
  * Получение всех названий поддиректорий, содержащих файл указанного расширения, совпадающий по имени с поддиректорией
  * @param  {string} ext    Расширение файлов, которое проверяется
- * @return {array}         Массив из имён блоков
+ * @return {array}         Массив из имён блоков c группой
  */
 function getDirectories(ext) {
-  let source = dir.blocks; // берем директорию с блоками
-  let res = fs.readdirSync(source) // читаем содержимое директории source
-    .filter((item) => fs.lstatSync(source + item).isDirectory()) // выбираем только папки
-    .filter((item) => fileExist(source + item + `/` + item + `.` + ext)); // выбираем папки, в которых есть файлы с указанным расширением
+  // берем группы с блоками
+  let sources = fs.readdirSync(dir.blocks).
+    filter((group) => fs.lstatSync(dir.blocks + group).isDirectory());
+
+  console.log(sources);
+
+  let res = [];
+
+  // для каждой группы получаем список имен блоков
+  sources.forEach((group) => {
+    group = dir.blocks + group + `/`;
+    let blocks = fs.readdirSync(group)
+      .filter((item) => fs.lstatSync(group + item).isDirectory())
+      .filter((item) => fileExist(group + item + `/` + item + `.` + ext));
+    blocks.forEach(function (item, i, arr) {
+      arr[i] = {group, block: item};
+    });
+    res = res.concat(blocks);
+  });
+
+
   return res;
 }
 
