@@ -6,12 +6,11 @@ let config = {
     `no-js`,
   ],
   'alwaysAddBlocks': [
-    `text`,
-    `sprite-svg`,
-    `link`,
-    `post-stat`,
-    `input`
-    // 'sprite-png',
+    {group: `common/`, block: `text`},
+    {group: `common/`, block: `sprite-svg`},
+    {group: `common/`, block: `link`},
+    {group: `common/`, block: `post-stat`},
+    {group: `common/`, block: `input`},
   ],
   'addStyleBefore': [
     `src/scss/variables.scss`,

@@ -1,0 +1,172 @@
+.for-whome {
+  $chart-height: 200px;
+  $chart-height-large: 300px;
+  $chart-font-size: 28px;
+  $chart-font-size-large: 36px;
+
+  padding-top: 24px;
+  padding-bottom: 24px;
+  font-size: $chart-font-size;
+
+  &__heading {
+    @include subtitle-2;
+    text-align: center;
+  }
+
+  &__inner {
+    margin-top: 8px;
+  }
+
+  &__chart {
+    margin-top: 1.5em;
+    height: $chart-height;
+    background-image:
+      repeating-linear-gradient(360deg, rgba(map-get($colors, add-color), 0.2), rgba(map-get($colors, add-color), 0.2) 1px, transparent 1px, transparent $chart-height / 4),
+      url("../img/for-whome__chart-bg.svg");
+    background-repeat: no-repeat;
+    background-size:
+      auto,
+      contain;
+    overflow: hidden;
+
+    &-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+
+      & + & {
+        margin-top: 1em;
+      }
+
+      &--color_red {
+        .for-whome__chart-percent {
+          color: map-get($colors, accent);
+        }
+      }
+
+      &--color_orange {
+        margin-left: 2em;
+
+        .for-whome__chart-percent {
+          color: map-get($colors, add-color-6);
+        }
+      }
+
+      &--color_violet {
+        margin-left: 4em;
+
+        .for-whome__chart-percent {
+          color: map-get($colors, add-color);
+        }
+      }
+    }
+
+    &-percent {
+      position: relative;
+      padding-left: 0.4em;
+      font-weight: 800;
+      line-height: 1em;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 1.2em;
+        left: 50%;
+        width: 1.5em;
+        height: $chart-height;
+        background-color: currentColor;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        transform: translateX(-50%);
+        opacity: 0.4;
+      }
+
+      &::after {
+        content: " % ";
+        font-size: 0.4em;
+        line-height: $chart-font-size;
+        vertical-align: top;
+        opacity: 0.7;
+      }
+    }
+
+    &-label {
+      display: inline-block;
+      margin-left: 0.5em;
+      font-size: 0.5em;
+    }
+  }
+
+  @include respond-to(medium) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: $chart-font-size-large;
+
+    &__heading {
+      @include headline-4;
+    }
+
+    &__inner {
+      margin-top: 16px;
+    }
+
+    &__chart {
+      padding-left: 2em;
+      height: $chart-height-large;
+      background-image:
+        repeating-linear-gradient(360deg, rgba(map-get($colors, add-color), 0.2), rgba(map-get($colors, add-color), 0.2) 1px, transparent 1px, transparent $chart-height-large / 4),
+        url("../img/for-whome__chart-bg.svg");
+
+      &-item {
+        & + & {
+          margin-top: 1.5em;
+        }
+
+        &--color_orange {
+          margin-left: 3em;
+        }
+
+        &--color_violet {
+          margin-left: 6em;
+        }
+      }
+
+      &-percent {
+        &::before {
+          height: $chart-height-large;
+          width: 1.7em;
+        }
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    padding-top: 64px;
+    padding-bottom: 80px;
+
+    &__heading {
+      @include headline-3;
+    }
+
+    &__inner {
+      display: flex;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    &__quote {
+      width: 640px;
+      min-width: 640px;
+
+      .quote__text {
+        line-height: 1.5;
+      }
+    }
+
+    &__chart {
+      margin-top: 0;
+      padding-left: 1.5em;
+    }
+  }
+}
