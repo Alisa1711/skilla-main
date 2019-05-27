@@ -33,7 +33,7 @@ let config = {
   'dir': {
     'src': `src/`,
     'build': `build/`,
-    'blocks': `src/blocks/`,
+    'blocks': `src/blocks/**/`,
     'data': `src/data/`
   },
   'createBlock': {
