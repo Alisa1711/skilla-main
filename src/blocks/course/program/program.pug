@@ -1,74 +1,63 @@
-mixin program(text, mods)
+mixin program(program, author = {src: "img/alexandra-tuzova.jpg", name: "Александра Тузова"}, video="https://www.youtube.com/embed/X_SgCnmqRD4", mods)
 
   //- Принимает:
-  //-   text    {string} - текст
+  //-   program    {array} -  массив объектов уроков
+  //-       title    {string} -  название урока
+  //-       topics    {array} -  список тем урока
+  //-   author    {object} -   объект с информацией об авторе
+  //-       src   {string} -  путь к аватару
+  //-       name   {string} -   имя автора
+  //-       video   {string} -  путь к видео
   //-   mods    {string} - список модификаторов
   -
     // список модификаторов
-    var allMods = '';
-    if(typeof(mods) !== 'undefined' && mods) {
-      var modsList = mods.split(',');
+    var allMods = "";
+    if(typeof(mods) !== "undefined" && mods) {
+      var modsList = mods.split(",");
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' program--' + modsList[i].trim();
+        allMods = allMods + " program--" + modsList[i].trim();
       }
     }
 
-    var topics = [
-      "Обзор ёмкости рынка",
-      "Почему кафе&nbsp;&mdash; хороший бизнес?",
-      "Примеры самых успешных сетей в&nbsp;России и&nbsp;мире",
-      "Популярные тенденции",
-      "Основные игроки: поставщики, производители, концепция",
-      "Виды трафика посетителей в&nbsp;кафе",
-      "Собственная идея или франшиза?",
-      "Инвестор. Где найти деньги?",
-      "Разные типы владельцев бизнеса",
-      "Разные виды бизнеса",
-      "Реальные владельцы кафе. Серия интервью"
-    ]
-
-    var lessons = [
-      {
-        number: "1",
-        title: "Открытие кафе. Основы. Риски. Мотивация.",
-        topics: "11 тем"
-      },
-      {
-        number: "1",
-        title: "Открытие кафе. Основы. Риски. Мотивация.",
-        topics: "11 тем"
-      }
-    ]
+    function declOfNum(number, titles) {
+      cases = [2, 0, 1, 1, 1, 2];
+      return titles[ (number%100>4 && number%100<20)? 2 : cases[(number%10<5)?number%10:5] ];
+    }
 
   section#program.program(class=allMods)&attributes(attributes)
     .container
-      h2.program__heading Программа
+      -
+        var lessonsCount = program.length
+        var hoursCount = lessonsCount * 2
+      h2.program__heading !{"Программа " + lessonsCount + "&nbsp;" + declOfNum(program.length, ["урок", "урока", "уроков"]) + ", " + hoursCount + "&nbsp;" + declOfNum(program.length, ["час", "часа", "часов"])}
       .program__lessons-list
-        each lesson in lessons
+        each lesson in program
           .program__lesson
             .program__lesson-top
-              p.program__lesson-number урок #{lesson.number}
+              - var lessonNumber = program.indexOf(lesson) + 1
+              p.program__lesson-number= "урок " + lessonNumber
               p.program__title
                 | !{lesson.title}
-                +label(lesson.topics).program__label
+                - var topicsCount = lesson.topics.length + "&nbsp;" + declOfNum(lesson.topics.length, ["тема", "темы", "тем"]);
+                +label(topicsCount).program__label
             .program__descr
               .program__descr-inner
                 .program__free-lesson
                   .program__video
                     iframe(
-                      src="https://www.youtube.com/embed/X_SgCnmqRD4"
+                      src=video
                       frameborder="0"
                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                      webkitallowfullscreen=""
-                      mozallowfullscreen=""
-                      allowfullscreen="")
-                  +label("бесплатнй урок").program__video-label
+                      webkitallowfullscreen=true
+                      mozallowfullscreen=true
+                      allowfullscreen=true)
+                  +label("превью курса").program__video-label
                 .program__descr-content
                   ul.program__list
-                    each topic in topics
-                      li.program__item !{topic}
+                    - for (var i = 0; i < lesson.topics.length; i++)
+                        li.program__item !{lesson.topics[i]}
                   .program__author
-                    +avatar("img/alexandra-tuzova.jpg").program__avatar
+                    +avatar(author.src).program__avatar
                     .program__author-inner
-                      p.program__author-name Александра Тузова
+                      p.program__author-name !{author.name}
                       p.program__author-descr эксперт раздела
