@@ -1,0 +1,39 @@
+.skilla-block--doza {
+  background-color: darken(map-get($doza-colors, dark), 5);
+
+  .skilla-block {
+    &__logo {
+      fill: map-get($colors, light);
+    }
+
+    &__descr {
+      color: map-get($font-colors, secondary-light);
+    }
+  }
+
+  @include respond-to(large) {
+    padding-bottom: 104px;
+    background-color: transparent;
+    background-image:
+      url("../img/skilla-block--doza__bg.svg"),
+      linear-gradient(map-get($doza-colors, add-dark-1) 50%, map-get($doza-colors, add-dark-2) 51%);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: -1;
+
+    .skilla-block {
+      &__inner {
+        padding-top: 0;
+        background-image: none;
+        align-items: center;
+      }
+
+      &__info {
+        order: 2;
+        flex-grow: 0;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

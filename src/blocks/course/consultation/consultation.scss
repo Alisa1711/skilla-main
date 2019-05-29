@@ -12,6 +12,7 @@
 
   &__heading {
     @include subtitle-2;
+    color: map-get($font-colors, base);
     line-height: 1.3;
   }
 

@@ -17,6 +17,6 @@ mixin tags(tags, mods)
     .container
       - for (var i = 0; i < tags.length; i++)
           if i === 0
-            a(href="javascipt:volid(0);").link.tags__item.active !{tags[i]}
+            a(href="javascript:volid(0);").link.tags__item.active !{tags[i]}
           else
-            a(href="javascipt:volid(0);").link.tags__item !{tags[i]}
+            a(href="javascript:volid(0);").link.tags__item !{tags[i]}

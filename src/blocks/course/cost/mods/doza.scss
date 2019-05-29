@@ -1,0 +1,33 @@
+.cost--doza {
+  color: map-get($font-colors, base-light);
+  background-color: map-get($doza-colors, dark);
+  background-image: none;
+
+  .cost {
+    &__tabs {
+      color: map-get($font-colors, base-light);
+    }
+
+    &__price {
+      & sup {
+        color: map-get($font-colors, secondary-light);
+      }
+    }
+
+    &__total {
+      color: map-get($font-colors, secondary-light);
+    }
+  }
+
+  @include respond-to(large) {
+    margin-top: -150px;
+    padding-top: 300px;
+    background-color: map-get($doza-colors, add-dark-1);
+    background-image:
+      url("../img/cost--doza__bg.svg"),
+      url("../img/cost--doza__bg-coffee.jpg");
+    background-repeat: no-repeat, repeat-x;
+    background-position: left top, center top;
+    background-size: 100%, auto auto;
+  }
+}

@@ -11,7 +11,7 @@ mixin tabs(tabs, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' cost--' + modsList[i].trim();
+        allMods = allMods + ' tabs--' + modsList[i].trim();
       }
     }
 

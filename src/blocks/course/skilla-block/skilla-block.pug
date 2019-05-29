@@ -1,7 +1,6 @@
-mixin skilla-block(text, mods)
+mixin skilla-block(mods)
 
   //- Принимает:
-  //-   text    {string} - текст
   //-   mods    {string} - список модификаторов
   -
     // список модификаторов
@@ -25,6 +24,6 @@ mixin skilla-block(text, mods)
           src="https://www.youtube.com/embed/X_SgCnmqRD4"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          webkitallowfullscreen=""
-          mozallowfullscreen=""
-          allowfullscreen="")
+          webkitallowfullscreen=true
+          mozallowfullscreen=true
+          allowfullscreen=true)

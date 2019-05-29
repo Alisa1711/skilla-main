@@ -1,7 +1,7 @@
-mixin cost(text, mods)
+mixin cost(mods, tabsMods = "")
 
   //- Принимает:
-  //-   text    {string} - текст
+  //-   tabsMods    {string} - модификаторы для вкладок
   //-   mods    {string} - список модификаторов
   -
     // список модификаторов
@@ -38,7 +38,7 @@ mixin cost(text, mods)
       .cost__content
         h2.cost__heading Cтоимость курса
         p.cost__descr К&nbsp;сожалению, количество мест в&nbsp;потоке ограничено, чтобы наши эксперты справлялись с&nbsp;проверкой домашних заданий. Вы&nbsp;можете записаться на&nbsp;курс заранее и&nbsp;оплатить его в&nbsp;течение месяца.
-        +tabs(tabs).cost__tabs
+        +tabs(tabs, tabsMods).cost__tabs
           block
           #installments.tabs__content-item
             .cost__tab-installments

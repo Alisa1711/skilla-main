@@ -1,6 +1,5 @@
 .you-can {
-  $bg-height: 320px;
-  $bg-bottom: - $bg-height / 3;
+  @import "variables";
 
   padding-top: 48px;
   padding-bottom: 2 * $bg-height / 3 + 24px;
@@ -88,7 +87,6 @@
   @include respond-to(medium) {
     $bg-height: 480px;
     $bg-bottom: - $bg-height / 3;
-
     padding-bottom: 2 * $bg-height / 3 + 24px;
     background-size: auto $bg-height;
     background-position: center bottom $bg-bottom;
@@ -127,3 +125,5 @@
     }
   }
 }
+
+@import "mods/doza.scss";

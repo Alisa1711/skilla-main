@@ -1,6 +1,5 @@
 .reviews {
-  $avatar-margin: 24px;
-  $avatar-border: 6px;
+  @import "variables";
 
   @mixin dot {
     width: 6px;
@@ -173,3 +172,5 @@
     }
   }
 }
+
+@import "mods/doza.scss";
