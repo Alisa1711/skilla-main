@@ -1,7 +1,10 @@
-mixin course-benefits(text, mods)
+mixin course-benefits(data, mods)
 
   //- Принимает:
-  //-   text    {string} - текст
+  //-   data    {array} - массив с карточками
+  //-     title {string} -  заголовок карточки
+  //-     descr {string} -  описание
+  //-     mod {string} -  модификатор карточки
   //-   mods    {string} - список модификаторов
   -
     // список модификаторов
@@ -15,19 +18,12 @@ mixin course-benefits(text, mods)
 
     var descrDefault = "Лекции проходят в режиме реального времени, чтобы вы могли общаться."
 
-    var benefits = [
-      {title: "Живые лекции", descr: "Лекции проходят в режиме реального времени, чтобы вы могли общаться. Лекции проходят в режиме реального времени."},
-      {title: "Практика"},
-      {title: "Личное общение с&nbsp;экспертом"},
-      {title: "Экскурсия по&nbsp;Gonely Daily"}
-    ]
-
   section#course-benefits.course-benefits(class=allMods)&attributes(attributes)
     .container
       .course-benefits__inner
         h2.course-benefits__heading Что будет на&nbsp;крусе
-        each item in benefits
-          .course-benefits__item
+        each item in data
+          .course-benefits__item(class = item.mod ? "course-benefits__item--" + item.mod : "")
             p.course-benefits__item-title !{item.title}
             p.course-benefits__item-descr
               = item.descr ? item.descr : descrDefault

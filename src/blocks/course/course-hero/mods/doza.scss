@@ -1,0 +1,72 @@
+.course-hero--doza {
+  .course-hero {
+    &__heading {
+      margin-top: 8px;
+    }
+
+    &__subheading {
+      @include body-1(false);
+    }
+
+    &__info {
+      margin-top: 24px;
+      text-align: center;
+    }
+  }
+
+  @include respond-to(medium) {
+    min-height: 600px;
+    color: map-get($font-colors, base-light);
+    background-image:
+      url("../img/doza-hero__bg-02.svg"),
+      url("../img/doza-hero__bg-01.svg");
+    background-repeat:
+      no-repeat,
+      no-repeat;
+    background-size:
+      100%,
+      100%;
+    background-position:
+      center top 2px,
+      center top;
+
+    .course-hero {
+      &__subheading {
+        @include subtitle-1(false);
+      }
+
+      &__main {
+        margin-top: 60px;
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    box-sizing: border-box;
+    height: 100vh;
+    // max-height: 1100px;
+    background-image:
+      url("../img/doza-hero__bg-02.svg"),
+      url("../img/doza-hero__coffee_cup.png"),
+      url("../img/doza-hero__bg-01.svg"),
+      linear-gradient(map-get($doza-colors, dark) 80%, map-get($doza-colors, neutral) 81%);
+    background-repeat: no-repeat;
+    background-size:
+      100%,
+      auto,
+      100%;
+    background-position: center;
+
+    .course-hero {
+      &__main {
+        display: flex;
+        align-items: center;
+        margin-top: 112px;
+      }
+
+      &__info {
+        align-self: flex-end;
+      }
+    }
+  }
+}

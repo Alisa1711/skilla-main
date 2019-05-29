@@ -1,8 +1,5 @@
 .for-whome {
-  $chart-height: 200px;
-  $chart-height-large: 300px;
-  $chart-font-size: 28px;
-  $chart-font-size-large: 36px;
+  @import "variables";
 
   padding-top: 24px;
   padding-bottom: 24px;
@@ -39,25 +36,33 @@
         margin-top: 1em;
       }
 
-      &--color_red {
-        .for-whome__chart-percent {
+      &:nth-child(2) {
+        margin-left: 2em;
+      }
+
+      &:nth-child(3) {
+        margin-left: 4em;
+      }
+
+      &--color {
+        &_red {
           color: map-get($colors, accent);
         }
-      }
 
-      &--color_orange {
-        margin-left: 2em;
-
-        .for-whome__chart-percent {
+        &_orange {
           color: map-get($colors, add-color-6);
         }
-      }
 
-      &--color_violet {
-        margin-left: 4em;
-
-        .for-whome__chart-percent {
+        &_violet {
           color: map-get($colors, add-color);
+        }
+
+        &_coffee {
+          color: map-get($doza-colors, coffee);
+        }
+
+        &_light-coffee {
+          color: map-get($doza-colors, light-coffee);
         }
       }
     }
@@ -95,6 +100,9 @@
       display: inline-block;
       margin-left: 0.5em;
       font-size: 0.5em;
+      line-height: 1.3;
+      color: map-get($font-colors, base);
+      white-space: normal;
     }
   }
 
@@ -123,11 +131,11 @@
           margin-top: 1.5em;
         }
 
-        &--color_orange {
+        &:nth-child(2) {
           margin-left: 3em;
         }
 
-        &--color_violet {
+        &:nth-child(3) {
           margin-left: 6em;
         }
       }
@@ -170,3 +178,5 @@
     }
   }
 }
+
+@import "mods/doza.scss";

@@ -1,0 +1,10 @@
+.doza {
+  background-color: map-get($doza-colors, neutral);
+
+  &__bg-wave {
+    background-image: url("../img/doza__bg-wave.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+}

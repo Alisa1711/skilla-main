@@ -1,0 +1,58 @@
+.course-benefits--doza {
+  background-color: initial;
+
+  .course-benefits {
+    &__item {
+      background-image: none;
+
+      &--black {
+        position: static;
+        padding-left: 16px;
+        background-color: lighten(map-get($doza-colors, dark), 10);
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include respond-to(medium) {
+    background-image: none;
+
+    .course-benefits {
+      &__item {
+        &--black {
+          padding: 48px 32px;
+        }
+
+        &--cup {
+          background-image: url("../img/course-benefits__item-bg.png");
+          background-repeat: no-repeat;
+          background-size: auto 100px;
+          background-position: right 20px bottom 20px;
+        }
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    padding-top: 300px;
+    background-image: url("../img/course-benefits--doza__bg.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center top 80px;
+
+    .course-benefits {
+      &__item {
+        &--black {
+          padding-top: 64px;
+        }
+
+        &--cup {
+          background-size: auto;
+        }
+      }
+    }
+  }
+}

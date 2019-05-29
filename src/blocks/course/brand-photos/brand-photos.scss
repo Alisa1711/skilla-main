@@ -1,7 +1,41 @@
 .brand-photos {
-  display: flex;
-  height: 320px;
-  overflow-x: hidden;
+  &__inner {
+    display: flex;
+    height: 320px;
+    overflow-x: hidden;
+  }
+
+  &__logo {
+    position: relative;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    &-img {
+      display: block;
+      margin: auto;
+      width: 60px;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 45%;
+      height: 1px;
+      background-color: map-get($colors, dark);
+      opacity: 0.12;
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
 
   &__img {
     min-width: 100%;
@@ -9,11 +43,21 @@
   }
 
   @include respond-to(medium) {
-    height: 500px;
+    &__inner {
+      height: 500px;
+    }
   }
 
   @include respond-to(large) {
-    justify-content: center;
+    &__inner {
+      justify-content: center;
+    }
+
+    &__logo {
+      &-img {
+        width: 80px;
+      }
+    }
 
     &__img {
       min-width: initial;

@@ -344,20 +344,20 @@ function serve() {
   });
 
   // Разметка Блоков: изменение +
-  watch([`${dir.blocks}**/*.pug`], {events: [`change`], delay: 100}, series(
+  watch([`${dir.blocks}**/**/*.pug`], {events: [`change`], delay: 100}, series(
       compilePug,
       reload
   ));
 
   // Разметка Блоков: добавление
-  watch([`${dir.blocks}**/*.pug`], {events: [`add`], delay: 100}, series(
+  watch([`${dir.blocks}**/**/*.pug`], {events: [`add`], delay: 100}, series(
       writePugMixinsFile,
       compilePug,
       reload
   ));
 
   // Разметка Блоков: удаление
-  watch([`${dir.blocks}**/*.pug`], {events: [`unlink`], delay: 100}, writePugMixinsFile);
+  watch([`${dir.blocks}**/**/*.pug`], {events: [`unlink`], delay: 100}, writePugMixinsFile);
 
   // Шаблоны pug: все события
   watch([`${dir.src}data/**/*.pug`, `${dir.src}pug/**/*.pug`, `!${dir.src}pug/mixins.pug`], {delay: 100}, series(

@@ -1,0 +1,54 @@
+.for-whome--doza {
+  @import "../variables";
+
+  .for-whome {
+    &__chart {
+      background-image:
+        repeating-linear-gradient(360deg, rgba(map-get($doza-colors, coffee), 0.2), rgba(map-get($doza-colors, coffee), 0.2) 1px, transparent 1px, transparent $chart-height / 4),
+        url("../img/for-whome__chart-bg.svg");
+
+      &-item:last-child {
+        .for-whome__chart-percent::before {
+          opacity: 0.4;
+        }
+      }
+
+      &-percent {
+        &::before {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    position: relative;
+
+    .for-whome {
+      &__quote {
+        z-index: 2;
+      }
+
+      &__chart {
+        align-self: flex-start;
+        margin-top: 40px;
+      }
+
+      &__decor {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 500px;
+        background-image:
+          url("../img/for-whome--doza__bg-wave.svg"),
+          url("../img/for-whome--doza__bg-01.png");
+        background-repeat: no-repeat;
+        background-position: center bottom, center bottom -20px;
+        background-size: 100%, auto;
+        z-index: 1;
+      }
+    }
+  }
+}

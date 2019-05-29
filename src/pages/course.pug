@@ -9,6 +9,13 @@ block vars
     {title: "Расширить свой бизнес", descr: paragraph}
     ]
 
+    var quoteForWhome = {
+      text: "Я&nbsp;приглашаю на&nbsp;курс начинающих предпринимателей, инвесторов, а&nbsp;также владельцев пекарен. Всех, кто хочет изменить дела к&nbsp;лучшему.",
+      name: "Александра Тузова",
+      descr: "преподаватель курса",
+      src: "img/alexandra-tuzova.jpg"
+    }
+
 block title
   title Как открыть кафе
 
@@ -18,9 +25,9 @@ block header
 block content
   +course-hero
   +brand-photos
-  +course-benefits
+  +course-benefits(courseBenefits)
   +business-plan
-  +for-whome
+  +for-whome(chartItems, quoteForWhome)
   +program
   +teachers
   +how-it-works
