@@ -17,6 +17,10 @@
     &__total {
       color: map-get($font-colors, secondary-light);
     }
+
+    &__cta-descr {
+      color: map-get($font-colors, secondary-light);
+    }
   }
 
   @include respond-to(large) {

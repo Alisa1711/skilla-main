@@ -1,5 +1,6 @@
 .short-footer--dark {
   color: map-get($font-colors, secondary-light);
+  border: none;
 
   @include respond-to(large) {
     .short-footer {

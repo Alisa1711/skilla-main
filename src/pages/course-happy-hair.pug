@@ -13,16 +13,16 @@ block content
     +course-benefits(courseBenefits, "happy-hair")
     +business-plan(tariffs, "happy-hair")
   +for-whome(chartItems, quoteForWhome)
-  +program(program)
+  +program(programHappyHair)
   +teachers
-  +how-it-works(howItWorksSteps)
-  +you-can(youCanData)
-  +reviews(reviewCroud)
-  +cost
-  +skilla-block
+  +how-it-works(howItWorksSteps, "img/how-it-works__theme_happy-hair.svg")
+  +you-can(youCanData, "happy-hair")
+  +reviews(reviewCroud, "happy-hair")
+  +cost("happy-hair", tabsMod="dark")
+  +skilla-block("happy-hair")
 
 block footer
-  +short-footer
+  +short-footer("dark,bg_happy-hair")
 
 block prepend modals
   +course-nav(courseNav)
@@ -46,7 +46,13 @@ block vars
 
     var quoteForWhome = {
       text: "Я&nbsp;приглашаю на&nbsp;курс начинающих предпринимателей, инвесторов, а&nbsp;также владельцев пекарен. Всех, кто хочет изменить дела к&nbsp;лучшему.",
-      name: "Александра Тузова",
+      name: "Дмитрий Воробев",
       descr: "преподаватель курса",
       src: "img/alexandra-tuzova.jpg"
     }
+
+    var chartItems = [
+      {percent: "55", label: "Начинающие предприниматели", color: "red"},
+      {percent: "34", label: "Инвесторы", color: "orange"},
+      {percent: "11", label: "Владельцы салонов", color: "violet"}
+    ]

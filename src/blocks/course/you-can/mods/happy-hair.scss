@@ -1,0 +1,35 @@
+.you-can--happy-hair {
+  @import "../variables";
+
+  background-image:
+    url("../img/you-can--happy-hair__bg.svg"),
+    url("../img/you-can--happy-hair__bg-02.svg");
+  background-size: auto $bg-height, cover;
+  background-position: center bottom $bg-bottom, center;
+  background-color: map-get($happy-hair-colors, add-color);
+
+  @include respond-to(medium) {
+    $bg-height: 480px;
+    $bg-bottom: - $bg-height / 3;
+
+    background-size: auto $bg-height, cover;
+    background-position: center bottom $bg-bottom, center;
+  }
+
+  @include respond-to(large) {
+    $bg-height: 480px;
+
+    background-image: url("../img/you-can--happy-hair__bg-02.svg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+
+    .you-can {
+      &__inner {
+        background-image: url("../img/you-can--happy-hair__bg.svg");
+        background-position: top right;
+        background-size: auto $bg-height;
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.reviews--happy-hair {
+  @import "../variables";
+
+  padding-bottom: 24px;
+
+  @include respond-to(medium) {
+    background-image: url("../img/reviews--happy-hair__bg--medium.jpg");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: map-get($font-colors, base);
+
+    .reviews {
+      &__heading {
+        color: map-get($font-colors, base);
+      }
+
+      &__crowd {
+        &-title {
+          color: map-get($font-colors, base);
+        }
+
+        &-dots {
+          & span {
+            background-color: map-get($colors, accent);
+            box-shadow: none;
+          }
+        }
+      }
+
+      &__avatar {
+        min-width: map-get($avatar-sizes, x-medium) + $avatar-border * 2;
+        width: map-get($avatar-sizes, x-medium) + $avatar-border * 2;
+        height: map-get($avatar-sizes, x-medium) + $avatar-border * 2;
+        border: none;
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    background-image: url("../img/reviews--happy-hair__bg.jpg");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .reviews {
+      &__quote {
+        order: 2;
+        margin-left: auto;
+      }
+
+      &__crowd {
+        margin-left: 0;
+      }
+    }
+  }
+}

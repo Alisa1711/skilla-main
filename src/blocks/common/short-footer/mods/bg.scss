@@ -2,4 +2,8 @@
   &_doza {
     background-color: map-get($doza-colors, add-dark-2);
   }
+
+  &_happy-hair {
+    background-color: map-get($happy-hair-colors, dark);
+  }
 }

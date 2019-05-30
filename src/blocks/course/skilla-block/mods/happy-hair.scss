@@ -1,0 +1,34 @@
+.skilla-block--happy-hair {
+  background-color: map-get($happy-hair-colors, add-dark);
+
+  .skilla-block {
+    &__logo {
+      fill: map-get($colors, light);
+    }
+
+    &__descr {
+      color: map-get($font-colors, secondary-light);
+    }
+  }
+
+  @include respond-to(large) {
+    padding-bottom: 104px;
+    background-color: map-get($happy-hair-colors, add-dark);
+    background-image: none;
+
+    .skilla-block {
+      &__inner {
+        padding-top: 0;
+        background-image: none;
+        align-items: center;
+      }
+
+      &__info {
+        order: 2;
+        flex-grow: 0;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

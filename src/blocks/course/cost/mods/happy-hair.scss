@@ -1,0 +1,41 @@
+.cost--happy-hair {
+  padding-top: 64px;
+  color: map-get($font-colors, base-light);
+  background-color: map-get($happy-hair-colors, add-dark);
+  background-image: url("../img/cost--happy-hair__bg.svg");
+  background-repeat: no-repeat;
+  background-position: center top;
+
+  .cost {
+    &__tabs {
+      color: map-get($font-colors, base-light);
+    }
+
+    &__price {
+      & sup {
+        color: map-get($font-colors, secondary-light);
+      }
+    }
+
+    &__total {
+      color: map-get($font-colors, secondary-light);
+    }
+
+    &__cta-descr {
+      color: map-get($font-colors, secondary-light);
+    }
+  }
+
+  @include respond-to(medium) {
+    background-size: 100%;
+    background-position: center top;
+  }
+
+  @include respond-to(large) {
+    margin-top: -100px;
+    padding-top: 200px;
+    background-image: url("../img/cost--happy-hair__bg.svg");
+    background-size: 100%;
+    background-position: center top -1px;
+  }
+}
