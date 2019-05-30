@@ -1,6 +1,13 @@
-mixin course-hero(mods)
+mixin course-hero(data, mods)
 
   //- Принимает:
+  //-   data    {object}
+  //-        heading    {string} -  название курса
+  //-        subheading    {string} -   подзаголовок курса
+  //-        label    {string} -   надпись на лейбле
+  //-        author    {string} -    имя автора
+  //-        authorDescr    {string} - регалии автора
+  //-        logos    {array} -  пути к логотипу
   //-   mods    {string} - список модификаторов
   -
     // список модификаторов
@@ -12,57 +19,58 @@ mixin course-hero(mods)
       }
     }
 
-  if mods && mods.indexOf("doza,")
-    section.course-hero(class=allMods)&attributes(attributes)
-      .container
-        .course-hero__top
-          +label("онлайн курс").course-hero__label
-          h1.course-hero__heading Как открыть кофе с&nbsp;собой
-          p.course-hero__subheading с&nbsp;Алексеем Алексеевым
-        .course-hero__main
-          .course-hero__video
-            iframe(
-              src="https://www.youtube.com/embed/X_SgCnmqRD4"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              webkitallowfullscreen=true
-              mozallowfullscreen=true
-              allowfullscreen=true)
-          .course-hero__info
+  //- if mods && mods.indexOf("doza,")
+  //-   section.course-hero(class=allMods)&attributes(attributes)
+  //-     .container
+  //-       .course-hero__top
+  //-         +label("онлайн курс").course-hero__label
+  //-         h1.course-hero__heading Как открыть кофе с&nbsp;собой
+  //-         p.course-hero__subheading с&nbsp;Алексеем Алексеевым
+  //-       .course-hero__main
+  //-         .course-hero__video
+  //-           iframe(
+  //-             src="https://www.youtube.com/embed/X_SgCnmqRD4"
+  //-             frameborder="0"
+  //-             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  //-             webkitallowfullscreen=true
+  //-             mozallowfullscreen=true
+  //-             allowfullscreen=true)
+  //-         .course-hero__info
+  //-           +button("записаться на курс").modal-trigger(data-modal="#sign-up-course" data-overlay="off")
+  //-           a.link.link--button.link--color_secondary(
+  //-             href="javascript:void(0);"
+  //-             data-modal="#consultation"
+  //-             data-overlay="off"
+  //-           ).course-hero__link.modal-trigger Получить консультацию
+
+
+  //- else
+  section.course-hero(class=allMods)&attributes(attributes)
+    .container
+      .course-hero__top
+        h1.course-hero__heading !{data.heading}
+        +label(data.label).course-hero__label
+        p.course-hero__subheading !{data.subheading}
+      .course-hero__main
+        .course-hero__video
+          iframe(
+            src="https://www.youtube.com/embed/X_SgCnmqRD4"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            webkitallowfullscreen=true
+            mozallowfullscreen=true
+            allowfullscreen=true)
+        .course-hero__info
+          p.course-hero__author-name !{data.author}
+          if data.authorDescr
+            p.course-hero__author-descr !{data.authorDescr}
+          .course-hero__logos
+            - for (var i = 0; i < data.logos.length; i++)
+                +logo(data.logos[i]).course-hero__logo
+          .course-hero__bottom
             +button("записаться на курс").modal-trigger(data-modal="#sign-up-course" data-overlay="off")
             a.link.link--button.link--color_secondary(
               href="javascript:void(0);"
               data-modal="#consultation"
               data-overlay="off"
             ).course-hero__link.modal-trigger Получить консультацию
-
-
-  else
-    section.course-hero(class=allMods)&attributes(attributes)
-      .container
-        .course-hero__top
-          h1.course-hero__heading Как открыть кафе
-          +label("6 мая — 7 июля 2019").course-hero__label
-          p.course-hero__subheading От мечты до первой прибыли по шагам
-        .course-hero__main
-          .course-hero__video
-            iframe(
-              src="https://www.youtube.com/embed/X_SgCnmqRD4"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              webkitallowfullscreen=true
-              mozallowfullscreen=true
-              allowfullscreen=true)
-          .course-hero__info
-            p.course-hero__author-name Александра Тузова
-            p.course-hero__author-descr в семейном бизнесе  с 12 лет владелец кафе Goneli Daily, совладелец ресторана «Садахар» и производства продуктов шоковой заморозки.
-            .course-hero__logos
-              img.course-hero__logo(src="img/course-logo-01.svg" alt="Goneli Daily")
-              img.course-hero__logo(src="img/course-logo-02.svg" alt="Садахар")
-            .course-hero__bottom
-              +button("записаться на курс").modal-trigger(data-modal="#sign-up-course" data-overlay="off")
-              a.link.link--button.link--color_secondary(
-                href="javascript:void(0);"
-                data-modal="#consultation"
-                data-overlay="off"
-              ).course-hero__link.modal-trigger Получить консультацию

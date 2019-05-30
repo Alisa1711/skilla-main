@@ -173,7 +173,7 @@ function generateSvgSprite(cb) {
       }))
       .pipe(svgstore({inlineSvg: true}))
       .pipe(rename(`sprite.svg`))
-      .pipe(dest(`${dir.blocks}sprite-svg/img/`));
+      .pipe(dest(`${dir.blocks}/common/sprite-svg/img/`));
   } else {
     return cb();
   }

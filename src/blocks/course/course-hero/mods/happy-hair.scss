@@ -1,0 +1,103 @@
+.course-hero--happy-hair {
+  .course-hero {
+    &__author-name {
+      text-align: center;
+    }
+
+    &__logos {
+      position: relative;
+      margin-top: 16px;
+      margin-bottom: 16px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 40%;
+        height: 1px;
+        background-color: map-get($happy-hair-colors, dark);
+        opacity: 0.12;
+      }
+
+      &::before {
+        left: 0;
+      }
+
+      &::after {
+        right: 0;
+      }
+    }
+
+    &__logo {
+      fill: map-get($font-colors, base);
+      width: 70px;
+      height: 80px;
+    }
+  }
+
+  @include respond-to(medium) {
+    background-image:
+      linear-gradient(to top, white 50%, rgba(white, 0) 50.01%),
+      url("../img/happy-hair-hero__bg.svg");
+    background-size: cover;
+
+    .course-hero {
+      &__heading {
+        color: map-get($font-colors, base-light);
+      }
+
+      &__subheading {
+        color: map-get($font-colors, base-light);
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    box-sizing: border-box;
+    min-height: 700px;
+    background-image:
+      linear-gradient(to top, white 200px, rgba(white, 0) 200px),
+      url("../img/happy-hair-hero__bg.svg");
+
+    .course-hero {
+      &__info {
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        margin-top: 48px;
+      }
+
+      &__author-name {
+        color: map-get($font-colors, base-light);
+      }
+
+      &__logos {
+        &::before,
+        &::after {
+          width: 150px;
+          background-color: map-get($colors, light);
+          opacity: 0.5;
+        }
+
+        &::before {
+          left: -20px;
+        }
+
+        &::after {
+          right: -20px;
+        }
+      }
+
+      &__logo {
+        margin-left: auto;
+        margin-right: auto;
+        fill: map-get($colors, light);
+      }
+
+      &__bottom {
+        text-align: center;
+      }
+    }
+  }
+}

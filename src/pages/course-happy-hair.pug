@@ -7,7 +7,7 @@ block header
   +header("course")
 
 block content
-  //- +course-hero
+  +course-hero(courseHero, "happy-hair")
   +brand-photos(["img/brand-photos__happy-hair-01.jpg", "img/brand-photos__happy-hair-02.jpg", "img/brand-photos__happy-hair-03.jpg"])
   .happy-hair__bg-watercolor
     +course-benefits(courseBenefits, "happy-hair")
@@ -36,6 +36,14 @@ block prepend modals
 block vars
   -
     var pageClass = "happy-hair"
+
+    var courseHero = {
+      heading: "Как открыть салон красоты",
+      subheading: "От&nbsp;мечты до&nbsp;первой прибыли по&nbsp;шагам",
+      label: "онлайн курс",
+      author: "Дмитрий Воробьев",
+      logos: ["happy-hair-logo"]
+    }
 
     var youCanData = [
     {title: "Открыть свое кафе", descr: paragraph},
