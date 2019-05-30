@@ -368,12 +368,12 @@ function serve() {
   ));
 
   // Стили Блоков: изменение
-  watch([`${dir.blocks}**/*.scss`], {events: [`change`], delay: 100}, series(
+  watch([`${dir.blocks}**/**/*.scss`], {events: [`change`], delay: 100}, series(
       compileSass
   ));
 
   // Стили Блоков: добавление
-  watch([`${dir.blocks}**/*.scss`], {events: [`add`], delay: 100}, series(
+  watch([`${dir.blocks}**/**/*.scss`], {events: [`add`], delay: 100}, series(
       writeSassImportsFile,
       compileSass
   ));

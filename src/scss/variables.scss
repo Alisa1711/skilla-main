@@ -51,6 +51,12 @@ $icon-colors: (
   focus: rgba(map-get($colors, dark), 0.87)
 );
 
+$icon-light-colors: (
+  inactive: rgba(map-get($colors, light), 0.5),
+  active: rgba(map-get($colors, light), 0.7),
+  focus: map-get($colors, light)
+);
+
 $icon-sizes: (
   small: 16px,
   medium: 24px,

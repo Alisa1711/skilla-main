@@ -6,9 +6,14 @@ mixin short-footer(mods)
     // список модификаторов
     var allMods = '';
     if(typeof(mods) !== 'undefined' && mods) {
+      if (mods.indexOf("dark") > -1) {
+        iconMod = "light";
+      } else {
+        iconMod = "active";
+      }
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' footer--' + modsList[i].trim();
+        allMods = allMods + ' short-footer--' + modsList[i].trim();
       }
     }
 
@@ -21,6 +26,6 @@ mixin short-footer(mods)
         p.short-footer__address г.&nbsp;Москва, метро&nbsp;Бауманская, ул.&nbsp;Бауманская, дом&nbsp;11, строение&nbsp;8, офис&nbsp;4
         .short-footer__social
           a.short-footer__social-item(href="javascript:void(0);")
-            +icon("instagram", "active,size_xlg").short-footer__social-icon
+            +icon("instagram", iconMod + ",size_xlg").short-footer__social-icon
           a.short-footer__social-item(href="javascript:void(0);")
-            +icon("vkonakte", "active,size_xlg").short-footer__social-icon
+            +icon("vkonakte", iconMod + ",size_xlg").short-footer__social-icon

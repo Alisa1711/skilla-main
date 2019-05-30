@@ -16,6 +16,15 @@
     }
   }
 
+  &--light {
+    fill: map-get($icon-light-colors, active);
+    transition: map-get($transition, medium);
+
+    &:hover {
+      fill: map-get($icon-light-colors, focus);
+    }
+  }
+
   // Размер
 
   &--size_sm {

@@ -1,0 +1,11 @@
+.short-footer--dark {
+  color: map-get($font-colors, secondary-light);
+
+  @include respond-to(large) {
+    .short-footer {
+      &__phone {
+        color: map-get($font-colors, base-light);
+      }
+    }
+  }
+}

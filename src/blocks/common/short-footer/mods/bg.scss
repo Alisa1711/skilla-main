@@ -1,0 +1,5 @@
+.short-footer--bg {
+  &_doza {
+    background-color: map-get($doza-colors, add-dark-2);
+  }
+}
