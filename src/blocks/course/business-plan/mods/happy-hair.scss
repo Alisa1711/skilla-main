@@ -1,0 +1,21 @@
+.business-plan--happy-hair {
+  padding-bottom: 300px;
+  background-image: url("../img/business-plan--happy-hair__bg--small.png");
+
+  @include respond-to(medium) {
+    // background-color: map-get($colors, light);
+    background-image: url("../img/business-plan--happy-hair__bg.png");
+    background-position: right -100px bottom -100px;
+  }
+
+  @include respond-to(large) {
+    background-color: initial;
+
+    .business-plan {
+      &__inner {
+        background-image: url("../img/business-plan--happy-hair__bg.png");
+        background-position: right -100px bottom -150px;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.course-benefits--happy-hair {
+  background-color: initial;
+
+  .course-benefits {
+    &__item {
+      &--black {
+        background-color: lighten(map-get($happy-hair-colors, dark), 10);
+      }
+    }
+  }
+
+  @include respond-to(medium) {
+    background-image: none;
+  }
+}

@@ -1,0 +1,52 @@
+extends ../pug/layout.pug
+
+block title
+  title Как открыть свой салон красоты
+
+block header
+  +header("course")
+
+block content
+  //- +course-hero
+  +brand-photos(["img/brand-photos__happy-hair-01.jpg", "img/brand-photos__happy-hair-02.jpg", "img/brand-photos__happy-hair-03.jpg"])
+  .happy-hair__bg-watercolor
+    +course-benefits(courseBenefits, "happy-hair")
+    +business-plan(tariffs, "happy-hair")
+  +for-whome(chartItems, quoteForWhome)
+  +program(program)
+  +teachers
+  +how-it-works(howItWorksSteps)
+  +you-can(youCanData)
+  +reviews(reviewCroud)
+  +cost
+  +skilla-block
+
+block footer
+  +short-footer
+
+block prepend modals
+  +course-nav(courseNav)
+  include ../blocks/forms/form/sign-up-course
+  include ../blocks/forms/form/sign-up
+  include ../blocks/forms/form/consultation
+  include ../blocks/forms/form/confirm
+  include ../blocks/forms/form/login
+
+
+block vars
+  -
+    var pageClass = "happy-hair"
+
+    var youCanData = [
+    {title: "Открыть свое кафе", descr: paragraph},
+    {title: "Привлечь инвесторов", descr: paragraph},
+    {title: "Повысить эффективность своего кафе", descr: paragraph},
+    {title: "Расширить свой бизнес", descr: paragraph}
+    ]
+
+    var quoteForWhome = {
+      text: "Я&nbsp;приглашаю на&nbsp;курс начинающих предпринимателей, инвесторов, а&nbsp;также владельцев пекарен. Всех, кто хочет изменить дела к&nbsp;лучшему.",
+      name: "Александра Тузова",
+      descr: "преподаватель курса",
+      src: "img/alexandra-tuzova.jpg"
+    }

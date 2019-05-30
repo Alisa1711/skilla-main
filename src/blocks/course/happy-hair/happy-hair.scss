@@ -1,0 +1,10 @@
+.happy-hair {
+  @include respond-to(medium) {
+    &__bg-watercolor {
+      background-image: url("../img/happy-hair__bg-watercolor.jpg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+  }
+}

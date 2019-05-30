@@ -4,9 +4,6 @@
   @include respond-to(medium) {
     background-image: url("../img/business-plan--doza__bg.png");
     background-position: right -100px bottom;
-    .business-plan {
-
-    }
   }
 
   @include respond-to(large) {
