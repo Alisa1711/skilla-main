@@ -19,32 +19,6 @@ mixin course-hero(data, mods)
       }
     }
 
-  //- if mods && mods.indexOf("doza,")
-  //-   section.course-hero(class=allMods)&attributes(attributes)
-  //-     .container
-  //-       .course-hero__top
-  //-         +label("онлайн курс").course-hero__label
-  //-         h1.course-hero__heading Как открыть кофе с&nbsp;собой
-  //-         p.course-hero__subheading с&nbsp;Алексеем Алексеевым
-  //-       .course-hero__main
-  //-         .course-hero__video
-  //-           iframe(
-  //-             src="https://www.youtube.com/embed/X_SgCnmqRD4"
-  //-             frameborder="0"
-  //-             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  //-             webkitallowfullscreen=true
-  //-             mozallowfullscreen=true
-  //-             allowfullscreen=true)
-  //-         .course-hero__info
-  //-           +button("записаться на курс").modal-trigger(data-modal="#sign-up-course" data-overlay="off")
-  //-           a.link.link--button.link--color_secondary(
-  //-             href="javascript:void(0);"
-  //-             data-modal="#consultation"
-  //-             data-overlay="off"
-  //-           ).course-hero__link.modal-trigger Получить консультацию
-
-
-  //- else
   section.course-hero(class=allMods)&attributes(attributes)
     .container
       .course-hero__top
@@ -61,12 +35,14 @@ mixin course-hero(data, mods)
             mozallowfullscreen=true
             allowfullscreen=true)
         .course-hero__info
-          p.course-hero__author-name !{data.author}
+          if data.author
+            p.course-hero__author-name !{data.author}
           if data.authorDescr
             p.course-hero__author-descr !{data.authorDescr}
-          .course-hero__logos
-            - for (var i = 0; i < data.logos.length; i++)
-                +logo(data.logos[i]).course-hero__logo
+          if data.logos
+            .course-hero__logos
+              - for (var i = 0; i < data.logos.length; i++)
+                  +logo(data.logos[i]).course-hero__logo
           .course-hero__bottom
             +button("записаться на курс").modal-trigger(data-modal="#sign-up-course" data-overlay="off")
             a.link.link--button.link--color_secondary(

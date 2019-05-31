@@ -149,7 +149,7 @@ exports.copyAssets = copyAssets;
 
 
 function copyImg(cb) { // копирует все изображения из папок img
-  let copiedImages = [`src/**/img/**/*.*`];
+  let copiedImages = [`src/**/**/img/**/*.*`];
   (async () => {
     await cpy(copiedImages, `${dir.build}img`);
     cb();

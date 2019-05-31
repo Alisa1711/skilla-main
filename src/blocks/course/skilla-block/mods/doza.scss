@@ -1,5 +1,5 @@
 .skilla-block--doza {
-  background-color: darken(map-get($doza-colors, dark), 5);
+  background-color: map-get($doza-colors, add-dark-2);
 
   .skilla-block {
     &__logo {

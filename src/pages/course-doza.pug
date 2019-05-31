@@ -7,7 +7,7 @@ block header
   +header("course")
 
 block content
-  //- +course-hero("doza")
+  +course-hero(courseHero, "doza")
   +brand-photos(["img/brand-photos__doza-01.jpg", "img/brand-photos__doza-02.jpg", "img/brand-photos__doza-03.jpg"], "img/doza-logo.svg")
   .doza__bg-wave
     +course-benefits(courseBenefits, "doza")
@@ -36,6 +36,15 @@ block prepend modals
 block vars
   -
     var pageClass = "doza"
+
+    var courseHero = {
+      heading: "Как открыть кофе с&nbsp;собой",
+      subheading: "от владельца сети мини–кофеен<br>DOZA cafe Алексея Яковлева",
+      //- author: "Алексей Яковлев",
+      //- authorDescr: "владелец кафейни Doza",
+      label: "онлайн курс",
+      //- logos: ["doza-logo"]
+    }
 
     var youCanData = [
     {title: "Открыть свое кафе", descr: paragraph},
