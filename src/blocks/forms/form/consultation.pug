@@ -32,7 +32,7 @@ block bottom
   .form__phone
     a.form__phone-number.link(herf="tel:+78009235411")
       +icon("phone").form__phone-icon
-      |8 (800) 923 54 11
+      |8 800 333-17-21
     p.form__phone-descr Также отвечаем по&nbsp;телефону с&nbsp;9&nbsp;до&nbsp;18&nbsp;по&nbsp;Москве
 
 block form-author
@@ -53,5 +53,5 @@ block done
         |на любой курс
       .form__row.form__row--full
         input.input(type="email" placeholder="@почта").form__input
-        +button("отправить", "secondary").form__button(type="submit")
+        +button("отправить", "secondary", "", "button").form__button(type="submit")
       p.form__hint если мы не позвоним вовремя, то на эту почту придет промокод

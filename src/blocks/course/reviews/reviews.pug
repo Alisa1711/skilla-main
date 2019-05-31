@@ -1,7 +1,7 @@
-mixin reviews(crowd=[], mods)
+mixin reviews(crowd=["img/review__avatar-01.jpg"], mods)
 
   //- Принимает:
-  //-   crowd    {array} - массив с путями к автарам
+  //-   crowd    {array} - массив с путями к автарам. Первый попадает в цитату
   //-   mods    {string} - список модификаторов
   -
     // список модификаторов
@@ -22,15 +22,15 @@ mixin reviews(crowd=[], mods)
     .container
       h2.reviews__heading Курс прошли более 3000&nbsp;человек
       .reviews__inner
-        +quote("review", review.text, name, review.descr, "img/review__avatar-01.jpg").reviews__quote
+        +quote("review", review.text, name, review.descr, crowd[0]).reviews__quote
         .reviews__crowd
           p.reviews__crowd-title 25% открыли свое кафе
           .reviews__crowd-list
-            if crowd.length == 0
+            if crowd.length < 2
               - for (var x = 0; x < 14; x++)
                 +avatar.reviews__avatar
             else
-              each avatar in crowd
-                +avatar(avatar).reviews__avatar
+              - for (var i = 1; i < crowd.length; i++)
+                +avatar(crowd[i]).reviews__avatar
             .reviews__crowd-dots
               span

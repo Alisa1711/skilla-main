@@ -13,8 +13,8 @@ block content
     +course-benefits(courseBenefits, "happy-hair")
     +business-plan(tariffs, "happy-hair")
   +for-whome(chartItems, quoteForWhome)
-  +program(programHappyHair)
-  +teachers
+  +program(programHappyHair, programAuthor)
+  +teachers(teachers)
   +how-it-works(howItWorksSteps, "img/how-it-works__theme_happy-hair.svg")
   +you-can(youCanData, "happy-hair")
   +reviews(reviewCroud, "happy-hair")
@@ -39,6 +39,7 @@ block vars
 
     var courseHero = {
       heading: "Как открыть салон красоты",
+      video: "https://www.youtube.com/embed/KlzIu0mSfXk",
       subheading: "От&nbsp;мечты до&nbsp;первой прибыли по&nbsp;шагам",
       label: "онлайн курс",
       author: "Дмитрий Воробьев",
@@ -53,14 +54,61 @@ block vars
     ]
 
     var quoteForWhome = {
-      text: "Я&nbsp;приглашаю на&nbsp;курс начинающих предпринимателей, инвесторов, а&nbsp;также владельцев пекарен. Всех, кто хочет изменить дела к&nbsp;лучшему.",
-      name: "Дмитрий Воробев",
+      text: "Я&nbsp;приглашаю на&nbsp;курс начинающих предпринимателей, инвесторов, а&nbsp;также владельцев салонов красоты. Всех, кто хочет изменить дела к&nbsp;лучшему.",
+      name: "Дмитрий Воробьев",
       descr: "преподаватель курса",
-      src: "img/alexandra-tuzova.jpg"
+      src: "img/dmitriy-vorobyev.jpg"
     }
 
     var chartItems = [
       {percent: "55", label: "Начинающие предприниматели", color: "red"},
       {percent: "34", label: "Инвесторы", color: "orange"},
       {percent: "11", label: "Владельцы салонов", color: "violet"}
+    ]
+
+    var programAuthor = {
+      name: "Дмитрий Воробьев",
+      video: "https://www.youtube.com/embed/KlzIu0mSfXk",
+      src: "img/dmitriy-vorobyev.jpg"
+    }
+
+    var teachers = [
+      {
+        src: "img/dmitriy-vorobyev.jpg",
+        name: "Дмитрий Воробьев",
+        descr: "Владелец салона красоты <nobr>Happy-Hair</nobr>"
+      },
+      {
+        src: "img/teachers--happy-hair__avatar-01.jpg",
+        name: "Дмитрий Воробьев",
+        descr: "Владелец салона красоты <nobr>Happy-Hair</nobr>"
+      },
+      {
+        src: "img/teachers--happy-hair__avatar-02.jpg",
+        name: "Дмитрий Воробьев",
+        descr: "Владелец салона красоты <nobr>Happy-Hair</nobr>"
+      },
+      {
+        src: "img/teachers--happy-hair__avatar-03.jpg",
+        name: "Дмитрий Воробьев",
+        descr: "Владелец салона красоты <nobr>Happy-Hair</nobr>"
+      }
+    ]
+
+    var reviewCroud = [
+      "img/reviews--happy-hair__avatar-09.jpg",
+      "img/reviews--happy-hair__avatar-01.jpg",
+      "img/reviews--happy-hair__avatar-02.jpg",
+      "img/reviews--happy-hair__avatar-03.jpg",
+      "img/reviews--happy-hair__avatar-04.jpg",
+      "img/reviews--happy-hair__avatar-05.jpg",
+      "img/reviews--happy-hair__avatar-06.jpg",
+      "img/reviews--happy-hair__avatar-07.jpg",
+      "img/reviews--happy-hair__avatar-08.jpg",
+      "img/reviews--happy-hair__avatar-10.jpg",
+      "img/reviews--happy-hair__avatar-11.jpg",
+      "img/reviews--happy-hair__avatar-12.jpg",
+      "img/reviews--happy-hair__avatar-13.jpg",
+      "img/reviews--happy-hair__avatar-14.jpg",
+      "img/reviews--happy-hair__avatar-15.jpg"
     ]

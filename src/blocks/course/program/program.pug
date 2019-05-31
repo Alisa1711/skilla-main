@@ -1,4 +1,4 @@
-mixin program(program, author = {src: "img/alexandra-tuzova.jpg", name: "Александра Тузова"}, video="https://www.youtube.com/embed/X_SgCnmqRD4", mods)
+mixin program(program, author = {src: "img/alexandra-tuzova.jpg", name: "Александра Тузова", video: "https://www.youtube.com/embed/X_SgCnmqRD4"}, mods)
 
   //- Принимает:
   //-   program    {array} -  массив объектов уроков
@@ -45,7 +45,7 @@ mixin program(program, author = {src: "img/alexandra-tuzova.jpg", name: "Але�
                 .program__free-lesson
                   .program__video
                     iframe(
-                      src=video
+                      src=author.video
                       frameborder="0"
                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                       webkitallowfullscreen=true

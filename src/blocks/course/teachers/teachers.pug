@@ -1,7 +1,10 @@
-mixin teachers(text, mods)
+mixin teachers(teachers = [{src: "img/alexandra-tuzova.jpg", name: "Александра Тузова", descr: "владелец Goneli Daily, совладелец ресторана «Садахар» и производства продуктов шоковой заморозки."}], mods)
 
   //- Принимает:
-  //-   text    {string} - текст
+  //-   teachers  {array} -  объекты учителей
+  //-       src  {string} - путь к аватару
+  //-       name  {string} - имя
+  //-       descr  {string} - регалии
   //-   mods    {string} - список модификаторов
   -
     // список модификаторов
@@ -13,13 +16,15 @@ mixin teachers(text, mods)
       }
     }
 
-  mixin teacher-item(src="img/avatar.jpg", avatarMod, name="Харитонова Грета", descr="PR-директор, директор по развитию маркетингового агентства Mokselle.")
+    var filters = ["shadow_0deg", "shadow_90deg", "shadow_60deg", "shadow_0deg"]
+
+  mixin teacher-item(teacher, filter)
     .teachers__item
-      +avatar(src).teachers__avatar(
-        class= avatarMod ? "teachers__avatar--" + avatarMod : ""
+      +avatar(teacher.src).teachers__avatar(
+        class= filter ? "teachers__avatar--" + filter : ""
         )
-      p.teachers__name !{name}
-      p.teachers__descr !{descr}
+      p.teachers__name !{teacher.name}
+      p.teachers__descr !{teacher.descr}
 
   section#teachers.teachers(class=allMods)&attributes(attributes)
     .container
@@ -30,7 +35,5 @@ mixin teachers(text, mods)
         p.teachers__text PR-директор, администраторы магазина, юрист, бухгалтеры, маркетологи, наши повара. Каждый из них раскроет вам один профильный блок и передаст свой бесценный опыт
 
       .teachers__list
-        +teacher-item("img/alexandra-tuzova.jpg", "shadow_0deg", "Александра Тузова", "владелец Goneli Daily, совладелец ресторана «Садахар» и производства продуктов шоковой заморозки.")
-        +teacher-item("img/teacher-01.jpg", "shadow_90deg")
-        +teacher-item("img/teacher-02.jpg", "shadow_60deg")
-        +teacher-item(src, "shadow_0deg")
+        - for (var i = 0; i < teachers.length; i++)
+            +teacher-item(teachers[i], filters[i])
