@@ -21,6 +21,10 @@
     background-color: darken(map-get($colors, neutral), 5);
   }
 
+  &--error {
+    border-left: 5px solid map-get($colors, accent);
+  }
+
   @include respond-to(medium) {
     height: 64px;
     line-height: 64;
