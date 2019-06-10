@@ -1860,26 +1860,36 @@ $(function () {
       });
     }
   });
-  $(window).on("load resize", function () {
-    var image = "".concat($(".article-hero__img").attr("src"));
-    var overlay = "linear-gradient(rgba(138, 70, 198, 0.80) 0%, rgba(235, 87, 87, 0.5) 100%), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))";
 
-    if (window.matchMedia(mediaQuery.large).matches) {
-      $(".article-hero").css({
-        'backgroundImage': "".concat(overlay, ", url(\"").concat(image, "\")")
-      });
-      $(".article-hero--main .container").append($(".top-posts"));
-    } else if (window.matchMedia(mediaQuery.medium).matches) {
-      $(".article-hero").css({
-        'backgroundImage': "".concat(overlay, ", url(\"").concat(image, "\")")
-      });
-      $(".article-hero--main").after($(".top-posts"));
-    } else {
-      $(".article-hero").css({
-        'backgroundImage': ""
-      });
-    }
-  });
+  (function () {
+    var setArticleBg = function setArticleBg() {
+      var image = $(".article-hero__img:hidden");
+      var imageSrc = image.attr("src");
+      var overlay = "linear-gradient(rgba(0, 23, 57, 0.8), rgba(0, 23, 57, 0.8))";
+
+      if ($(window).width() >= 1200) {
+        $(".article-hero").css({
+          'backgroundImage': "".concat(overlay, ", url(\"").concat(imageSrc, "\")")
+        });
+        $(".article-hero--main .container").append($(".top-posts"));
+      } else if ($(window).width() >= 768) {
+        $(".article-hero").css({
+          'backgroundImage': "".concat(overlay, ", url(\"").concat(imageSrc, "\")")
+        });
+        $(".article-hero--main").after($(".top-posts"));
+      } else {
+        $(".article-hero").css({
+          'backgroundImage': ""
+        });
+      }
+    };
+
+    setArticleBg();
+    $(window).on("resize", function () {
+      setArticleBg();
+    });
+  })();
+
   $(window).on("scroll", function () {
     if ($(this).scrollTop() > 20) {
       $(".header").addClass("header--fix");
