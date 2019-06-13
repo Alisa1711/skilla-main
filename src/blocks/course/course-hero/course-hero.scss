@@ -29,9 +29,24 @@
   &__video {
     box-sizing: border-box;
     position: relative;
+    width: 100%;
     padding-bottom: 56.25%;
     border-radius: $border-radius;
+    background-size: cover;
     overflow: hidden;
+    cursor: pointer;
+
+    &-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      background-image: url("../img/youtube-play.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: translateX(-50%) translateY(-50%);
+    }
 
     & iframe {
       position: absolute;
@@ -140,13 +155,10 @@
     }
 
     &__video {
+      position: relative;
       padding-bottom: 0;
-      min-width: 560px;
+      width: 560px;
       height: 315px;
-
-      & iframe {
-        object-fit: cover;
-      }
     }
 
     &__info {

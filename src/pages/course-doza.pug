@@ -32,6 +32,10 @@ block prepend modals
   include ../blocks/forms/form/confirm
   include ../blocks/forms/form/login
 
+block prepend page-bottom
+  script.
+    var videoID = "oH4-2KW-Lss";
+
 
 block vars
   -
@@ -40,6 +44,7 @@ block vars
     var courseHero = {
       heading: "Как открыть кофе с&nbsp;собой",
       video: "https://www.youtube.com/embed/oH4-2KW-Lss",
+      videoPreview: "/img/video-preview--doza.png",
       subheading: "от владельца сети мини–кофеен<br>DOZA cafe Алексея Яковлева",
       label: "онлайн курс"
     }

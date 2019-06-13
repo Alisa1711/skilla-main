@@ -4,6 +4,7 @@ mixin course-hero(data, mods)
   //-   data    {object}
   //-        heading    {string} -  название курса
   //-        video    {string} -  ссылка на видео
+  //-        videoPreview    {string} -  ссылка на превью видео
   //-        subheading    {string} -   подзаголовок курса
   //-        label    {string} -   надпись на лейбле
   //-        author    {string} -    имя автора
@@ -28,13 +29,7 @@ mixin course-hero(data, mods)
         p.course-hero__subheading !{data.subheading}
       .course-hero__main
         .course-hero__video
-          iframe(
-            src=data.video
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            webkitallowfullscreen=true
-            mozallowfullscreen=true
-            allowfullscreen=true)
+          .course-hero__video-play
         .course-hero__info
           if data.author
             p.course-hero__author-name !{data.author}

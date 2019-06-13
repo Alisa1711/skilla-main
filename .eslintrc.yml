@@ -20,5 +20,6 @@ globals:
   closeModal: readonly
   scrollTop: writable
   stepIndex: writable
+  videoID: readonly
 
 extends: 'htmlacademy/es6'
